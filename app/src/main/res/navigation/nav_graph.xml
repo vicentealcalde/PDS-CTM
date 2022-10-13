@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/login_navigation">
+
+
+    <include app:graph="@navigation/login_navigation" />
+    <include app:graph="@navigation/search_match_navigation" />
+    <include app:graph="@navigation/organized_match_navigation" />
+    <include app:graph="@navigation/match_to_play_navigation" />
+    <include app:graph="@navigation/finished_match_navigation" />
+    <include app:graph="@navigation/profile_navigation" />
+
+</navigation>

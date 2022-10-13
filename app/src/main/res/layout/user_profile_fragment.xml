@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/LoginFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/profileTitleGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="360dp"
+            app:layout_constraintGuide_percent="0.2" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileTitleGuideline">
+
+
+            <TextView
+                android:id="@+id/textTitleProfile"
+                android:layout_width="225sp"
+                android:layout_height="wrap_content"
+                android:layout_margin="2sp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center_horizontal"
+                android:text="@string/profile"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="120dp"
+                tools:layout_editor_absoluteY="88dp" />
+
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/infoGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.42" />
+
+
+        <TextView
+            android:id="@+id/textTeamName"
+            android:layout_width="343dp"
+            android:layout_height="49dp"
+            android:layout_margin="15sp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="@string/nombre_equipo"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.308"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team_image" />
+
+        <TextView
+            android:id="@+id/textTeamNameBackground"
+            android:layout_width="354dp"
+            android:layout_height="52dp"
+            android:layout_margin="10sp"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamName" />
+
+        <TextView
+            android:id="@+id/textTeamMail"
+            android:layout_width="343dp"
+            android:layout_height="49dp"
+            android:layout_margin="15sp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="@string/mail_de_equipo"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.308"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground" />
+
+        <TextView
+            android:id="@+id/textTeamMailBackground"
+            android:layout_width="354dp"
+            android:layout_height="52dp"
+            android:layout_margin="10sp"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamMail" />
+
+        <TextView
+            android:id="@+id/textTeamCategory"
+            android:layout_width="343dp"
+            android:layout_height="49dp"
+            android:layout_margin="15sp"
+            android:layout_marginTop="148dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="@string/categoria_de_equipo"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.235"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamMailBackground" />
+
+        <TextView
+            android:id="@+id/textTeamCategoryBackground"
+            android:layout_width="354dp"
+            android:layout_height="52dp"
+            android:layout_margin="10sp"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.368"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamCategory" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/team_image"
+            android:layout_width="102dp"
+            android:layout_height="136dp"
+            android:src="@drawable/extra_logo_chile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <Button
+            android:id="@+id/signOutButton"
+            android:layout_width="136dp"
+            android:layout_height="58dp"
+            android:background="@drawable/round_corner"
+            android:paddingHorizontal="12sp"
+            android:paddingVertical="2sp"
+            android:text="@string/sign_out"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamCategoryBackground"
+            app:layout_constraintVertical_bias="0.34" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
