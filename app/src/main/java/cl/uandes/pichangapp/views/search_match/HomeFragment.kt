@@ -7,13 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import androidx.lifecycle.ViewModelProvider
 import cl.uandes.pichangapp.databinding.HomeFragmentBinding
+import cl.uandes.pichangapp.viewModels.FriendViewModel
 
 
 class HomeFragment: Fragment() {
 
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
+    private lateinit var friendsViewModel: FriendViewModel
 
 
     override fun onCreateView(
@@ -22,6 +25,10 @@ class HomeFragment: Fragment() {
     ): View? {
         _binding = HomeFragmentBinding
             .inflate(inflater, container, false)
+
+        friendsViewModel = ViewModelProvider(this)[FriendViewModel::class.java]
+        friendsViewModel.debugAddFriends()
+
         return binding.root
     }
 

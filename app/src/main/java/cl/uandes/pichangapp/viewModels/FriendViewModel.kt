@@ -28,5 +28,16 @@ class FriendViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
+    fun debugAddFriends(){
+         val debugFriends = listOf<FriendEntity>(
+             FriendEntity(0,"Test1", 0),
+             FriendEntity(1,"Test2", 0),
+             FriendEntity(2,"Test3", 0),
+         )
+        debugFriends.forEach{
+            addFriend(it)
+        }
+    }
+
 
 }
