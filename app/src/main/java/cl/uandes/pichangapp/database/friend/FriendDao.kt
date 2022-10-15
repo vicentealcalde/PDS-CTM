@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface FriendDao {
     @Query("SELECT * FROM FriendsTable")
-    fun getAllFriends(): LiveData<List<FriendEntity>>
+    fun getAllUserFriends(): LiveData<List<FriendEntity>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addFriend(friend: FriendEntity)

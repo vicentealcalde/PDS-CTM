@@ -6,8 +6,14 @@ import androidx.room.*
 @Dao
 interface LobbyDao {
     @Query("SELECT * FROM LobbyTable")
-    fun getAllLobbys(): LiveData<List<LobbyEntity>>
+    fun getUserLobbies(): LiveData<List<LobbyEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addLobby(lobby: LobbyEntity)
+
+    @Query("DELETE FROM LobbyTable")
+    suspend fun deleteAllLobbies()
+
+    @Query("DELETE FROM LobbyTable WHERE LobbyId = :id")
+    suspend fun deleteLobby(id: Int)
 }

@@ -13,12 +13,12 @@ import kotlinx.coroutines.launch
 
 class FriendViewModel(application: Application): AndroidViewModel(application) {
     private val repository: FriendRepository
-    private val allFriends: LiveData<List<FriendEntity>>
+    private val userFriends: LiveData<List<FriendEntity>>
 
     init {
         val friendDao = AppDatabase.getDatabase(application).friendDao()
         repository = FriendRepository(friendDao)
-        allFriends = repository.getAllFriends
+        userFriends = repository.getAllUserFriends
     }
 
     fun addFriend(friend: FriendEntity){

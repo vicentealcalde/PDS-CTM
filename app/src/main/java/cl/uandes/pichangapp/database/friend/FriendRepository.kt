@@ -7,7 +7,7 @@ import cl.uandes.pichangapp.database.friend.FriendEntity
 
 class FriendRepository(private val friendDao: FriendDao) {
 
-    val getAllFriends: LiveData<List<FriendEntity>> = friendDao.getAllFriends()
+    val getAllUserFriends: LiveData<List<FriendEntity>> = friendDao.getAllUserFriends()
 
     suspend fun addFriend(friend: FriendEntity){
         friendDao.addFriend(friend)

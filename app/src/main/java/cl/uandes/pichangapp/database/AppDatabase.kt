@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import cl.uandes.pichangapp.database.Lobby.LobbyDao
 import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.database.user.UserDao
@@ -13,6 +14,7 @@ import cl.uandes.pichangapp.database.user.UserEntity
 abstract class AppDatabase: RoomDatabase() {
     abstract fun friendDao(): FriendDao
     abstract fun userDao(): UserDao
+    abstract fun lobbyDao(): LobbyDao
 
     companion object{
         @Volatile
