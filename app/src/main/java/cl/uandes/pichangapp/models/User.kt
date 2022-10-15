@@ -1,18 +1,16 @@
 package cl.uandes.pichangapp.models
 
-open class User(
-    internal val name: String?,
-    internal val mail: String?,
-    internal val password: String?,
-    internal val category: String?,
-    internal val image: Int? = null,
-    internal val TotalMatches: Int = 0,
-    internal val TotalMatchesWin: Int = 0,
-    internal val TotalMatchesLose: Int = 0,
-    internal val TotalMatchesTie: Int = 0
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-){
+@Parcelize
+data class User (
+    var id: Long?,
+    val username: String?,
+    val password: String?,
+    val matches: Int = 0
+):Parcelable
 
-}
+
 
 

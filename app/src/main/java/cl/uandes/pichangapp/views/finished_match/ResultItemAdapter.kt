@@ -31,8 +31,6 @@ class ResultItemAdapter (
 
         val match: Match = matches[position]
 
-        val userOrganaizer = allUsers.find{it.mail == match?.OrganaizerTeam}
-        val userRival = allUsers.find{it.mail == match?.RivalTeam}
 
         val result = holder.resultTextView
         val profileImage = holder.profileImage
@@ -40,8 +38,6 @@ class ResultItemAdapter (
         val button = holder.button
 
         result.text = match.resultTextView
-        profileImage.setImageResource(userOrganaizer?.image!!)
-        rivalImage.setImageResource(userRival?.image!!)
         button.setOnClickListener {
             actionListener.goToMatchDetails(match)
         }

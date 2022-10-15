@@ -4,16 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import cl.uandes.pichangapp.database.friend.FriendDao
+import cl.uandes.pichangapp.database.friend.FriendEntity
+import cl.uandes.pichangapp.database.user.UserDao
+import cl.uandes.pichangapp.database.user.UserEntity
 
-@Database(entities=[FriendEntity::class], version=1, exportSchema = false)
-abstract class FriendsDatabase: RoomDatabase() {
+@Database(entities=[FriendEntity::class, UserEntity::class], version=1, exportSchema = false)
+abstract class AppDatabase: RoomDatabase() {
     abstract fun friendDao(): FriendDao
+    abstract fun userDao(): UserDao
 
     companion object{
         @Volatile
-        private var INSTANCE: FriendsDatabase? = null
+        private var INSTANCE: AppDatabase? = null
 
-        fun getDatabase(context: Context): FriendsDatabase{
+        fun getDatabase(context: Context): AppDatabase{
             val tempInstance = INSTANCE
             if (tempInstance != null){
                 return tempInstance
@@ -21,8 +26,8 @@ abstract class FriendsDatabase: RoomDatabase() {
             synchronized(this){
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    FriendsDatabase::class.java,
-                    "friends_database"
+                    AppDatabase::class.java,
+                    "app_database"
                 ).build()
                 INSTANCE = instance
                 return instance

@@ -52,12 +52,6 @@ class LoginAccessFragment : Fragment() {
             val stringMail = editTextMail.text.toString()
             val stringPassword = editTextPassword.text.toString()
 
-            if (validateUser(stringMail,stringPassword)){
-                findNavController().navigate(R.id.action_loginAccessFragment_to_search_match_navigation)
-            }
-            else{
-                Toast.makeText(context, "Credenciales inválidas", Toast.LENGTH_LONG).show()
-            }
         }
     }
 
@@ -67,35 +61,6 @@ class LoginAccessFragment : Fragment() {
         registerButton?.setOnClickListener {
             findNavController().navigate(R.id.action_loginAccessFragment_to_registerAccess01Fragment)
         }
-    }
-
-    private fun validateUser(userMail: String,password: String ): Boolean{
-        val user=allUsers.find{ it.mail == userMail }
-
-        if (user?.password== password){
-            currentUser = userMail
-            teamName = user?.name
-            category = user?.category
-
-            allUserMatches = allMatches.filter{
-                it.OrganaizerTeam!!
-                    .contains(userMail) ||
-                it.RivalTeam!!
-                    .contains(userMail)
-            } as ArrayList<Match>
-
-            allUserOrganizedMatches = allMatches.filter{
-                it.OrganaizerTeam!!
-                    .contains(userMail)
-            } as ArrayList<Match>
-
-            otherPeoplesMatches= allMatches.filterNot{
-                it.OrganaizerTeam!!
-                    .contains(userMail)
-            } as ArrayList<Match>
-
-            return true}
-        return false
     }
 }
 

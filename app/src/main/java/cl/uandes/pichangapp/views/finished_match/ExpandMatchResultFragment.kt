@@ -39,9 +39,6 @@ class ExpandMatchResultFragment : Fragment() {
 
     private fun setAttributesToItem(match: Match) {
 
-        val userOrganaizerTeam = allUsers.find{it.mail == match?.OrganaizerTeam}
-        val userRival = allUsers.find{it.mail == match?.RivalTeam}
-
         val result = _binding?.resultTextView
         val NameTeam1 = _binding?.NameTeam1
         val NameTeam2 = _binding?.NameTeam2
@@ -53,14 +50,10 @@ class ExpandMatchResultFragment : Fragment() {
         val ImageTeam2 = _binding?.ImageTeam2
 
         result?.text = match?.resultTextView
-        NameTeam1?.text = userOrganaizerTeam?.name
-        NameTeam2?.text = userRival?.name
         DayOfMatch?.text = match?.DayOfMatch
         HourOfMatch?.text = match?.HourOfMatch
         LocationOfMatch?.text = match?.LocationOfMatch
         DescriptionOfMatch?.text = match?.DescriptionOfMatch
-        ImageTeam2?.setImageResource(userRival?.image!!)
-        ImageTeam1?.setImageResource(userOrganaizerTeam?.image!!)
 
     }
 }

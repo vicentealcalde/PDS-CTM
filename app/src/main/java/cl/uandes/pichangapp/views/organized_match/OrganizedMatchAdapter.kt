@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
-import cl.uandes.pichangapp.allUsers
 
 class OrganizedMatchAdapter (
     private val matches: MutableList<Match>,
@@ -34,7 +33,6 @@ class OrganizedMatchAdapter (
     override fun onBindViewHolder(holder: OrganizedMatchAdapter.ViewHolder, position: Int) {
 
         val match: Match = matches[position]
-        val userOrganaizer = allUsers.find{it.mail == match?.OrganaizerTeam}
         val textView2 = holder.textView2
         val textView4 = holder.textView4
         val textView6 = holder.textView6
@@ -44,7 +42,6 @@ class OrganizedMatchAdapter (
         textView2.text = match.DayOfMatch
         textView6.text = match.LocationOfMatch
         textView4.text = match.HourOfMatch
-        profileImage.setImageResource(userOrganaizer?.image!!)
 
         button.setOnClickListener {
             actionListener.goToMatchDetails(match)
