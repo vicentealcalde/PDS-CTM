@@ -42,15 +42,11 @@ class UserProfileFragment: Fragment() {
     }
 
     private fun setAttributesToItem() {
-        val user=allUsers.find{ it.mail == currentUser }
         val teamImage = _binding?.teamImage
         val textTeamNameBackground = _binding?.textTeamNameBackground
         val textTeamMailBackground = _binding?.textTeamMailBackground
         val textTeamCategoryBackground = _binding?.textTeamCategoryBackground
 
-        if (user != null) {
-            teamImage?.setImageResource(user.image!!)
-        }
         textTeamNameBackground?.text = teamName
         textTeamMailBackground?.text = currentUser
         textTeamCategoryBackground?.text = category

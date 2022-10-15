@@ -125,7 +125,7 @@
         android:layout_marginTop="196dp"
         android:fontFamily="sans-serif-black"
         android:gravity="start"
-        android:text="@string/nombre_de_equipo"
+        android:text="@string/nombre_de_ususario"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +143,7 @@
         android:background="@drawable/round_corner"
         android:ems="10"
         android:inputType="text"
-        android:hint="@string/team_fc"
+        android:hint="@string/username"
         android:minHeight="48dp"
         android:paddingHorizontal="12sp"
         android:paddingVertical="18sp"
@@ -154,45 +154,6 @@
         app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTeamName"
-        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
-
-    <TextView
-        android:id="@+id/textCategory"
-        android:layout_width="225sp"
-        android:layout_height="40sp"
-        android:layout_margin="10sp"
-        android:layout_marginTop="196dp"
-        android:fontFamily="sans-serif-black"
-        android:gravity="start"
-        android:text="@string/categor_a"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTeamName" />
-
-    <EditText
-        android:id="@+id/editTextCategory"
-        android:layout_width="345dp"
-        android:layout_height="48dp"
-        android:layout_margin="15sp"
-        android:layout_marginTop="72dp"
-        android:autofillHints=""
-        android:background="@drawable/round_corner"
-        android:ems="10"
-        android:hint="@string/femenino"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:paddingHorizontal="12sp"
-        android:paddingVertical="18sp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCategory"
         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
     <androidx.constraintlayout.widget.Guideline

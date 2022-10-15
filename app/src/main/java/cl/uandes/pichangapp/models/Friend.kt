@@ -5,7 +5,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Friend (
-    val id: Int,
-    val name: String,
-    val status: Int
+    var id: Long?,
+    val id_sender: Int,
+    val id_receiver: Int,
+    val status: Int = 0
+
 ):Parcelable

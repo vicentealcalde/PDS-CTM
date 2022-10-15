@@ -2,7 +2,6 @@ package cl.uandes.pichangapp.database.Lobby
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import cl.uandes.pichangapp.database.FriendEntity
 
 @Dao
 interface LobbyDao {

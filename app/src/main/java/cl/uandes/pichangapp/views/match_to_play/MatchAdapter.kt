@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
-import cl.uandes.pichangapp.allUsers
 
 class MatchAdapter (
     private val matches: MutableList<Match>,
@@ -34,8 +33,6 @@ class MatchAdapter (
     override fun onBindViewHolder(holder: MatchAdapter.ViewHolder, position: Int) {
 
         val match: Match = matches[position]
-        val userOrganaizer = allUsers.find{it.mail == match?.OrganaizerTeam}
-        val userRival = allUsers.find{it.mail == match?.RivalTeam}
         val textView2 = holder.textView2
         val textView4 = holder.textView4
         val textView6 = holder.textView6
@@ -45,10 +42,6 @@ class MatchAdapter (
         textView2.text = match.DayOfMatch
         textView6.text = match.LocationOfMatch
         textView4.text = match.HourOfMatch
-        if (match.OrganaizerTeam != currentUser){
-            profileImage?.setImageResource(userOrganaizer?.image!!) }
-        else{
-            profileImage?.setImageResource(userRival?.image!!) }
 
 
         button.setOnClickListener {

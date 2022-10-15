@@ -61,8 +61,6 @@ class MatchAddInformationFragment : Fragment() {
 
 
 
-        val user=allUsers.find{ it.mail == match?.OrganaizerTeam }
-
         val MatchDay0 = _binding?.MatchDay
         val NameTeam1 = _binding?.NameTeam1
         val HourOfMatch = _binding?.HourOfMatch
@@ -72,11 +70,9 @@ class MatchAddInformationFragment : Fragment() {
 
 
         MatchDay0?.text = match.DayOfMatch
-        NameTeam1?.text = user?.name
         HourOfMatch?.text = match?.HourOfMatch
         LocationOfMatch?.text = match?.LocationOfMatch
         DescriptionOfMatch?.text = match?.DescriptionOfMatch
-        ImageTeam1?.setImageResource(user?.image!!)
     }
 }
 

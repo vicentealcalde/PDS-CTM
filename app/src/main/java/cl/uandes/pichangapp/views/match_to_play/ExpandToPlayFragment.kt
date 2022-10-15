@@ -51,10 +51,6 @@ class ExpandToPlayFragment : Fragment() {
 
     private fun setAttributesToItem(match: Match) {
 
-        val userOrganaizerTeam = allUsers.find{it.mail == match?.OrganaizerTeam}
-
-        val userRival = allUsers.find{it.mail == match?.RivalTeam}
-
         val textDayOfMatch = _binding?.DataDatePlayMatch
         val NameTeam1 = _binding?.NameTeam1
         val HourOfMatch = _binding?.HourOfMatch
@@ -69,13 +65,6 @@ class ExpandToPlayFragment : Fragment() {
         DayOfMatch?.text = match?.DayOfMatch
         LocationOfMatch?.text = match?.LocationOfMatch
         DescriptionOfMatch?.text = match?.DescriptionOfMatch
-
-        if (match.OrganaizerTeam != currentUser){
-            ImageTeam1?.setImageResource(userOrganaizerTeam?.image!!)
-            NameTeam1?.text = userOrganaizerTeam?.name}
-        else{
-            ImageTeam1?.setImageResource(userRival?.image!!)
-            NameTeam1?.text = userRival?.name}
 
 
 

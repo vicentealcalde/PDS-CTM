@@ -17,10 +17,8 @@ import cl.uandes.pichangapp.databinding.ActivityMainBinding
 import cl.uandes.pichangapp.LoginAccessFragment
 import cl.uandes.pichangapp.models.Match
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import cl.uandes.pichangapp.models.Users
 import cl.uandes.pichangapp.models.Matches
 
-val allUsers = Users.createUserList()
 val allMatches = Matches.createMatchList()
 var allUserMatches: List<Match> = emptyList()
 var otherPeoplesMatches: List<Match> = emptyList()
