@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.database
+package cl.uandes.pichangapp.database.friend
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

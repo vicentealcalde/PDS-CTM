@@ -1,10 +1,8 @@
-package cl.uandes.pichangapp.database
+package cl.uandes.pichangapp.database.friend
 
-import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import cl.uandes.pichangapp.database.friend.FriendDao
+import cl.uandes.pichangapp.database.friend.FriendEntity
 
 
 class FriendRepository(private val friendDao: FriendDao) {

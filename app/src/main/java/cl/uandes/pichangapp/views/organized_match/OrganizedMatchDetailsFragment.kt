@@ -56,7 +56,6 @@ class OrganizedMatchDetailsFragment : Fragment() {
 
     private fun setAttributesToItem(match: Match) {
 
-        val user=allUsers.find{ it.mail == match?.OrganaizerTeam }
 
 
         val NameTeam = _binding?.NameTeam
@@ -66,12 +65,10 @@ class OrganizedMatchDetailsFragment : Fragment() {
         val DescriptionOfMatch = _binding?.DescriptionOfMatch
         val ImageTeam = _binding?.ImageTeam
 
-        NameTeam?.text = user?.name
         DayOfMatch?.text = match?.DayOfMatch
         HourOfMatch?.text = match?.HourOfMatch
         LocationOfMatch?.text = match?.LocationOfMatch
         DescriptionOfMatch?.text = match?.DescriptionOfMatch
-        ImageTeam?.setImageResource(user?.image!!)
 
     }
 }
