@@ -45,12 +45,9 @@ class UserProfileFragment: Fragment() {
         val teamImage = _binding?.teamImage
         val textTeamNameBackground = _binding?.textTeamNameBackground
         val textTeamMailBackground = _binding?.textTeamMailBackground
-        val textTeamCategoryBackground = _binding?.textTeamCategoryBackground
 
         textTeamNameBackground?.text = teamName
         textTeamMailBackground?.text = currentUser
-        textTeamCategoryBackground?.text = category
-
     }
 }
 
