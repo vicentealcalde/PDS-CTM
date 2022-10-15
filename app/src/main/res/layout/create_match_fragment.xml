@@ -9,7 +9,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/Register1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textLugar"
+        app:layout_constraintEnd_toStartOf="@+id/editFecha"
+        app:layout_constraintStart_toStartOf="@+id/editFecha"
+        app:layout_constraintTop_toBottomOf="@+id/textLugar">
 
 
         <androidx.constraintlayout.widget.Guideline
@@ -29,25 +33,28 @@
 
         <TextView
             android:id="@+id/textFecha"
-            android:layout_width="225dp"
+            android:layout_width="0dp"
             android:layout_height="40sp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="55sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="@string/fecha"
+            android:text="N Jugadores"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.161"
+            app:layout_constraintEnd_toStartOf="@+id/editFecha"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginButtonGuideline" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editFecha"
-            android:layout_width="355dp"
-            android:layout_height="59dp"
-            android:layout_margin="15sp"
+            android:layout_width="104dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginBottom="137dp"
             android:autofillHints=""
             android:background="@drawable/round_corner"
             android:ems="10"
@@ -62,34 +69,52 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/textHora"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textFecha"
-            app:layout_constraintVertical_bias="0.031"
+            app:layout_constraintStart_toEndOf="@+id/textFecha"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
+
+
+        <ImageButton
+            android:id="@+id/button_send"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="77dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="52dp"
+            android:onClick="sendMessage"
+
+            android:src="@drawable/ic_add_friend"
+
+            app:layout_constraintBottom_toTopOf="@+id/textHora"
+            app:layout_constraintEnd_toEndOf="@+id/textFecha"
+            app:layout_constraintTop_toBottomOf="@+id/editFecha"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textHora"
-            android:layout_width="225dp"
-            android:layout_height="40sp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="8dp"
+            android:layout_width="228dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="131dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="@string/hora"
+            android:text="Poderes"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.161"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/editTextHora"
+            app:layout_constraintEnd_toEndOf="@+id/editTextHora"
+            app:layout_constraintStart_toStartOf="@+id/editTextHora"
             app:layout_constraintTop_toBottomOf="@+id/editFecha" />
-
 
         <EditText
             android:id="@+id/editTextHora"
-            android:layout_width="364dp"
-            android:layout_height="61dp"
-            android:layout_margin="15sp"
+            android:layout_width="372dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="426dp"
             android:autofillHints=""
             android:background="@drawable/round_corner"
             android:ems="10"
@@ -101,35 +126,38 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textLugar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textHora"
-            app:layout_constraintVertical_bias="0.031"
             tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textLugar"
-            android:layout_width="323dp"
-            android:layout_height="42dp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="39dp"
+            android:layout_marginEnd="39dp"
+            android:layout_marginBottom="11dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="@string/lugar"
+            android:text="Duracion turno"
             android:textColor="@color/black"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextLugar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.42"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextHora" />
 
-
         <EditText
             android:id="@+id/editTextLugar"
-            android:layout_width="358dp"
-            android:layout_height="64dp"
-            android:layout_margin="15sp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:layout_marginBottom="13dp"
             android:autofillHints=""
             android:background="@drawable/round_corner"
             android:ems="10"
@@ -142,54 +170,58 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/textDescripcion"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textLugar"
             tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textDescripcion"
-            android:layout_width="323dp"
-            android:layout_height="42dp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="8dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="@string/descripcion"
             android:textColor="@color/black"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextDescripcion"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.42"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextLugar" />
 
-
         <EditText
             android:id="@+id/editTextDescripcion"
-            android:layout_width="360dp"
-            android:layout_height="65dp"
-            android:layout_margin="15sp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="46dp"
             android:autofillHints=""
             android:background="@drawable/round_corner"
             android:ems="10"
             android:hint="@null"
             android:inputType="text"
+
             android:minHeight="48dp"
             android:paddingHorizontal="12sp"
             android:paddingVertical="18sp"
             android:textColor="@color/black"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/CreateMatchButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.483"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDescripcion"
-
             tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/CreateMatchButton"
             android:layout_width="64dp"
-            android:layout_height="56dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="70dp"
             android:background="@drawable/ic_add"
             android:paddingHorizontal="12sp"
             android:paddingVertical="20sp"
@@ -197,10 +229,8 @@
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion"
-            app:layout_constraintVertical_bias="0.107" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
