@@ -1,8 +1,8 @@
-# PichangApp
-
-## Team 3
+# Cuida tu mano
+# NO PUSHEAR EL .IDEA XDDDDDD
 
 Names of team members: 
 - Vicente Alcalde
-- Cristián Concha
-- Camila Zumaeta
+- Nicolas Gebauer
+- Andres Macaya
+- Jorge Plaza de los Reyes
