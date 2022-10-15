@@ -1,4 +1,6 @@
 package cl.uandes.pichangapp.models
 
-class Lobby {
-}
+data class Lobby (
+    val lobbyId: Int,
+    val members: List<Int>
+)

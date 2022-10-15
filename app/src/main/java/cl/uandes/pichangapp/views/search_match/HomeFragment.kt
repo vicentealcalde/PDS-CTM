@@ -49,7 +49,5 @@ class HomeFragment: Fragment() {
             ?.beginTransaction()
             ?.replace(R.id.home_fragment, searchCreateAccessFragment)
             ?.commit()
-
     }
-
 }
