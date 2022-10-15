@@ -67,6 +67,7 @@
     <string name="team_fc">Team FC</string>
     <string name="nombre_de_ususario">Nombre de Usuario</string>
     <string name="username">Username</string>
+    <string name="mail_de_usuario">Mail de Usuario</string>
     <string-array name="points">
         <item>Empatadas</item>
         <item>Ganadas</item>
