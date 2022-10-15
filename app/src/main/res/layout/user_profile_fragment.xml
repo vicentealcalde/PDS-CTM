@@ -66,7 +66,7 @@
             android:layout_marginTop="36dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="@string/nombre_equipo"
+            android:text="@string/nombre_de_ususario"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -80,10 +80,10 @@
             android:layout_height="52dp"
             android:layout_margin="10sp"
             android:layout_marginTop="8dp"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
             android:background="@drawable/round_corner"
             android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
             android:text="@null"
             android:textColor="@color/black"
             android:textSize="24sp"
@@ -100,7 +100,7 @@
             android:layout_marginTop="36dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="@string/mail_de_equipo"
+            android:text="@string/mail_de_usuario"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,10 +114,10 @@
             android:layout_height="52dp"
             android:layout_margin="10sp"
             android:layout_marginTop="8dp"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
             android:background="@drawable/round_corner"
             android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
             android:text="@null"
             android:textColor="@color/black"
             android:textSize="24sp"
@@ -125,40 +125,6 @@
             app:layout_constraintHorizontal_bias="0.28"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTeamMail" />
-
-        <TextView
-            android:id="@+id/textTeamCategory"
-            android:layout_width="343dp"
-            android:layout_height="49dp"
-            android:layout_margin="15sp"
-            android:layout_marginTop="148dp"
-            android:fontFamily="sans-serif-black"
-            android:gravity="start"
-            android:text="@string/categoria_de_equipo"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.235"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamMailBackground" />
-
-        <TextView
-            android:id="@+id/textTeamCategoryBackground"
-            android:layout_width="354dp"
-            android:layout_height="52dp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="8dp"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
-            android:background="@drawable/round_corner"
-            android:gravity="start"
-            android:text="@null"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.368"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamCategory" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/team_image"
@@ -183,10 +149,17 @@
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.538"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamCategoryBackground"
-            app:layout_constraintVertical_bias="0.34" />
+            app:layout_constraintTop_toBottomOf="@+id/textTeamMailBackground"
+            app:layout_constraintVertical_bias="0.692" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
