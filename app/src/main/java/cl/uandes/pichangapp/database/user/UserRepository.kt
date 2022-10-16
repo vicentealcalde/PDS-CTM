@@ -13,4 +13,8 @@ class UsersRepository(private val userDao: UserDao) {
     suspend fun addUser(User: UserEntity){
         userDao.addUser(User)
     }
+
+    suspend fun getLogin(usersName:String, password:String){
+        userDao.login(usersName, password)
+    }
 }

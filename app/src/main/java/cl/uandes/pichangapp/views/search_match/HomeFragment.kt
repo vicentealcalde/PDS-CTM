@@ -10,6 +10,7 @@ import android.widget.ListView
 import androidx.lifecycle.ViewModelProvider
 import cl.uandes.pichangapp.databinding.HomeFragmentBinding
 import cl.uandes.pichangapp.viewModels.FriendViewModel
+import cl.uandes.pichangapp.viewModels.UserViewModel
 
 
 class HomeFragment: Fragment() {
@@ -17,6 +18,7 @@ class HomeFragment: Fragment() {
     private var _binding: HomeFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var friendsViewModel: FriendViewModel
+
 
 
     override fun onCreateView(
@@ -28,6 +30,8 @@ class HomeFragment: Fragment() {
 
         friendsViewModel = ViewModelProvider(this)[FriendViewModel::class.java]
         friendsViewModel.debugAddFriends()
+
+
 
         return binding.root
     }
