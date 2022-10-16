@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.allUserMatches
 
 class OrganizedMatchAdapter (
     private val matches: MutableList<Match>,
@@ -21,7 +22,7 @@ class OrganizedMatchAdapter (
 
         val textView4 = itemView.findViewById<TextView>(R.id.textView4)!!
 
-        val button = itemView.findViewById<ViewGroup>(R.id.linearLayoutPi)!!
+        val button = itemView.findViewById<ViewGroup>(R.id.button_send)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizedMatchAdapter.ViewHolder {
@@ -33,7 +34,7 @@ class OrganizedMatchAdapter (
 
     override fun onBindViewHolder(holder: OrganizedMatchAdapter.ViewHolder, position: Int) {
 
-        val match: Match = matches[position]
+        val match: Match = allUserMatches[position]
         val textView4 = holder.textView4
         val profileImage = holder.profileImage
         val button = holder.button
