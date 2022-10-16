@@ -6,7 +6,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-class UserRepository(private val userDao: UserDao) {
+class UsersRepository(private val userDao: UserDao) {
 
     val getAllUsers: LiveData<List<UserEntity>> = userDao.getAllUsers()
 

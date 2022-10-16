@@ -5,12 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import cl.uandes.pichangapp.database.Lobby.LobbyDao
+import cl.uandes.pichangapp.database.Lobby.LobbyEntity
 import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.database.user.UserDao
 import cl.uandes.pichangapp.database.user.UserEntity
 
-@Database(entities=[FriendEntity::class, UserEntity::class], version=1, exportSchema = false)
+@Database(entities=[FriendEntity::class, UserEntity::class, LobbyEntity::class], version=1, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun friendDao(): FriendDao
     abstract fun userDao(): UserDao
