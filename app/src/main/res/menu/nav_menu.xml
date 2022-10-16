@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/search_match_navigation"
-        android:title="@string/nav_home"
+        android:title="@string/games"
         android:icon="@drawable/ic_magnifying_glass"/>
 
     <item android:id="@+id/organized_match_navigation"
-        android:title="@string/nav_organize"
+        android:title="@string/add_friends"
         android:icon="@drawable/ic_document"/>
 
     <item android:id="@+id/match_to_play_navigation"
-        android:title="@string/nav_to_play"
+        android:title="@string/requests"
         android:icon="@drawable/ic_hourglass"/>
 
     <item android:id="@+id/finished_match_navigation"
-        android:title="@string/nav_finished"
+        android:title="@string/friends"
         android:icon="@drawable/ic_graphic"/>
 
     <item android:id="@+id/profile_navigation"
-        android:title="Profile"
+        android:title="@string/profile"
         android:icon="@drawable/ic_user_silhouette"/>
 
 

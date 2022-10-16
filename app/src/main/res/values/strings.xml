@@ -68,6 +68,10 @@
     <string name="nombre_de_ususario">Nombre de Usuario</string>
     <string name="username">Username</string>
     <string name="mail_de_usuario">Mail de Usuario</string>
+    <string name="games">Games</string>
+    <string name="add_friends">Add Friends</string>
+    <string name="requests">Requests</string>
+    <string name="friends">Friends</string>
     <string-array name="points">
         <item>Empatadas</item>
         <item>Ganadas</item>
