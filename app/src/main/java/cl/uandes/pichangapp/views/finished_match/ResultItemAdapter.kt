@@ -14,16 +14,17 @@ class ResultItemAdapter (
 ): RecyclerView.Adapter<ResultItemAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val resultTextView = itemView.findViewById<TextView>(R.id.resultTextView)!!
-        val profileImage = itemView.findViewById<ImageView>(R.id.profileImage)!!
-        val imageRivalTeam = itemView.findViewById<ImageView>(R.id.imageRivalTeam)!!
-        val button = itemView.findViewById<ViewGroup>(R.id.linearLayout2)!!
+        val profileImage = itemView.findViewById<ImageView>(R.id.profile_image)!!
+
+        val textView4 = itemView.findViewById<TextView>(R.id.textView4)!!
+
+        val button = itemView.findViewById<ViewGroup>(R.id.button_send)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultItemAdapter.ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val resultView: View = inflater.inflate(R.layout.result_item_adapter, parent, false)
+        val resultView: View = inflater.inflate(R.layout.expand_delete_friend, parent, false)
         return ViewHolder(resultView)
     }
 
@@ -32,12 +33,11 @@ class ResultItemAdapter (
         val match: Match = matches[position]
 
 
-        val result = holder.resultTextView
+        val textView4 = holder.textView4
         val profileImage = holder.profileImage
-        val rivalImage = holder.imageRivalTeam
         val button = holder.button
+        textView4.text = match.HourOfMatch
 
-        result.text = match.resultTextView
         button.setOnClickListener {
             actionListener.goToMatchDetails(match)
         }

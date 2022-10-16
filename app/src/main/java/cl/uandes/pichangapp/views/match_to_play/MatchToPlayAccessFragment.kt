@@ -31,18 +31,11 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        val resultLisThisWeek= binding.resultLisThisWeek
+        val resultLisThisWeek= binding.resultListView
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
 
         resultLisThisWeek.adapter = matchadapter
 
-        val resultLisNextWeek= binding.resultLisNextWeek
-        resultLisNextWeek.layoutManager = LinearLayoutManager(context)
-        resultLisNextWeek.adapter = matchadapter
-
-        val resultLisUpcoming= binding.resultListUpcoming
-        resultLisUpcoming.layoutManager = LinearLayoutManager(context)
-        resultLisUpcoming.adapter = matchadapter
 
         filter()
 
@@ -55,7 +48,7 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
 
 
     private fun filter(){
-        val button = _binding?.FilterInToPlayButton
+        val button = _binding?.FilterInFinishedButton
         button?.setOnClickListener {
             findNavController().navigate(R.id.action_matchToPlayAccessFragment_to_filterMenuParticipatingFragment)
         }
