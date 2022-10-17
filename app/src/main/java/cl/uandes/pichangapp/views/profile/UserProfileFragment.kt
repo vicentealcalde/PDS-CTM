@@ -56,11 +56,11 @@ class UserProfileFragment: Fragment() {
         val textTeamNameBackground = _binding?.textTeamNameBackground
         val textTeamMailBackground = _binding?.textTeamMailBackground
 
-        apiViewModel.myUser.observe(viewLifecycleOwner){
-            Log.d("Login","Profile: $it")
-            textTeamNameBackground?.text = it?.username
-            textTeamMailBackground?.text = it?.password
-        }
+
+
+        textTeamNameBackground?.text = currentUser?.username
+        textTeamMailBackground?.text = currentUser?.matches.toString()
+
 
 
 
