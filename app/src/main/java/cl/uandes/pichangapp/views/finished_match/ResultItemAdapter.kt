@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 
 class ResultItemAdapter (
-    private val matches: MutableList<Match>,
+    private val friends: MutableList<String>,
     private val actionListener: ActionListener
 ): RecyclerView.Adapter<ResultItemAdapter.ViewHolder>() {
 
@@ -18,7 +18,7 @@ class ResultItemAdapter (
 
         val textView4 = itemView.findViewById<TextView>(R.id.textView4)!!
 
-        val button = itemView.findViewById<ViewGroup>(R.id.button_send)!!
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultItemAdapter.ViewHolder {
@@ -30,17 +30,15 @@ class ResultItemAdapter (
 
     override fun onBindViewHolder(holder: ResultItemAdapter.ViewHolder, position: Int) {
 
-        val match: Match = matches[position]
+        val friend: String = friends[position]
 
 
         val textView4 = holder.textView4
         val profileImage = holder.profileImage
-        val button = holder.button
-        textView4.text = match.HourOfMatch
+        textView4.text = friend
 
-        button.setOnClickListener {
-            actionListener.goToMatchDetails(match)
-        }
+
+
     }
 
     interface ActionListener {
@@ -48,7 +46,7 @@ class ResultItemAdapter (
     }
 
     override fun getItemCount(): Int {
-        return matches.size
+        return friends.size
     }
 
 }

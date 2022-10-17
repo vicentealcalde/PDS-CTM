@@ -24,6 +24,8 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
     ): View {
         _binding = MatchToPlayAccessFragmentBinding.inflate(inflater, container, false)
 
+
+
         matchadapter = MatchAdapter(allUserMatches.toMutableList(), this)
         return binding.root
     }

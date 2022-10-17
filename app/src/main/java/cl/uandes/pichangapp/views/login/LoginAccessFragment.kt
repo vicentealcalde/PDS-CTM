@@ -63,7 +63,7 @@ class LoginAccessFragment : Fragment() {
 
             apiViewModel.getLogin(UserObject(stringMail, stringPassword))
 
-            
+
             findNavController().navigate(R.id.action_loginAccessFragment_to_search_match_navigation)
 
         }

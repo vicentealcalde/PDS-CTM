@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.database.user.UserEntity
+import cl.uandes.pichangapp.models.Friend
+import cl.uandes.pichangapp.myFriends
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.ExecutorService
@@ -21,15 +23,28 @@ class ApiViewModel(application: Application, private val repository: Repository)
             val response: Response<List<UserEntity>> = repository.getLogin(userObject)
             myUser.value = response.body()?.get(0)
             currentUser = response.body()?.get(0)
+            currentUser?.id?.let { getUserFriends(it.toInt()) }
             Log.d("Login", "Login: ${myUser.value}")
             Log.d("Login", "Login: ${currentUser}")
         }
     }
-    fun registerUser(userObject: UserObject){
+    fun registerUser(username: String, password:String){
         viewModelScope.launch {
-            val response: Response<UserEntity> = repository.registerUser(userObject)
+            val response: Response<UserEntity> = repository.registerUser(username, password, 0)
 
             Log.d("Register", "Register response: ${response.body()}")
+        }
+    }
+
+    fun getUserFriends(userId: Int){
+        viewModelScope.launch {
+            val response: Response<List<UserEntity>> = repository.getUserFriends(userId)
+            Log.d("Friends","Response: ${response.body()}")
+            response.body()?.forEach {
+                it.username?.let { it1 -> myFriends.add(it1) }
+            }
+
+            Log.d("Friends","myFriends: $myFriends")
         }
     }
 }

@@ -21,6 +21,7 @@ var allUserMatches: List<Match> = emptyList()
 var otherPeoplesMatches: List<Match> = emptyList()
 var allUserOrganizedMatches: List<Match> = emptyList()
 var currentUser: UserEntity? = null
+var myFriends: MutableList<String> = arrayListOf()
 var teamName: String? = null
 var category: String? = null
 

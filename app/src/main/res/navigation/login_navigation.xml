@@ -25,7 +25,7 @@
         android:name="cl.uandes.pichangapp.RegisterAccess01Fragment"
         >
         <action
-            android:id="@+id/action_registerAccess01Fragment_to_search_match_navigation"
-            app:destination="@id/search_match_navigation" />
+            android:id="@+id/action_registerAccess01Fragment_to_loginAccessFragment"
+            app:destination="@id/loginAccessFragment" />
     </fragment>
 </navigation>

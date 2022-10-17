@@ -15,19 +15,19 @@ interface SimpleApi {
     ):Response<List<UserEntity>>
     @POST("users")
     suspend fun registerUser(
-        @Query("username") username: String,
-        @Query("password") password: String
+        @Body user: RegisterUserObject
     ): Response<UserEntity>
 
     @GET("users")
     suspend fun getAllUsers(): Response<List<UserObject>>
 
+
     //Friends Calls
     @GET("friends")
     suspend fun getAllFriends(): Response<List<Friend>>
 
-    @GET("friends/{id}")
+    @GET("search_friends/{id}")
     suspend fun getUserFriends(
-        @Path("roomName") roomName : String
-    )
+        @Path("id") id : Int
+    ): Response<List<UserEntity>>
 }
