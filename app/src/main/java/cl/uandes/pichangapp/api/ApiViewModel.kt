@@ -22,4 +22,11 @@ class ApiViewModel(application: Application, private val repository: Repository)
             Log.d("Login", "Login: ${myUser.value}")
         }
     }
+    fun registerUser(userObject: UserObject){
+        viewModelScope.launch {
+            val response: Response<UserEntity> = repository.registerUser(userObject)
+
+            Log.d("Register", "Register response: ${response.body()}")
+        }
+    }
 }

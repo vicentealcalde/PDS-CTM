@@ -13,6 +13,11 @@ interface SimpleApi {
         @Query("username") user: String,
         @Query("password") password: String
     ):Response<List<UserEntity>>
+    @POST("users")
+    suspend fun registerUser(
+        @Query("username") username: String,
+        @Query("password") password: String
+    ): Response<UserEntity>
 
     @GET("users")
     suspend fun getAllUsers(): Response<List<UserObject>>
