@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.databinding.ActivityMainBinding
+import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.Match
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import cl.uandes.pichangapp.models.Matches
@@ -22,7 +23,7 @@ var otherPeoplesMatches: List<Match> = emptyList()
 var allUserOrganizedMatches: List<Match> = emptyList()
 var currentUser: UserEntity? = null
 var myFriends: MutableList<String> = arrayListOf()
-var myFriendRequests: MutableList<Int> = arrayListOf()
+var myFriendRequests: MutableList<Friend> = arrayListOf()
 var teamName: String? = null
 var category: String? = null
 

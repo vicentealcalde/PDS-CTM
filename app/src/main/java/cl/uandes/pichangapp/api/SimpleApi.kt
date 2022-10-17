@@ -43,9 +43,9 @@ interface SimpleApi {
     ): Response<Friend>
 
     // Accept Friend
-    @PUT("friend_requests/{id}")
+    @PUT("friends/{id}")
     suspend fun acceptFriend(
         @Path("id") id : Int,
-        @Body friend: AddFriendObject
+        @Query("res") res: Int
     ): Response<Friend>
 }

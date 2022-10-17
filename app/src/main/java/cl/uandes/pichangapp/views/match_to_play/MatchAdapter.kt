@@ -13,7 +13,7 @@ import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.models.Friend
 
 class MatchAdapter (
-    private val friends: MutableList<Int>,
+    private val friends: MutableList<Friend>,
     private val actionListener: ActionListener,
     private val apiViewModel: ApiViewModel
 ): RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
@@ -35,16 +35,17 @@ class MatchAdapter (
 
     override fun onBindViewHolder(holder: MatchAdapter.ViewHolder, position: Int) {
 
-        val friend: Int = friends[position]
+        val friend: Friend = friends[position]
         val textView4 = holder.textView4
         val button = holder.button
-        textView4.text = friend.toString()
+        textView4.text = friend.id.toString()
 
 
         button.setOnClickListener {
             val myId: Int? = currentUser?.id?.toInt()
             if (myId != null) {
-                apiViewModel.acceptFriend(myId, friend, 0)
+                // Status 1 to Accept, 0 to Reject Request
+                friend.id?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 1) }
             }
         }
     }
