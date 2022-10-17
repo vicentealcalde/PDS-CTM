@@ -11,11 +11,14 @@ import cl.uandes.pichangapp.databinding.MatchToPlayAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
 import androidx.core.os.bundleOf
 import cl.uandes.pichangapp.MatchAdapter
+import cl.uandes.pichangapp.api.ApiViewModel
+import org.koin.android.ext.android.inject
 
 class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
     private lateinit var matchadapter: MatchAdapter
     private var _binding: MatchToPlayAccessFragmentBinding? = null
     private val binding get() = _binding!!
+    private val apiViewModel: ApiViewModel by inject()
 
 
     override fun onCreateView(
@@ -26,7 +29,7 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
 
 
 
-        matchadapter = MatchAdapter(myFriendRequests, this)
+        matchadapter = MatchAdapter(myFriendRequests, this, apiViewModel)
 
 
         return binding.root

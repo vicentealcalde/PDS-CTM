@@ -21,7 +21,7 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
     private lateinit var resultItemAdapter: ResultItemAdapter //
     private var _binding: FinishedMatchAccessFragmentBinding? = null
     private val binding get() = _binding!!
-    private val apiViewModel: ApiViewModel by inject()
+
 
 
     override fun onCreateView(

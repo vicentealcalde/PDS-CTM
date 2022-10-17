@@ -9,11 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.models.Friend
 
 class MatchAdapter (
-    private val friends: MutableList<Friend>,
-    private val actionListener: ActionListener
+    private val friends: MutableList<Int>,
+    private val actionListener: ActionListener,
+    private val apiViewModel: ApiViewModel
 ): RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -21,7 +23,7 @@ class MatchAdapter (
 
         val textView4 = itemView.findViewById<TextView>(R.id.textView4)!!
 
-        val button = itemView.findViewById<ViewGroup>(R.id.button_send)!!
+        val button = itemView.findViewById<View>(R.id.button_send)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchAdapter.ViewHolder {
@@ -33,15 +35,17 @@ class MatchAdapter (
 
     override fun onBindViewHolder(holder: MatchAdapter.ViewHolder, position: Int) {
 
-        val friend: Friend = friends[position]
+        val friend: Int = friends[position]
         val textView4 = holder.textView4
-        val profileImage = holder.profileImage
         val button = holder.button
-        textView4.text = friend.id.toString()
+        textView4.text = friend.toString()
 
 
         button.setOnClickListener {
-
+            val myId: Int? = currentUser?.id?.toInt()
+            if (myId != null) {
+                apiViewModel.acceptFriend(myId, friend, 0)
+            }
         }
     }
 

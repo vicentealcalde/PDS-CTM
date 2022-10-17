@@ -53,12 +53,29 @@ class ApiViewModel(application: Application, private val repository: Repository)
     fun getFriendRequests(userId: Int){
         viewModelScope.launch {
             val response: Response<List<Friend>> = repository.getFriendRequests(userId)
+            Log.d("Friends","Response: $response")
 
             response.body()?.forEach {
                 it.id?.let { it1 -> myFriendRequests.add(it1.toInt()) }
             }
 
             Log.d("Friends","Requests: $myFriendRequests")
+        }
+    }
+
+    fun addFriend(sender: Int, receiver:Int, status: Int){
+        viewModelScope.launch {
+            val response: Response<Friend> = repository.addFriend(sender, receiver, status)
+
+            Log.d("Friends","Add Friend Response: ${response.body()}")
+        }
+    }
+
+    fun acceptFriend(sender: Int, receiver: Int, status: Int){
+        viewModelScope.launch {
+            val response: Response<Friend> = repository.acceptFriend(sender, receiver, status)
+
+            Log.d("Friends","Accept Friend Response: ${response.body()}")
         }
     }
 }

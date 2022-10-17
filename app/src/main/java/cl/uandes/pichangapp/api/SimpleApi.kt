@@ -25,7 +25,7 @@ interface SimpleApi {
 
     //Friends Calls
     // Friends Request received
-    @GET("friend_request/{id}")
+    @GET("friend_requests/{id}")
     suspend fun getFriendRequests(
         @Path("id") id : Int
     ): Response<List<Friend>>
@@ -40,5 +40,12 @@ interface SimpleApi {
     @POST("friends")
     suspend fun addFriend(
         @Body request: AddFriendObject
+    ): Response<Friend>
+
+    // Accept Friend
+    @PUT("friend_requests/{id}")
+    suspend fun acceptFriend(
+        @Path("id") id : Int,
+        @Body friend: AddFriendObject
     ): Response<Friend>
 }
