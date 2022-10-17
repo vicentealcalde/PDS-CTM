@@ -26,7 +26,7 @@ class SearchCreateAccessFragment: Fragment(), OrganizedMatchAdapter.ActionListen
         savedInstanceState: Bundle?
     ): View? {
         _binding = SearchCreateAccessFragmentBinding.inflate(inflater, container, false)
-        searchdmatchadapter = OrganizedMatchAdapter(otherPeoplesMatches.toMutableList(), this)
+        searchdmatchadapter = OrganizedMatchAdapter(myNotFriends.toMutableList(), this)
         return binding.root
     }
 

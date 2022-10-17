@@ -48,4 +48,9 @@ interface SimpleApi {
         @Path("id") id : Int,
         @Query("res") res: Int
     ): Response<Friend>
+
+    @GET("search_friends/{id}")
+    suspend fun getUserNoFriends(
+        @Path("id") id : Int
+    ): Response<List<UserEntity>>
 }

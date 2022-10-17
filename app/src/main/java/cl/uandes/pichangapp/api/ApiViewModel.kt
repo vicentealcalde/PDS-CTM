@@ -10,6 +10,7 @@ import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.myFriendRequests
 import cl.uandes.pichangapp.myFriends
+import cl.uandes.pichangapp.myNotFriends
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.ExecutorService
@@ -24,8 +25,11 @@ class ApiViewModel(application: Application, private val repository: Repository)
             val response: Response<List<UserEntity>> = repository.getLogin(userObject)
             myUser.value = response.body()?.get(0)
             currentUser = response.body()?.get(0)
+            myFriends.clear()
+            myNotFriends.clear()
             currentUser?.id?.let { getUserFriends(it.toInt()) }
             currentUser?.id?.let { getFriendRequests(it.toInt()) }
+            currentUser?.id?.let { getUserNoFriends(it.toInt()) }
             Log.d("Login", "Login: ${myUser.value}")
             Log.d("Login", "Login: ${currentUser}")
         }
@@ -76,6 +80,18 @@ class ApiViewModel(application: Application, private val repository: Repository)
             val response: Response<Friend> = repository.acceptFriend(sender, status)
 
             Log.d("Friends","Accept Friend Response: ${response.body()}")
+        }
+    }
+
+    fun getUserNoFriends(userId: Int){
+        viewModelScope.launch {
+            val response: Response<List<UserEntity>> = repository.getUserNoFriends(userId)
+            Log.d("No Friends","Response: ${response.body()}")
+            response.body()?.forEach {
+                it.username?.let { it1 -> myNotFriends.add(it1) }
+            }
+
+            Log.d("No Friends","mynoFriends: $myNotFriends")
         }
     }
 }

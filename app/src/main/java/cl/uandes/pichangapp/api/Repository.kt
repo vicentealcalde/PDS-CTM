@@ -25,4 +25,7 @@ class Repository {
     suspend fun acceptFriend(sender: Int, status: Int): Response<Friend>{
         return RetrofitInstance.api.acceptFriend(sender, status)
     }
+    suspend fun  getUserNoFriends(userId: Int): Response<List<UserEntity>>{
+        return RetrofitInstance.api.getUserNoFriends(userId)
+    }
 }

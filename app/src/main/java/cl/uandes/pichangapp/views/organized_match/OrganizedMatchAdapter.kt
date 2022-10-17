@@ -10,9 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
 import cl.uandes.pichangapp.allUserMatches
+import cl.uandes.pichangapp.myNotFriends
 
 class OrganizedMatchAdapter (
-    private val matches: MutableList<Match>,
+    private val nofriends: MutableList<String>,
     private val actionListener: ActionListener
 ): RecyclerView.Adapter<OrganizedMatchAdapter.ViewHolder>() {
 
@@ -20,9 +21,9 @@ class OrganizedMatchAdapter (
         val profileImage = itemView.findViewById<ImageView>(R.id.profile_image)!!
 
 
-        val textView4 = itemView.findViewById<TextView>(R.id.textView4)!!
+        val textView1 = itemView.findViewById<TextView>(R.id.textView1)!!
 
-        val button = itemView.findViewById<ViewGroup>(R.id.button_send)!!
+        //val button = itemView.findViewById<ViewGroup>(R.id.button_send)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrganizedMatchAdapter.ViewHolder {
@@ -34,15 +35,12 @@ class OrganizedMatchAdapter (
 
     override fun onBindViewHolder(holder: OrganizedMatchAdapter.ViewHolder, position: Int) {
 
-        val match: Match = allUserMatches[position]
-        val textView4 = holder.textView4
+        val nofriend: String = nofriends[position]
+        val textView1 = holder.textView1
         val profileImage = holder.profileImage
-        val button = holder.button
-        textView4.text = match.HourOfMatch
+        //val button = holder.button
+        textView1.text = nofriend
 
-        button.setOnClickListener {
-            actionListener.goToMatchDetails(match)
-        }
     }
 
 
@@ -55,7 +53,7 @@ class OrganizedMatchAdapter (
     }
 
     override fun getItemCount(): Int {
-        return matches.size
+        return nofriends.size
     }
 
 }

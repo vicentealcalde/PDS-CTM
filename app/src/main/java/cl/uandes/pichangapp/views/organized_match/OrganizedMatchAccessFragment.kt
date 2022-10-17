@@ -26,7 +26,7 @@ class OrganizedMatchAccessFragment : Fragment(), OrganizedMatchAdapter.ActionLis
         savedInstanceState: Bundle?
     ): View? {
         _binding = OrganizedMatchAccessFragmentBinding.inflate(inflater, container, false)
-        organizedmatchadapter = OrganizedMatchAdapter(allUserOrganizedMatches.toMutableList(), this)
+        organizedmatchadapter = OrganizedMatchAdapter(myNotFriends.toMutableList(), this)
         return binding.root
     }
 
@@ -44,16 +44,6 @@ class OrganizedMatchAccessFragment : Fragment(), OrganizedMatchAdapter.ActionLis
         //expand()
         filter()
         //setAttributesToItem()
-    }
-
-    private fun expand(){
-        val button = _binding?.linearLayout4
-
-        button?.setOnClickListener {
-
-            val bundle = bundleOf("MatchDay" to MatchDate, "dataHour" to Hour, "dataPlace" to Place)
-            Navigation.findNavController(it).navigate(R.id.action_organizedMatchAccessFragment_to_expandOrganizedInformationFragment, bundle)
-        }
     }
 
     private fun filter(){
