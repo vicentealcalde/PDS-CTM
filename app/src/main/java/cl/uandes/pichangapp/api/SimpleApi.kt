@@ -13,6 +13,7 @@ interface SimpleApi {
         @Query("username") user: String,
         @Query("password") password: String
     ):Response<List<UserEntity>>
+
     @POST("users")
     suspend fun registerUser(
         @Body user: RegisterUserObject
@@ -23,11 +24,21 @@ interface SimpleApi {
 
 
     //Friends Calls
-    @GET("friends")
-    suspend fun getAllFriends(): Response<List<Friend>>
+    // Friends Request received
+    @GET("friend_request/{id}")
+    suspend fun getFriendRequests(
+        @Path("id") id : Int
+    ): Response<List<Friend>>
 
-    @GET("search_friends/{id}")
+    // Friends of User
+    @GET("user_friends/{id}")
     suspend fun getUserFriends(
         @Path("id") id : Int
     ): Response<List<UserEntity>>
+
+    // Add Friend
+    @POST("friends")
+    suspend fun addFriend(
+        @Body request: AddFriendObject
+    ): Response<Friend>
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
+import cl.uandes.pichangapp.myFriendRequests
 import cl.uandes.pichangapp.myFriends
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -24,6 +25,7 @@ class ApiViewModel(application: Application, private val repository: Repository)
             myUser.value = response.body()?.get(0)
             currentUser = response.body()?.get(0)
             currentUser?.id?.let { getUserFriends(it.toInt()) }
+            currentUser?.id?.let { getFriendRequests(it.toInt()) }
             Log.d("Login", "Login: ${myUser.value}")
             Log.d("Login", "Login: ${currentUser}")
         }
@@ -45,6 +47,18 @@ class ApiViewModel(application: Application, private val repository: Repository)
             }
 
             Log.d("Friends","myFriends: $myFriends")
+        }
+    }
+
+    fun getFriendRequests(userId: Int){
+        viewModelScope.launch {
+            val response: Response<List<Friend>> = repository.getFriendRequests(userId)
+
+            response.body()?.forEach {
+                it.id?.let { it1 -> myFriendRequests.add(it1.toInt()) }
+            }
+
+            Log.d("Friends","Requests: $myFriendRequests")
         }
     }
 }

@@ -9,9 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.models.Friend
 
 class MatchAdapter (
-    private val matches: MutableList<Match>,
+    private val friends: MutableList<Friend>,
     private val actionListener: ActionListener
 ): RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
@@ -32,15 +33,15 @@ class MatchAdapter (
 
     override fun onBindViewHolder(holder: MatchAdapter.ViewHolder, position: Int) {
 
-        val match: Match = matches[position]
+        val friend: Friend = friends[position]
         val textView4 = holder.textView4
         val profileImage = holder.profileImage
         val button = holder.button
-        textView4.text = match.HourOfMatch
+        textView4.text = friend.id.toString()
 
 
         button.setOnClickListener {
-            actionListener.goToMatchDetails(match)
+
         }
     }
 
@@ -51,7 +52,7 @@ class MatchAdapter (
     }
 
     override fun getItemCount(): Int {
-        return matches.size
+        return friends.size
     }
 
 }

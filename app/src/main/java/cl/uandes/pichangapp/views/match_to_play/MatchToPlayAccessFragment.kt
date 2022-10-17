@@ -26,7 +26,9 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
 
 
 
-        matchadapter = MatchAdapter(allUserMatches.toMutableList(), this)
+        matchadapter = MatchAdapter(myFriendRequests, this)
+
+
         return binding.root
     }
 
