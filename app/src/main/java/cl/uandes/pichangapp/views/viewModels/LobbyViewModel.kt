@@ -4,18 +4,12 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import cl.uandes.pichangapp.database.AppDatabase
+import cl.uandes.pichangapp.database.lobby.LobbyDao
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.lobby.LobbyRepository
 
-class LobbyViewModel(application: Application): AndroidViewModel(application) {
-    private val repository: LobbyRepository
-    private val userLobbies: LiveData<List<LobbyEntity>>
+class LobbyViewModel(application: Application, dao: LobbyDao): AndroidViewModel(application) {
 
-    init {
-        val lobbyDao = AppDatabase.getDatabase(application).lobbyDao()
-        repository = LobbyRepository(lobbyDao)
-        userLobbies = repository.getUserLobbies
-    }
 
 
 }

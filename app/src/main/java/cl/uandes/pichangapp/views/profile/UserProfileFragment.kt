@@ -1,20 +1,24 @@
 package cl.uandes.pichangapp.views.profile
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.currentUser
 
 import cl.uandes.pichangapp.databinding.UserProfileFragmentBinding
 import cl.uandes.pichangapp.teamName
+import org.koin.android.ext.android.inject
 
 class UserProfileFragment: Fragment() {
     private var _binding:UserProfileFragmentBinding? = null
     private val binding get() = _binding!!
+    private val apiViewModel: ApiViewModel by inject()
 
 
     override fun onCreateView(
@@ -22,13 +26,16 @@ class UserProfileFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = UserProfileFragmentBinding.inflate(inflater, container, false)
+
+        setAttributesToItem()
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         profileAction()
-        setAttributesToItem()
+
     }
 
     override fun onDestroy() {
@@ -49,8 +56,14 @@ class UserProfileFragment: Fragment() {
         val textTeamNameBackground = _binding?.textTeamNameBackground
         val textTeamMailBackground = _binding?.textTeamMailBackground
 
-        textTeamNameBackground?.text = teamName
-        textTeamMailBackground?.text = currentUser
+        apiViewModel.myUser.observe(viewLifecycleOwner){
+            Log.d("Login","Profile: $it")
+            textTeamNameBackground?.text = it?.username
+            textTeamMailBackground?.text = it?.password
+        }
+
+
+
     }
 }
 

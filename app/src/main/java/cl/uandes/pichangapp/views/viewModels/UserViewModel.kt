@@ -5,32 +5,24 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import cl.uandes.pichangapp.database.AppDatabase
+import cl.uandes.pichangapp.database.user.UserDao
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.database.user.UsersRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class UserViewModel(application: Application): AndroidViewModel(application) {
-    private val repository: UsersRepository
-    val users: LiveData<List<UserEntity>>
-
-
-    init{
-        val userDao = AppDatabase.getDatabase(application).userDao()
-        repository = UsersRepository(userDao)
-        users = repository.getAllUsers
-    }
+class UserViewModel(application: Application, dao: UserDao): AndroidViewModel(application) {
 
 
     fun addUser(user: UserEntity){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addUser(user)
+            //repository.addUser(user)
         }
     }
 
     fun login(userName:String, password:String){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getLogin(userName, password)
+            //repository.getLogin(userName, password)
         }
     }
 

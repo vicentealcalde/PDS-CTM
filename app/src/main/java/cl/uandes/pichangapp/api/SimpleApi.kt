@@ -1,21 +1,21 @@
 package cl.uandes.pichangapp.api
 
+import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface SimpleApi {
 
     //User Calls
     @GET("login")
     suspend fun getLogin(
-        @Body user: UserObject
-    ):Response<UserObject>
-    @GET("")
-    suspend fun
+        @Query("username") user: String,
+        @Query("password") password: String
+    ):Response<List<UserEntity>>
+
+    @GET("users")
+    suspend fun getAllUsers(): Response<List<UserObject>>
 
     //Friends Calls
     @GET("friends")

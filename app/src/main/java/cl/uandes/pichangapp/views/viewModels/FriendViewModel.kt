@@ -5,25 +5,18 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import cl.uandes.pichangapp.database.AppDatabase
+import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.database.friend.FriendRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class FriendViewModel(application: Application): AndroidViewModel(application) {
-    private val repository: FriendRepository
-    private val userFriends: LiveData<List<FriendEntity>>
-
-    init {
-        val friendDao = AppDatabase.getDatabase(application).friendDao()
-        repository = FriendRepository(friendDao)
-        userFriends = repository.getAllUserFriends
-    }
+class FriendViewModel(application: Application, dao: FriendDao): AndroidViewModel(application) {
 
     fun addFriend(friend: FriendEntity){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addFriend(friend)
+            //repository.addFriend(friend)
         }
     }
 

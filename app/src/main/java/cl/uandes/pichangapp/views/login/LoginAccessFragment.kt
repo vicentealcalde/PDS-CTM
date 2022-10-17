@@ -12,13 +12,14 @@ import androidx.lifecycle.ViewModelProvider
 import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.api.UserObject
 import cl.uandes.pichangapp.R
+import org.koin.android.ext.android.inject
 
 
 class LoginAccessFragment : Fragment() {
     private var _binding: FragmentLoginAccessBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var apiViewModel: ApiViewModel
+    private val apiViewModel: ApiViewModel by inject()
 
 
 
@@ -28,7 +29,7 @@ class LoginAccessFragment : Fragment() {
     ): View? {
         _binding = FragmentLoginAccessBinding.inflate(inflater, container, false)
 
-        apiViewModel = ViewModelProvider(this)[ApiViewModel::class.java]
+
 
         return binding.root
 
@@ -37,8 +38,6 @@ class LoginAccessFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
 
         loginAction()
@@ -62,10 +61,8 @@ class LoginAccessFragment : Fragment() {
             val stringMail = editTextMail.text.toString()
             val stringPassword = editTextPassword.text.toString()
 
-            val loginResponse = apiViewModel.getLogin(
-                UserObject(stringMail, stringPassword)
-            )
-            Log.d("Login","Login: $loginResponse")
+            apiViewModel.getLogin(UserObject(stringMail, stringPassword))
+
 
             findNavController().navigate(R.id.action_loginAccessFragment_to_search_match_navigation)
 
