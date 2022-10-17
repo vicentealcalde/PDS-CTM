@@ -1,10 +1,8 @@
-package cl.uandes.pichangapp.API
+package cl.uandes.pichangapp.api
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cl.uandes.pichangapp.models.User
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.ExecutorService

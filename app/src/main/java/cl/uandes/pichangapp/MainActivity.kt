@@ -3,8 +3,6 @@ package cl.uandes.pichangapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -12,9 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import cl.uandes.pichangapp.R
 import cl.uandes.pichangapp.databinding.ActivityMainBinding
-import cl.uandes.pichangapp.LoginAccessFragment
 import cl.uandes.pichangapp.models.Match
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import cl.uandes.pichangapp.models.Matches

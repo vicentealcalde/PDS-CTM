@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.database.Lobby
+package cl.uandes.pichangapp.database.lobby
 
 import cl.uandes.pichangapp.database.EntityMapper
 import cl.uandes.pichangapp.models.Lobby

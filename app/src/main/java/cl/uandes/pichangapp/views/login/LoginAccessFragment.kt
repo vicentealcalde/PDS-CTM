@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp
+package cl.uandes.pichangapp.views.login
 
 import android.os.Bundle
 import android.util.Log
@@ -8,14 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import cl.uandes.pichangapp.databinding.FragmentLoginAccessBinding
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import cl.uandes.pichangapp.API.ApiViewModel
-import cl.uandes.pichangapp.API.UserObject
-import cl.uandes.pichangapp.models.Match
-import cl.uandes.pichangapp.viewModels.UserViewModel
+import cl.uandes.pichangapp.api.ApiViewModel
+import cl.uandes.pichangapp.api.UserObject
+import cl.uandes.pichangapp.R
 
 
 class LoginAccessFragment : Fragment() {

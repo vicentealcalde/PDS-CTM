@@ -1,12 +1,11 @@
-package cl.uandes.pichangapp.viewModels
+package cl.uandes.pichangapp.views.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import cl.uandes.pichangapp.database.AppDatabase
-import cl.uandes.pichangapp.database.Lobby.LobbyEntity
-import cl.uandes.pichangapp.database.Lobby.LobbyRepository
-import cl.uandes.pichangapp.database.friend.FriendRepository
+import cl.uandes.pichangapp.database.lobby.LobbyEntity
+import cl.uandes.pichangapp.database.lobby.LobbyRepository
 
 class LobbyViewModel(application: Application): AndroidViewModel(application) {
     private val repository: LobbyRepository

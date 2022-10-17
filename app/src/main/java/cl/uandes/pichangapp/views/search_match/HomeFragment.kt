@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.lifecycle.ViewModelProvider
 import cl.uandes.pichangapp.databinding.HomeFragmentBinding
-import cl.uandes.pichangapp.viewModels.FriendViewModel
-import cl.uandes.pichangapp.viewModels.UserViewModel
+import cl.uandes.pichangapp.views.viewModels.FriendViewModel
+import cl.uandes.pichangapp.views.viewModels.UserViewModel
 
 
 class HomeFragment: Fragment() {

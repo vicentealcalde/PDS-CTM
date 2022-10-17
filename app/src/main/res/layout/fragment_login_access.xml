@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginAccessFragment">
+    tools:context=".views.login.LoginAccessFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,7 +52,7 @@
             android:layout_marginTop="55sp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="@string/mail"
+            android:text="Username"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +68,7 @@
             android:autofillHints=""
             android:background="@drawable/round_corner"
             android:ems="10"
-            android:hint="@string/example_mail"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:minHeight="48dp"
             android:paddingHorizontal="12sp"
             android:paddingVertical="10sp"
@@ -127,7 +126,7 @@
             android:background="@drawable/round_corner"
             android:paddingHorizontal="12sp"
             android:paddingVertical="2sp"
-            android:text="@string/sign_up"
+            android:text="Ingresar"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:backgroundTint="@null"

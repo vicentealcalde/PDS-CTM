@@ -32,7 +32,7 @@
             app:layout_constraintGuide_percent="0.02" />
 
         <TextView
-            android:id="@+id/textFecha"
+            android:id="@+id/textPlayersNumber"
             android:layout_width="0dp"
             android:layout_height="40sp"
             android:layout_marginStart="24dp"
@@ -43,13 +43,14 @@
             android:text="N Jugadores"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintEnd_toStartOf="@+id/editFecha"
+            app:layout_constraintEnd_toStartOf="@+id/editPlayersNumber"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <EditText
-            android:id="@+id/editFecha"
+            android:id="@+id/editPlayersNumber"
             android:layout_width="104dp"
             android:layout_height="48dp"
             android:layout_marginTop="27dp"
@@ -67,12 +68,11 @@
             android:textColor="@color/black"
             android:textColorHint="#00695C"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textHora"
+            app:layout_constraintBottom_toTopOf="@+id/textTurnLength"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textFecha"
+            app:layout_constraintStart_toEndOf="@+id/textPlayersNumber"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
-
 
         <ImageButton
             android:id="@+id/button_send"
@@ -81,17 +81,18 @@
             android:layout_height="72dp"
             android:layout_marginTop="10dp"
 
+            android:layout_marginEnd="8dp"
+
             android:onClick="sendMessage"
 
             android:src="@drawable/ic_add"
-
-            app:layout_constraintBottom_toTopOf="@+id/textHora"
-            app:layout_constraintEnd_toEndOf="@+id/textFecha"
-            app:layout_constraintTop_toBottomOf="@+id/editFecha"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintBottom_toTopOf="@+id/textPowers"
+            app:layout_constraintEnd_toEndOf="@+id/textPlayersNumber"
+            app:layout_constraintTop_toBottomOf="@+id/editPlayersNumber"
+            app:layout_constraintVertical_bias="0.712" />
 
         <TextView
-            android:id="@+id/textHora"
+            android:id="@+id/textPowers"
             android:layout_width="228dp"
             android:layout_height="58dp"
             android:layout_margin="10dp"
@@ -101,13 +102,13 @@
             android:text="Poderes"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextHora"
-            app:layout_constraintEnd_toEndOf="@+id/editTextHora"
-            app:layout_constraintStart_toStartOf="@+id/textLugar"
-            app:layout_constraintTop_toBottomOf="@+id/editFecha" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextPowers"
+            app:layout_constraintEnd_toEndOf="@+id/editTextPowers"
+            app:layout_constraintStart_toStartOf="@+id/textTurnLength"
+            app:layout_constraintTop_toBottomOf="@+id/editPlayersNumber" />
 
         <EditText
-            android:id="@+id/editTextHora"
+            android:id="@+id/editTextPowers"
             android:layout_width="372dp"
             android:layout_height="57dp"
             android:layout_marginEnd="23dp"
@@ -126,12 +127,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextLugar"
-            app:layout_constraintTop_toBottomOf="@+id/textHora"
+            app:layout_constraintStart_toStartOf="@+id/editTextTurnLength"
+            app:layout_constraintTop_toBottomOf="@+id/textPowers"
             tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/textLugar"
+            android:id="@+id/textTurnLength"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="39dp"
@@ -141,14 +142,14 @@
             android:text="Duracion turno"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextLugar"
+            app:layout_constraintBottom_toTopOf="@+id/editTextTurnLength"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textDescripcion"
-            app:layout_constraintTop_toBottomOf="@+id/editTextHora" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextPowers" />
 
         <EditText
-            android:id="@+id/editTextLugar"
+            android:id="@+id/editTextTurnLength"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="26dp"
@@ -166,7 +167,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textDescripcion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/editTextDescripcion"
-            app:layout_constraintTop_toBottomOf="@+id/textLugar"
+            app:layout_constraintTop_toBottomOf="@+id/textTurnLength"
             tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
 
         <TextView
@@ -185,7 +186,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextLugar" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTurnLength" />
 
         <EditText
             android:id="@+id/editTextDescripcion"

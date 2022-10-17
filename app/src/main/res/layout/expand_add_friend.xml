@@ -55,7 +55,7 @@
             android:layout_marginEnd="11dp"
             android:layout_marginRight="5sp"
             android:layout_toEndOf="@+id/profile_image"
-            android:text="N` Jugadores:"
+            android:text="N` Partidas:"
             android:textSize="20sp"
             android:textStyle="bold" />
 

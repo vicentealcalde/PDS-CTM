@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.API
+package cl.uandes.pichangapp.api
 
 import cl.uandes.pichangapp.models.Friend
 import retrofit2.Response

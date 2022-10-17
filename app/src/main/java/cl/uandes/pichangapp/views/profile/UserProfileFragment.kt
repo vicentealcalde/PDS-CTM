@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp
+package cl.uandes.pichangapp.views.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.currentUser
 
 import cl.uandes.pichangapp.databinding.UserProfileFragmentBinding
+import cl.uandes.pichangapp.teamName
 
 class UserProfileFragment: Fragment() {
     private var _binding:UserProfileFragmentBinding? = null

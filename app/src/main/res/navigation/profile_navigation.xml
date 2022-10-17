@@ -6,7 +6,7 @@
     app:startDestination="@id/userProfileFragment">
     <fragment
         android:id="@+id/userProfileFragment"
-        android:name="cl.uandes.pichangapp.UserProfileFragment"
+        android:name="cl.uandes.pichangapp.views.profile.UserProfileFragment"
         android:label="Pichanga App"
          >
         <action

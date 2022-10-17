@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.database.Lobby
+package cl.uandes.pichangapp.database.lobby
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
