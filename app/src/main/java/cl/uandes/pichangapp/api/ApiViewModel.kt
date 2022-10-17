@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.database.user.UserEntity
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -19,7 +20,9 @@ class ApiViewModel(application: Application, private val repository: Repository)
         viewModelScope.launch {
             val response: Response<List<UserEntity>> = repository.getLogin(userObject)
             myUser.value = response.body()?.get(0)
+            currentUser = response.body()?.get(0)
             Log.d("Login", "Login: ${myUser.value}")
+            Log.d("Login", "Login: ${currentUser}")
         }
     }
 }

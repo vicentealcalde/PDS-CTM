@@ -29,6 +29,7 @@ class ExpandMatchWithoutFragment : Fragment() {
         setAttributesToItem()
     }
     private fun setAttributesToItem() {
+        /*
         val match = allMatches.find{ it.OrganaizerTeam == currentUser }
 
         val NameTeam1 = _binding?.NameTeam1
@@ -42,11 +43,12 @@ class ExpandMatchWithoutFragment : Fragment() {
 
 
 
+
         DayOfMatch?.text = match?.DayOfMatch
         HourOfMatch?.text = match?.HourOfMatch
         LocationOfMatch?.text = match?.LocationOfMatch
         DescriptionOfMatch?.text = match?.DescriptionOfMatch
-
+        */
 
 
     }

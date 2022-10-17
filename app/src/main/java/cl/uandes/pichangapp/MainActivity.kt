@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.databinding.ActivityMainBinding
 import cl.uandes.pichangapp.models.Match
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -19,7 +20,7 @@ val allMatches = Matches.createMatchList()
 var allUserMatches: List<Match> = emptyList()
 var otherPeoplesMatches: List<Match> = emptyList()
 var allUserOrganizedMatches: List<Match> = emptyList()
-var currentUser: String? = null
+var currentUser: UserEntity? = null
 var teamName: String? = null
 var category: String? = null
 
