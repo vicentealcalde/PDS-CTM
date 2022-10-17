@@ -10,10 +10,12 @@ import retrofit2.http.Path
 interface SimpleApi {
 
     //User Calls
-    @POST("login")
+    @GET("login")
     suspend fun getLogin(
         @Body user: UserObject
     ):Response<UserObject>
+    @GET("")
+    suspend fun
 
     //Friends Calls
     @GET("friends")
