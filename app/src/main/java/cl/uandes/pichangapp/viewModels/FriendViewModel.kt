@@ -31,6 +31,10 @@ class FriendViewModel(application: Application, private val repository: FriendRe
         }
     }
 
+    fun deleteAllFriends(){
+        repository.deleteAllFriends()
+    }
+
 
     fun addFriend(friend: FriendEntity){
         viewModelScope.launch(Dispatchers.IO) {

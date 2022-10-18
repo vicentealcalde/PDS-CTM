@@ -19,21 +19,13 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class ApiViewModel(application: Application, private val repository: Repository, private val friendRepository: FriendRepository) : ViewModel() {
-    val myUser: MutableLiveData<UserEntity> = MutableLiveData()
+    var myResponse: MutableLiveData<Response<List<UserEntity>>> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
     fun getLogin(userObject: UserObject){
         viewModelScope.launch {
             val response: Response<List<UserEntity>> = repository.getLogin(userObject)
-            myUser.value = response.body()?.get(0)
-            currentUser = response.body()?.get(0)
-            myNotFriends.clear()
-            friendRepository.deleteAllFriends()
-            currentUser?.id?.let { getUserFriends(it.toInt()) }
-            currentUser?.id?.let { getFriendRequests(it.toInt()) }
-            currentUser?.id?.let { getUserNoFriends(it.toInt()) }
-            Log.d("Login", "Login: ${myUser.value}")
-            Log.d("Login", "Login: ${currentUser}")
+            myResponse.value = response
         }
     }
     fun registerUser(username: String, password:String){

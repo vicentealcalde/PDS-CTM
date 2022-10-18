@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import cl.uandes.pichangapp.databinding.FragmentLoginAccessBinding
 import androidx.lifecycle.ViewModelProvider
+import cl.uandes.pichangapp.MainActivity
 import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.api.UserObject
 import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.currentUser
+import cl.uandes.pichangapp.myNotFriends
+import cl.uandes.pichangapp.viewModels.FriendViewModel
 import org.koin.android.ext.android.inject
 
 
@@ -20,6 +25,7 @@ class LoginAccessFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val apiViewModel: ApiViewModel by inject()
+    private val friendViewModel: FriendViewModel by inject()
 
 
 
@@ -57,14 +63,38 @@ class LoginAccessFragment : Fragment() {
         val editTextPassword = _binding?.editTextPassword!!
 
 
+
         loginButton?.setOnClickListener {
             val stringMail = editTextMail.text.toString()
             val stringPassword = editTextPassword.text.toString()
 
             apiViewModel.getLogin(UserObject(stringMail, stringPassword))
+            apiViewModel.myResponse.observe(activity as MainActivity) { response ->
+                if (response.isSuccessful) {
+                    try {
+                        currentUser = response.body()?.get(0)
+                        myNotFriends.clear()
+                        friendViewModel.executor.execute {
+                            friendViewModel.deleteAllFriends()
+                            currentUser!!.id?.let { it ->
+                                apiViewModel.getUserFriends(it.toInt())
+                                apiViewModel.getFriendRequests(it.toInt())
+                                apiViewModel.getUserNoFriends(it.toInt())
+                            }
+                        }
+                        findNavController().navigate(R.id.action_loginAccessFragment_to_search_match_navigation)
+                    }
+                    catch (e: Exception){
+                        Log.e("Error","Login Error: $e")
+                    }
+                }
+                else {
+                    Toast.makeText(activity as MainActivity,"Incorrect Login", Toast.LENGTH_SHORT).show()
+                }
+            }
 
 
-            findNavController().navigate(R.id.action_loginAccessFragment_to_search_match_navigation)
+
 
         }
     }

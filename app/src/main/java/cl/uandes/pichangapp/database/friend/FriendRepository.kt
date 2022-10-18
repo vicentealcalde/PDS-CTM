@@ -15,7 +15,7 @@ class FriendRepository(private val friendDao: FriendDao) {
         friendDao.addFriend(friend)
     }
 
-    suspend fun deleteAllFriends(){
+    fun deleteAllFriends(){
         friendDao.deleteAllFriends()
     }
 }

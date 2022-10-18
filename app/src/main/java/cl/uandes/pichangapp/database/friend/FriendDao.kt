@@ -15,6 +15,6 @@ interface FriendDao {
     suspend fun addFriend(friend: FriendEntity)
 
     @Query("DELETE FROM FriendsTable")
-    suspend fun deleteAllFriends()
+    fun deleteAllFriends()
 
 }
