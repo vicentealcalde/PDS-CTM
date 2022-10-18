@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.views.viewModels
+package cl.uandes.pichangapp.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

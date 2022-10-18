@@ -9,12 +9,11 @@ import kotlinx.android.parcel.Parcelize
 @Entity(tableName = "FriendsTable")
 @Parcelize
 data class FriendEntity (
-    @PrimaryKey(autoGenerate = true)
-    var id: Long?,
-    @ColumnInfo(name = "senderId")
-    val id_sender: Int,
-    @ColumnInfo(name = "receiverId")
-    val id_receiver: Int,
+    @PrimaryKey
+    @ColumnInfo(name = "friendId")
+    val friendId: Long?,
+    @ColumnInfo(name = "friendName")
+    val friendName: String?,
     @ColumnInfo(name = "status")
     val status: Int
 ): Parcelable

@@ -5,13 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import androidx.lifecycle.ViewModelProvider
-import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.databinding.HomeFragmentBinding
-import cl.uandes.pichangapp.views.viewModels.FriendViewModel
-import cl.uandes.pichangapp.views.viewModels.UserViewModel
+import cl.uandes.pichangapp.viewModels.FriendViewModel
 import org.koin.android.ext.android.inject
 
 

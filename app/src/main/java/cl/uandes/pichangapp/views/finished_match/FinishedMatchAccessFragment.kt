@@ -1,26 +1,23 @@
 package cl.uandes.pichangapp
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.os.bundleOf
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cl.uandes.pichangapp.databinding.FinishedMatchAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
-import cl.uandes.pichangapp.ResultItemAdapter
-import cl.uandes.pichangapp.api.ApiViewModel
+import cl.uandes.pichangapp.viewModels.FriendViewModel
 import org.koin.android.ext.android.inject
 
 class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener {
     private lateinit var resultItemAdapter: ResultItemAdapter //
     private var _binding: FinishedMatchAccessFragmentBinding? = null
     private val binding get() = _binding!!
+    private val friendViewModel: FriendViewModel by inject()
 
 
 
@@ -31,8 +28,10 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
         _binding = FinishedMatchAccessFragmentBinding.inflate(inflater, container, false)
 
 
-        Log.d("Friends", "Before Adapter: $myFriends")
-        resultItemAdapter = ResultItemAdapter(myFriends, this)
+        friendViewModel.executor.execute {
+            friendViewModel.getAcceptedFriends()
+        }
+        resultItemAdapter = ResultItemAdapter(friendViewModel.friends, this)
 
 
 

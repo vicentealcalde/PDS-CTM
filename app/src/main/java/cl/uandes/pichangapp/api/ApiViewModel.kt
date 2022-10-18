@@ -6,17 +6,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.uandes.pichangapp.currentUser
+import cl.uandes.pichangapp.database.friend.FriendDao
+import cl.uandes.pichangapp.database.friend.FriendEntityMapper
+import cl.uandes.pichangapp.database.friend.FriendRepository
+import cl.uandes.pichangapp.database.friend.UserToFriendEntityMapper
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
-import cl.uandes.pichangapp.myFriendRequests
-import cl.uandes.pichangapp.myFriends
 import cl.uandes.pichangapp.myNotFriends
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class ApiViewModel(application: Application, private val repository: Repository) : ViewModel() {
+class ApiViewModel(application: Application, private val repository: Repository, private val friendRepository: FriendRepository) : ViewModel() {
     val myUser: MutableLiveData<UserEntity> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -25,8 +27,8 @@ class ApiViewModel(application: Application, private val repository: Repository)
             val response: Response<List<UserEntity>> = repository.getLogin(userObject)
             myUser.value = response.body()?.get(0)
             currentUser = response.body()?.get(0)
-            myFriends.clear()
             myNotFriends.clear()
+            friendRepository.deleteAllFriends()
             currentUser?.id?.let { getUserFriends(it.toInt()) }
             currentUser?.id?.let { getFriendRequests(it.toInt()) }
             currentUser?.id?.let { getUserNoFriends(it.toInt()) }
@@ -45,25 +47,20 @@ class ApiViewModel(application: Application, private val repository: Repository)
     fun getUserFriends(userId: Int){
         viewModelScope.launch {
             val response: Response<List<UserEntity>> = repository.getUserFriends(userId)
-            Log.d("Friends","Response: ${response.body()}")
             response.body()?.forEach {
-                it.username?.let { it1 -> myFriends.add(it1) }
+                friendRepository.addFriend(UserToFriendEntityMapper().mapFromCached(it))
             }
 
-            Log.d("Friends","myFriends: $myFriends")
         }
     }
 
     fun getFriendRequests(userId: Int){
         viewModelScope.launch {
             val response: Response<List<Friend>> = repository.getFriendRequests(userId)
-            Log.d("Friends","Response: $response")
-            myFriendRequests.clear()
+            Log.d("Friends","Requests Response: ${response.body()}")
             response.body()?.forEach {
-                myFriendRequests.add(it)
+                friendRepository.addFriend(FriendEntityMapper().mapToCached(it))
             }
-
-            Log.d("Friends","Requests: $myFriendRequests")
         }
     }
 

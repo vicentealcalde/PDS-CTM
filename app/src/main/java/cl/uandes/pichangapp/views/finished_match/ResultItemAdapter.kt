@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.models.Match
 
 class ResultItemAdapter (
-    private val friends: MutableList<String>,
+    private val friends: List<FriendEntity>,
     private val actionListener: ActionListener
 ): RecyclerView.Adapter<ResultItemAdapter.ViewHolder>() {
 
@@ -30,12 +31,12 @@ class ResultItemAdapter (
 
     override fun onBindViewHolder(holder: ResultItemAdapter.ViewHolder, position: Int) {
 
-        val friend: String = friends[position]
+        val friend: FriendEntity = friends[position]
 
 
         val textView4 = holder.textView4
         val profileImage = holder.profileImage
-        textView4.text = friend
+        textView4.text = friend.friendName
 
 
 

@@ -1,13 +1,10 @@
-package cl.uandes.pichangapp.views.viewModels
+package cl.uandes.pichangapp.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import cl.uandes.pichangapp.database.AppDatabase
 import cl.uandes.pichangapp.database.user.UserDao
 import cl.uandes.pichangapp.database.user.UserEntity
-import cl.uandes.pichangapp.database.user.UsersRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

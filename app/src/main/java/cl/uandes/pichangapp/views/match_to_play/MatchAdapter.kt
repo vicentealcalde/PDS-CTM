@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
 import cl.uandes.pichangapp.api.ApiViewModel
+import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.models.Friend
 
 class MatchAdapter (
-    private val friends: MutableList<Friend>,
+    private val friends: MutableList<FriendEntity>,
     private val actionListener: ActionListener,
     private val apiViewModel: ApiViewModel
 ): RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
@@ -35,17 +36,17 @@ class MatchAdapter (
 
     override fun onBindViewHolder(holder: MatchAdapter.ViewHolder, position: Int) {
 
-        val friend: Friend = friends[position]
+        val friend: FriendEntity = friends[position]
         val textView4 = holder.textView4
         val button = holder.button
-        textView4.text = friend.id.toString()
+        textView4.text = friend.friendId.toString()
 
 
         button.setOnClickListener {
             val myId: Int? = currentUser?.id?.toInt()
             if (myId != null) {
                 // Status 1 to Accept, 0 to Reject Request
-                friend.id?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 1) }
+                friend.friendId?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 1) }
             }
         }
     }
