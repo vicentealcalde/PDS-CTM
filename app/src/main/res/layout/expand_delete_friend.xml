@@ -59,25 +59,6 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/button_send"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-
-            android:layout_marginStart="60dp"
-            android:layout_marginLeft="2sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="3dp"
-
-            android:layout_marginRight="5sp"
-
-            android:layout_marginBottom="30dp"
-            android:layout_toEndOf="@+id/textView4"
-            android:onClick="sendMessage"
-            android:src="@drawable/ic_delete_friend"
-            app:layout_constraintVertical_bias="0.0" />
-
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
