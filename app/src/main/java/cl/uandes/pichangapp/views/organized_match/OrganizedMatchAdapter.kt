@@ -21,7 +21,7 @@ class OrganizedMatchAdapter (
         val profileImage = itemView.findViewById<ImageView>(R.id.profile_image)!!
 
 
-        val textView1 = itemView.findViewById<TextView>(R.id.textView1)!!
+        val textView4 = itemView.findViewById<TextView>(R.id.textView4)!!
 
         //val button = itemView.findViewById<ViewGroup>(R.id.button_send)!!
     }
@@ -36,10 +36,10 @@ class OrganizedMatchAdapter (
     override fun onBindViewHolder(holder: OrganizedMatchAdapter.ViewHolder, position: Int) {
 
         val nofriend: String = nofriends[position]
-        val textView1 = holder.textView1
+        val textView4 = holder.textView4
         val profileImage = holder.profileImage
         //val button = holder.button
-        textView1.text = nofriend
+        textView4.text = nofriend
 
     }
 

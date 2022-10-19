@@ -26,7 +26,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15sp"
-            android:src="@drawable/extra_logo_chile" />
+            android:src="@drawable/dice_1" />
 
         <TextView
             android:id="@+id/textView1"
@@ -65,15 +65,16 @@
             android:layout_width="wrap_content"
             android:layout_height="60dp"
 
-            android:layout_marginStart="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="182dp"
             android:layout_marginLeft="2sp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="3dp"
+
+            android:layout_marginEnd="18dp"
 
             android:layout_marginRight="5sp"
-
             android:layout_marginBottom="30dp"
-            android:layout_toEndOf="@+id/textView4"
+            android:layout_toEndOf="@+id/profile_image"
             android:onClick="sendMessage"
             android:src="@drawable/ic_add_friend"
             app:layout_constraintVertical_bias="0.0" />
