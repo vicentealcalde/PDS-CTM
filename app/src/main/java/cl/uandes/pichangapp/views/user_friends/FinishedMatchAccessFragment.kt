@@ -27,11 +27,18 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
     ): View {
         _binding = FinishedMatchAccessFragmentBinding.inflate(inflater, container, false)
 
+        resultItemAdapter = ResultItemAdapter(this)
+        val resultListView = binding.resultListView
+        resultListView.layoutManager = LinearLayoutManager(context)
+        resultListView.adapter = resultItemAdapter
+        filter()
 
-        friendViewModel.executor.execute {
-            friendViewModel.getAcceptedFriends()
+        friendViewModel.getAcceptedFriends().observe(viewLifecycleOwner){
+            resultItemAdapter.set(it)
+            resultItemAdapter.notifyDataSetChanged()
         }
-        resultItemAdapter = ResultItemAdapter(friendViewModel.friends, this)
+
+
 
 
 
@@ -41,10 +48,7 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val resultListView = binding.resultListView
-        resultListView.layoutManager = LinearLayoutManager(context)
-        resultListView.adapter = resultItemAdapter
-        filter()
+
 
     }
 

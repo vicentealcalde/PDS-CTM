@@ -1,13 +1,15 @@
 package cl.uandes.pichangapp.database.friend
 
+import androidx.lifecycle.LiveData
+
 
 class FriendRepository(private val friendDao: FriendDao) {
 
-    fun getAcceptedFriends(): List<FriendEntity> {
+    fun getAcceptedFriends(): LiveData<List<FriendEntity>> {
         return friendDao.getAcceptedFriends()
     }
 
-    fun getFriendRequests(): List<FriendEntity>{
+    fun getFriendRequests(): LiveData<List<FriendEntity>>{
         return friendDao.getFriendRequests()
     }
 

@@ -14,10 +14,14 @@ import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.models.Friend
 
 class MatchAdapter (
-    private val friends: MutableList<FriendEntity>,
     private val actionListener: ActionListener,
     private val apiViewModel: ApiViewModel
 ): RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
+    private var friends: List<FriendEntity> = emptyList()
+
+    fun set(item: List<FriendEntity>){
+        friends = item
+    }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val profileImage = itemView.findViewById<ImageView>(R.id.profile_image)!!

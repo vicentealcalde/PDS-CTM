@@ -80,7 +80,6 @@ class ApiViewModel(application: Application, private val repository: Repository,
             response.body()?.forEach {
                 it.username?.let { it1 -> myNotFriends.add(it1) }
             }
-
             Log.d("No Friends","mynoFriends: $myNotFriends")
         }
     }

@@ -28,12 +28,20 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
         savedInstanceState: Bundle?
     ): View {
         _binding = MatchToPlayAccessFragmentBinding.inflate(inflater, container, false)
+        matchadapter = MatchAdapter(this, apiViewModel)
+        val resultLisThisWeek= binding.resultListView
+        resultLisThisWeek.layoutManager = LinearLayoutManager(context)
+
+        resultLisThisWeek.adapter = matchadapter
 
 
-        friendViewModel.executor.execute {
-            friendViewModel.getFriendRequests()
+        filter()
+
+        friendViewModel.getFriendRequests().observe(viewLifecycleOwner){
+            matchadapter.set(it)
+            matchadapter.notifyDataSetChanged()
         }
-        matchadapter = MatchAdapter(friendViewModel.friendRequests, this, apiViewModel)
+
 
 
         return binding.root
@@ -42,13 +50,8 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        val resultLisThisWeek= binding.resultListView
-        resultLisThisWeek.layoutManager = LinearLayoutManager(context)
-
-        resultLisThisWeek.adapter = matchadapter
 
 
-        filter()
 
     }
 
