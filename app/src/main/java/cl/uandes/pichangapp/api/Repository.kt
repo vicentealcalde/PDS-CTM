@@ -30,10 +30,13 @@ class Repository {
     suspend fun  getUserNoFriends(userId: Int): Response<List<UserEntity>>{
         return RetrofitInstance.api.getUserNoFriends(userId)
     }
-    suspend fun getInGamesOfLobby(lobbyId: Int): Response<List<InGamePlayer>>{
-        return RetrofitInstance.api.getInGamesOfLobby(lobbyId)
+    suspend fun getPlayersOfLobby(lobbyId: Int): Response<List<InGamePlayer>>{
+        return RetrofitInstance.api.getPlayersOfLobby(lobbyId)
     }
     suspend fun createLobby(lobbyObject: AddLobbyObject): Response<LobbyEntity>{
         return RetrofitInstance.api.createLobby(lobbyObject)
+    }
+    suspend fun getUserLobbies(userId: Int): Response<List<InGamePlayer>> {
+        return RetrofitInstance.api.getUserLobbies(userId)
     }
 }

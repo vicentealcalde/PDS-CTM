@@ -81,15 +81,20 @@ class ApiViewModel(application: Application, private val repository: Repository,
             }
         }
     }
-    fun getInGamesOfLobby(lobbyId: Int){
+    fun getPlayersOfLobby(lobbyId: Int){
         viewModelScope.launch {
-            val response: Response<List<InGamePlayer>> = repository.getInGamesOfLobby(lobbyId)
+            val response: Response<List<InGamePlayer>> = repository.getPlayersOfLobby(lobbyId)
             Log.d("Lobby","Lobby InGame: ${response.body()}")
         }
     }
     fun createLobby(lobbyObject: AddLobbyObject){
         viewModelScope.launch {
             val response: Response<LobbyEntity> = repository.createLobby(lobbyObject)
+        }
+    }
+    fun getUserLobbies(userId: Int){
+        viewModelScope.launch {
+            val response: Response<List<InGamePlayer>> = repository.getUserLobbies(userId)
         }
     }
 }

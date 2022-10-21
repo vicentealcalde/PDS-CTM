@@ -58,7 +58,7 @@ interface SimpleApi {
     
     //Lobby Calls
     @GET("lobbies_igp/{id}")
-    suspend fun getInGamesOfLobby(
+    suspend fun getPlayersOfLobby(
         @Path("id") id : Int
     ): Response<List<InGamePlayer>>
 
@@ -66,5 +66,10 @@ interface SimpleApi {
     suspend fun createLobby(
         @Body lobby: AddLobbyObject
     ): Response<LobbyEntity>
+
+    @GET("active_lobbies/{id}")
+    suspend fun getUserLobbies(
+        @Path("id") id : Int
+    ): Response<List<InGamePlayer>>
 
 }

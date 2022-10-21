@@ -6,7 +6,9 @@ class LobbyRepository(private val lobbyDao: LobbyDao) {
 
 
 
-    val getUserLobbies: LiveData<List<LobbyEntity>> = lobbyDao.getUserLobbies()
+    fun getUserLobbies(): LiveData<List<LobbyEntity>>{
+        return lobbyDao.getUserLobbies()
+    }
 
     suspend fun addLobby(lobby: LobbyEntity){
         lobbyDao.addLobby(lobby)
@@ -16,7 +18,7 @@ class LobbyRepository(private val lobbyDao: LobbyDao) {
         lobbyDao.deleteLobby(lobbyId)
     }
 
-    suspend fun deleteAllLobbies(){
+    fun deleteAllLobbies(){
         lobbyDao.deleteAllLobbies()
     }
 

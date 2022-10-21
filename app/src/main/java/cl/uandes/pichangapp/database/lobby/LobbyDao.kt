@@ -12,7 +12,7 @@ interface LobbyDao {
     suspend fun addLobby(lobby: LobbyEntity)
 
     @Query("DELETE FROM LobbyTable")
-    suspend fun deleteAllLobbies()
+    fun deleteAllLobbies()
 
     @Query("DELETE FROM LobbyTable WHERE LobbyId = :id")
     suspend fun deleteLobby(id: Int)
