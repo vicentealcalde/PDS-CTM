@@ -9,14 +9,21 @@ import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.databinding.OrganizedMatchAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
+import cl.uandes.pichangapp.viewModels.FriendViewModel
+import cl.uandes.pichangapp.viewModels.UserViewModel
 import cl.uandes.pichangapp.views.home.OrganizedMatchAdapter
+import org.koin.android.ext.android.inject
 
 class OrganizedMatchAccessFragment : Fragment(), OrganizedMatchAdapter.ActionListener{
     private lateinit var organizedmatchadapter: OrganizedMatchAdapter
     private var _binding: OrganizedMatchAccessFragmentBinding? = null
     private val binding get() = _binding!!
+    private val apiViewModel: ApiViewModel by inject()
+    private val userViewModel: UserViewModel by inject()
+
     var MatchDate=""
     var Hour=""
     var Place=""
@@ -26,7 +33,22 @@ class OrganizedMatchAccessFragment : Fragment(), OrganizedMatchAdapter.ActionLis
         savedInstanceState: Bundle?
     ): View? {
         _binding = OrganizedMatchAccessFragmentBinding.inflate(inflater, container, false)
-        organizedmatchadapter = OrganizedMatchAdapter(myNotFriends.toMutableList(), this)
+        organizedmatchadapter = OrganizedMatchAdapter(this)
+        val organizedListView = binding.OrganizedtListView
+        organizedListView.layoutManager = LinearLayoutManager(context)
+        organizedListView.adapter = organizedmatchadapter
+
+        currentUser!!.id?.let { apiViewModel.getUserNoFriends(it.toInt()) }
+
+        userViewModel.getNoFriends().observe(viewLifecycleOwner){
+            organizedmatchadapter.set(it)
+            organizedmatchadapter.notifyDataSetChanged()
+        }
+
+        //expand()
+        filter()
+        //setAttributesToItem()
+
         return binding.root
     }
 
@@ -38,12 +60,7 @@ class OrganizedMatchAccessFragment : Fragment(), OrganizedMatchAdapter.ActionLis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val organizedListView = binding.OrganizedtListView
-        organizedListView.layoutManager = LinearLayoutManager(context)
-        organizedListView.adapter = organizedmatchadapter
-        //expand()
-        filter()
-        //setAttributesToItem()
+
     }
 
     private fun filter(){

@@ -14,8 +14,6 @@ import java.util.concurrent.Executors
 
 class FriendViewModel(application: Application, private val repository: FriendRepository): AndroidViewModel(application) {
 
-    var friends = mutableListOf<FriendEntity>()
-    var friendRequests = mutableListOf<FriendEntity>()
     val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
     fun getAcceptedFriends(): LiveData<List<FriendEntity>> {
@@ -29,16 +27,5 @@ class FriendViewModel(application: Application, private val repository: FriendRe
     fun deleteAllFriends(){
         repository.deleteAllFriends()
     }
-
-
-    fun addFriend(friend: FriendEntity){
-        viewModelScope.launch(Dispatchers.IO) {
-            //repository.addFriend(friend)
-        }
-    }
-
-
-
-
 
 }

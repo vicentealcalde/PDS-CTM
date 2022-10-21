@@ -15,8 +15,8 @@ import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.api.UserObject
 import cl.uandes.pichangapp.R
 import cl.uandes.pichangapp.currentUser
-import cl.uandes.pichangapp.myNotFriends
 import cl.uandes.pichangapp.viewModels.FriendViewModel
+import cl.uandes.pichangapp.viewModels.UserViewModel
 import org.koin.android.ext.android.inject
 
 
@@ -26,7 +26,7 @@ class LoginAccessFragment : Fragment() {
 
     private val apiViewModel: ApiViewModel by inject()
     private val friendViewModel: FriendViewModel by inject()
-
+    private val userViewModel: UserViewModel by inject()
 
 
     override fun onCreateView(
@@ -73,14 +73,9 @@ class LoginAccessFragment : Fragment() {
                 if (response.isSuccessful) {
                     try {
                         currentUser = response.body()?.get(0)
-                        myNotFriends.clear()
                         friendViewModel.executor.execute {
                             friendViewModel.deleteAllFriends()
-                            currentUser!!.id?.let { it ->
-                                apiViewModel.getUserFriends(it.toInt())
-                                apiViewModel.getFriendRequests(it.toInt())
-                                apiViewModel.getUserNoFriends(it.toInt())
-                            }
+                            userViewModel.deleteAllNoFriends()
                         }
                         findNavController().navigate(R.id.action_loginAccessFragment_to_search_match_navigation)
                     }

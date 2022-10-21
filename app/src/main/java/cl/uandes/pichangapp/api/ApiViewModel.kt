@@ -5,22 +5,20 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cl.uandes.pichangapp.currentUser
-import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.friend.FriendEntityMapper
 import cl.uandes.pichangapp.database.friend.FriendRepository
 import cl.uandes.pichangapp.database.friend.UserToFriendEntityMapper
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
+import cl.uandes.pichangapp.database.user.UserRepository
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
-import cl.uandes.pichangapp.myNotFriends
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class ApiViewModel(application: Application, private val repository: Repository, private val friendRepository: FriendRepository) : ViewModel() {
+class ApiViewModel(application: Application, private val repository: Repository, private val friendRepository: FriendRepository, private val userRepository: UserRepository) : ViewModel() {
     var myResponse: MutableLiveData<Response<List<UserEntity>>> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -79,9 +77,8 @@ class ApiViewModel(application: Application, private val repository: Repository,
             val response: Response<List<UserEntity>> = repository.getUserNoFriends(userId)
             Log.d("No Friends","Response: ${response.body()}")
             response.body()?.forEach {
-                it.username?.let { it1 -> myNotFriends.add(it1) }
+                userRepository.addUser(it)
             }
-            Log.d("No Friends","mynoFriends: $myNotFriends")
         }
     }
     fun getInGamesOfLobby(lobbyId: Int){

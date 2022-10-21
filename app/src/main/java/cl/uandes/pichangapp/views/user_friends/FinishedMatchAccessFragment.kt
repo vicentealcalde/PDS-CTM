@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.databinding.FinishedMatchAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.viewModels.FriendViewModel
@@ -18,7 +19,7 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
     private var _binding: FinishedMatchAccessFragmentBinding? = null
     private val binding get() = _binding!!
     private val friendViewModel: FriendViewModel by inject()
-
+    private val apiViewModel: ApiViewModel by inject()
 
 
     override fun onCreateView(
@@ -32,6 +33,8 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
         resultListView.layoutManager = LinearLayoutManager(context)
         resultListView.adapter = resultItemAdapter
         filter()
+
+        currentUser!!.id?.toInt()?.let { apiViewModel.getUserFriends(it) }
 
         friendViewModel.getAcceptedFriends().observe(viewLifecycleOwner){
             resultItemAdapter.set(it)

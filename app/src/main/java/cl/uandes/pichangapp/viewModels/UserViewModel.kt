@@ -2,14 +2,22 @@ package cl.uandes.pichangapp.viewModels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import cl.uandes.pichangapp.database.user.UserDao
 import cl.uandes.pichangapp.database.user.UserEntity
+import cl.uandes.pichangapp.database.user.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class UserViewModel(application: Application, dao: UserDao): AndroidViewModel(application) {
+class UserViewModel(application: Application, private val repository: UserRepository): AndroidViewModel(application) {
 
+    fun getNoFriends(): LiveData<List<UserEntity>> {
+        return repository.getNoFriends()
+    }
+
+    fun deleteAllNoFriends(){
+        repository.deleteAllNoFriends()
+    }
 
     fun addUser(user: UserEntity){
         viewModelScope.launch(Dispatchers.IO) {

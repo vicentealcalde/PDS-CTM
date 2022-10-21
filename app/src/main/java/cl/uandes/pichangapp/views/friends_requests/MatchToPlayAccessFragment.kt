@@ -33,7 +33,7 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
 
         resultLisThisWeek.adapter = matchadapter
-
+        currentUser!!.id?.let { apiViewModel.getFriendRequests(it.toInt()) }
 
         filter()
 

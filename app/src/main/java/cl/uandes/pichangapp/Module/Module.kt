@@ -8,7 +8,7 @@ import cl.uandes.pichangapp.database.AppDatabase
 import cl.uandes.pichangapp.database.AppRepository
 import cl.uandes.pichangapp.database.friend.FriendRepository
 import cl.uandes.pichangapp.database.lobby.LobbyRepository
-import cl.uandes.pichangapp.database.user.UsersRepository
+import cl.uandes.pichangapp.database.user.UserRepository
 import cl.uandes.pichangapp.viewModels.FriendViewModel
 import cl.uandes.pichangapp.viewModels.LobbyViewModel
 import cl.uandes.pichangapp.viewModels.UserViewModel
@@ -23,7 +23,7 @@ val myModule = module{
     //Repositories
     single { AppRepository(get()) }
 
-    single { UsersRepository(get()) }
+    single { UserRepository(get()) }
     single { LobbyRepository(get()) }
     single { FriendRepository(get()) }
 
@@ -35,7 +35,7 @@ val myModule = module{
 
     //API
     single { Repository() }
-    viewModel { ApiViewModel(Application(),get(), get()) }
+    viewModel { ApiViewModel(Application(),get(), get(), get()) }
 
     viewModel { FriendViewModel(Application(), get()) }
     viewModel { LobbyViewModel(Application(), get()) }
