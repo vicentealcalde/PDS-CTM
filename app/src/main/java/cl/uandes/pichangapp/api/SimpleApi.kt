@@ -2,6 +2,7 @@ package cl.uandes.pichangapp.api
 
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
+import cl.uandes.pichangapp.models.InGamePlayer
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -53,4 +54,11 @@ interface SimpleApi {
     suspend fun getUserNoFriends(
         @Path("id") id : Int
     ): Response<List<UserEntity>>
+    
+    //Lobby Calls
+    @GET("lobbies_igp/{id}")
+    suspend fun getInGamesOfLobby(
+        @Path("id") id : Int
+    ): Response<List<InGamePlayer>>
+
 }

@@ -2,6 +2,7 @@ package cl.uandes.pichangapp.api
 
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
+import cl.uandes.pichangapp.models.InGamePlayer
 import retrofit2.Response
 
 class Repository {
@@ -27,5 +28,8 @@ class Repository {
     }
     suspend fun  getUserNoFriends(userId: Int): Response<List<UserEntity>>{
         return RetrofitInstance.api.getUserNoFriends(userId)
+    }
+    suspend fun getInGamesOfLobby(lobbyId: Int): Response<List<InGamePlayer>>{
+        return RetrofitInstance.api.getInGamesOfLobby(lobbyId)
     }
 }

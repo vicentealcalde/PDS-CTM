@@ -12,6 +12,7 @@ import cl.uandes.pichangapp.database.friend.FriendRepository
 import cl.uandes.pichangapp.database.friend.UserToFriendEntityMapper
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
+import cl.uandes.pichangapp.models.InGamePlayer
 import cl.uandes.pichangapp.myNotFriends
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -81,6 +82,12 @@ class ApiViewModel(application: Application, private val repository: Repository,
             }
 
             Log.d("No Friends","mynoFriends: $myNotFriends")
+        }
+    }
+    fun getInGamesOfLobby(lobbyId: Int){
+        viewModelScope.launch {
+            val response: Response<List<InGamePlayer>> = repository.getInGamesOfLobby(lobbyId)
+            Log.d("Lobby","Lobby InGame: ${response.body()}")
         }
     }
 }
