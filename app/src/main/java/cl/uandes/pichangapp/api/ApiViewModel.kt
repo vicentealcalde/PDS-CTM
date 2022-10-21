@@ -10,6 +10,7 @@ import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.friend.FriendEntityMapper
 import cl.uandes.pichangapp.database.friend.FriendRepository
 import cl.uandes.pichangapp.database.friend.UserToFriendEntityMapper
+import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
@@ -87,6 +88,11 @@ class ApiViewModel(application: Application, private val repository: Repository,
         viewModelScope.launch {
             val response: Response<List<InGamePlayer>> = repository.getInGamesOfLobby(lobbyId)
             Log.d("Lobby","Lobby InGame: ${response.body()}")
+        }
+    }
+    fun createLobby(lobbyObject: AddLobbyObject){
+        viewModelScope.launch {
+            val response: Response<LobbyEntity> = repository.createLobby(lobbyObject)
         }
     }
 }

@@ -1,5 +1,6 @@
 package cl.uandes.pichangapp.api
 
+import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
@@ -31,5 +32,8 @@ class Repository {
     }
     suspend fun getInGamesOfLobby(lobbyId: Int): Response<List<InGamePlayer>>{
         return RetrofitInstance.api.getInGamesOfLobby(lobbyId)
+    }
+    suspend fun createLobby(lobbyObject: AddLobbyObject): Response<LobbyEntity>{
+        return RetrofitInstance.api.createLobby(lobbyObject)
     }
 }

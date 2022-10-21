@@ -1,5 +1,6 @@
 package cl.uandes.pichangapp.api
 
+import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
@@ -60,5 +61,10 @@ interface SimpleApi {
     suspend fun getInGamesOfLobby(
         @Path("id") id : Int
     ): Response<List<InGamePlayer>>
+
+    @POST("lobbies")
+    suspend fun createLobby(
+        @Body lobby: AddLobbyObject
+    ): Response<LobbyEntity>
 
 }
