@@ -43,4 +43,7 @@ class Repository {
     suspend fun getUserLobbies(userId: Int): Response<List<Lobby>> {
         return RetrofitInstance.api.getUserLobbies(userId)
     }
+    suspend fun getUserPendingLobbies(userId: Int): Response<List<InGamePlayer>> {
+        return RetrofitInstance.api.getUserPendingLobbies(userId)
+    }
 }

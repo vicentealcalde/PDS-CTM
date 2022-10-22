@@ -89,4 +89,9 @@ interface SimpleApi {
         @Path("id") id : Int
     ): Response<List<Lobby>>
 
+    @GET("invites_pending/{id}")
+    suspend fun getUserPendingLobbies(
+        @Path("id") id: Int
+    ): Response<List<InGamePlayer>>
+
 }

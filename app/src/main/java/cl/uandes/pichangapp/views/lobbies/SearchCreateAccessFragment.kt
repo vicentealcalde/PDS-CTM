@@ -42,7 +42,10 @@ class SearchCreateAccessFragment: Fragment(), LobbyAdapter.ActionListener {
         organizedListView.adapter = lobbyAdapter
 
         // API call
-        currentUser!!.id?.let { apiViewModel.getUserLobbies(it.toInt()) }
+        currentUser!!.id?.let {
+            apiViewModel.getUserLobbies(it.toInt())
+            apiViewModel.getUserPendingLobbies(it.toInt())
+        }
 
         //Update View when local DB changes are detected
         lobbyViewModel.getUserLobbies().observe(viewLifecycleOwner){

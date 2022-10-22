@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import cl.uandes.pichangapp.database.friend.FriendEntityMapper
 import cl.uandes.pichangapp.database.friend.FriendRepository
 import cl.uandes.pichangapp.database.friend.UserToFriendEntityMapper
+import cl.uandes.pichangapp.database.lobby.InGamePlayerToLobbyEntityMapper
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.lobby.LobbyEntityMapper
 import cl.uandes.pichangapp.database.lobby.LobbyRepository
@@ -131,6 +132,19 @@ class ApiViewModel(application: Application,
 
             response.body()?.forEach{
                 lobbyRepository.addLobby(LobbyEntityMapper().mapToCached(it))
+            }
+        }
+    }
+
+    fun getUserPendingLobbies(userId: Int){
+        viewModelScope.launch {
+            val response: Response<List<InGamePlayer>> = repository.getUserPendingLobbies(userId)
+            Log.d("Lobby","Lobby Pending Lobbies: ${response.body()}")
+
+            response.body()?.forEach{
+                lobbyRepository.addLobby(
+                    LobbyEntityMapper().mapToCached(InGamePlayerToLobbyEntityMapper().mapFromCached(it))
+                )
             }
         }
     }

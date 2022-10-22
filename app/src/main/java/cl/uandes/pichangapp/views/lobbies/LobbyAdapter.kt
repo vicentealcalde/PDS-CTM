@@ -1,9 +1,11 @@
 package cl.uandes.pichangapp.views.home
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
@@ -39,11 +41,11 @@ class LobbyAdapter (
 
         val lobby: LobbyEntity = lobbies[position]
         val button = holder.button
-        /*
-        if (currentUser!!.id?.toInt() == lobby.current_user){
-            button.background =
+
+        if (lobby.status == -1){
+            button.setBackgroundColor(Color.parseColor("#AEAEAE"))
         }
-         */
+
         val textView2 = holder.textView2
         //val profileImage = holder.profileImage
 
