@@ -26,6 +26,9 @@
         <argument
             android:name="matchIndex"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_expandToPlayFragment_to_expandgameFragment"
+            app:destination="@id/expandgameFragment" />
     </fragment>
     <fragment
         android:id="@+id/rivalInformationFragment2"
@@ -38,4 +41,8 @@
         android:id="@+id/filterMenuParticipatingFragment"
         android:name="cl.uandes.pichangapp.views.filter.FilterMenuParticipatingFragment"
          />
+    <fragment
+        android:id="@+id/expandgameFragment"
+        android:name="cl.uandes.pichangapp.ExpandgameFragment"
+        android:label="ExpandgameFragment" />
 </navigation>
