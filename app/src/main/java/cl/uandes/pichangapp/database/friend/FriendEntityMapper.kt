@@ -12,7 +12,8 @@ class FriendEntityMapper: EntityMapper<FriendEntity, Friend> {
         return FriendEntity(
             type.sender,
             "",
-            0
+            0,
+            type.id
         )
     }
 }

@@ -1,6 +1,7 @@
 package cl.uandes.pichangapp
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,7 +51,7 @@ class MatchAdapter (
             val myId: Int? = currentUser?.id?.toInt()
             if (myId != null) {
                 // Status 1 to Accept, 0 to Reject Request
-                friend.friendId?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 1) }
+                friend.friendshipId?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 1) }
             }
         }
     }

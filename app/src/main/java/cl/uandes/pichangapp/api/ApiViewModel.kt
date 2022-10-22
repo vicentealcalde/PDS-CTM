@@ -9,16 +9,23 @@ import cl.uandes.pichangapp.database.friend.FriendEntityMapper
 import cl.uandes.pichangapp.database.friend.FriendRepository
 import cl.uandes.pichangapp.database.friend.UserToFriendEntityMapper
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
+import cl.uandes.pichangapp.database.lobby.LobbyEntityMapper
+import cl.uandes.pichangapp.database.lobby.LobbyRepository
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.database.user.UserRepository
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
+import cl.uandes.pichangapp.models.Lobby
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class ApiViewModel(application: Application, private val repository: Repository, private val friendRepository: FriendRepository, private val userRepository: UserRepository) : ViewModel() {
+class ApiViewModel(application: Application,
+                   private val repository: Repository,
+                   private val friendRepository: FriendRepository,
+                   private val userRepository: UserRepository,
+                   private val lobbyRepository: LobbyRepository) : ViewModel() {
     var myResponse: MutableLiveData<Response<List<UserEntity>>> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -64,9 +71,9 @@ class ApiViewModel(application: Application, private val repository: Repository,
         }
     }
 
-    fun acceptFriend(sender: Int, status: Int){
+    fun acceptFriend(id: Int, res: Int) {
         viewModelScope.launch {
-            val response: Response<Friend> = repository.acceptFriend(sender, status)
+            val response: Response<Friend> = repository.acceptFriend(id, res)
 
             Log.d("Friends","Accept Friend Response: ${response.body()}")
         }
@@ -94,7 +101,12 @@ class ApiViewModel(application: Application, private val repository: Repository,
     }
     fun getUserLobbies(userId: Int){
         viewModelScope.launch {
-            val response: Response<List<InGamePlayer>> = repository.getUserLobbies(userId)
+            val response: Response<List<Lobby>> = repository.getUserLobbies(userId)
+            Log.d("Lobby", "Lobby GET Response: ${response.body()}")
+
+            response.body()?.forEach{
+                lobbyRepository.addLobby(LobbyEntityMapper().mapToCached(it))
+            }
         }
     }
 }

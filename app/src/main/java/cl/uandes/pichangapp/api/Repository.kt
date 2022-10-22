@@ -4,6 +4,7 @@ import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
+import cl.uandes.pichangapp.models.Lobby
 import retrofit2.Response
 
 class Repository {
@@ -24,8 +25,8 @@ class Repository {
     suspend fun addFriend(sender: Int, receiver: Int, status: Int): Response<Friend>{
         return RetrofitInstance.api.addFriend(AddFriendObject(sender, receiver, status))
     }
-    suspend fun acceptFriend(sender: Int, status: Int): Response<Friend>{
-        return RetrofitInstance.api.acceptFriend(sender, status)
+    suspend fun acceptFriend(id: Int, res: Int): Response<Friend>{
+        return RetrofitInstance.api.acceptFriend(id, res)
     }
     suspend fun  getUserNoFriends(userId: Int): Response<List<UserEntity>>{
         return RetrofitInstance.api.getUserNoFriends(userId)
@@ -36,7 +37,7 @@ class Repository {
     suspend fun createLobby(lobbyObject: AddLobbyObject): Response<LobbyEntity>{
         return RetrofitInstance.api.createLobby(lobbyObject)
     }
-    suspend fun getUserLobbies(userId: Int): Response<List<InGamePlayer>> {
+    suspend fun getUserLobbies(userId: Int): Response<List<Lobby>> {
         return RetrofitInstance.api.getUserLobbies(userId)
     }
 }

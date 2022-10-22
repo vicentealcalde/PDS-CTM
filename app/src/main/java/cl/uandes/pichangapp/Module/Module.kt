@@ -35,7 +35,7 @@ val myModule = module{
 
     //API
     single { Repository() }
-    viewModel { ApiViewModel(Application(),get(), get(), get()) }
+    viewModel { ApiViewModel(Application(),get(), get(), get(), get() ) }
 
     viewModel { FriendViewModel(Application(), get()) }
     viewModel { LobbyViewModel(Application(), get()) }

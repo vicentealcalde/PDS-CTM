@@ -24,7 +24,7 @@ class LobbyEntityMapper: EntityMapper<LobbyEntity, Lobby> {
             type.dices_per_player,
             type.current_user,
             //Change members from list of ints to string
-            type.members.joinToString()
+            ""
         )
     }
 }

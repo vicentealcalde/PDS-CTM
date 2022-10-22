@@ -15,5 +15,7 @@ data class FriendEntity (
     @ColumnInfo(name = "friendName")
     val friendName: String?,
     @ColumnInfo(name = "status")
-    val status: Int
+    val status: Int,
+    @ColumnInfo(name = "friendshipId")
+    val friendshipId: Long?,
 ): Parcelable

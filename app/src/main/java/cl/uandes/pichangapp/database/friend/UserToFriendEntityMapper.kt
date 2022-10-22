@@ -8,7 +8,8 @@ class UserToFriendEntityMapper: EntityMapper<UserEntity, FriendEntity> {
         return FriendEntity(
             type.id,
             type.username,
-            3
+            3,
+            0
         )
     }
 

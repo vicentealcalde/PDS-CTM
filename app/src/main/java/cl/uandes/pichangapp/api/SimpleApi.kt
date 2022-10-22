@@ -4,6 +4,7 @@ import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
+import cl.uandes.pichangapp.models.Lobby
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -45,9 +46,9 @@ interface SimpleApi {
     ): Response<Friend>
 
     // Accept Friend
-    @PUT("friends/{id}")
+    @POST("accept_friends")
     suspend fun acceptFriend(
-        @Path("id") id : Int,
+        @Query("id") id: Int,
         @Query("res") res: Int
     ): Response<Friend>
 
@@ -70,6 +71,6 @@ interface SimpleApi {
     @GET("active_lobbies/{id}")
     suspend fun getUserLobbies(
         @Path("id") id : Int
-    ): Response<List<InGamePlayer>>
+    ): Response<List<Lobby>>
 
 }
