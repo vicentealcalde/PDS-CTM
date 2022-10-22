@@ -34,6 +34,9 @@ class Repository {
     suspend fun getPlayersOfLobby(lobbyId: Int): Response<List<InGamePlayer>>{
         return RetrofitInstance.api.getPlayersOfLobby(lobbyId)
     }
+    suspend fun getUsersOfLobby(lobbyId:Int): Response<List<UserEntity>> {
+        return RetrofitInstance.api.getUsersOfLobby(lobbyId)
+    }
     suspend fun createLobby(lobbyObject: AddLobbyObject): Response<LobbyEntity>{
         return RetrofitInstance.api.createLobby(lobbyObject)
     }

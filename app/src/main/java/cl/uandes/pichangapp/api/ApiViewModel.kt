@@ -29,6 +29,9 @@ class ApiViewModel(application: Application,
     var myResponse: MutableLiveData<Response<List<UserEntity>>> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
+    //*****************************************
+    //*************  Users Calls  *************
+    //*****************************************
     fun getLogin(userObject: UserObject){
         viewModelScope.launch {
             val response: Response<List<UserEntity>> = repository.getLogin(userObject)
@@ -43,6 +46,10 @@ class ApiViewModel(application: Application,
         }
     }
 
+    //*****************************************
+    //************  Friends Calls  ************
+    //*****************************************
+    // GET accepted friends from API
     fun getUserFriends(userId: Int){
         viewModelScope.launch {
             val response: Response<List<UserEntity>> = repository.getUserFriends(userId)
@@ -53,6 +60,7 @@ class ApiViewModel(application: Application,
         }
     }
 
+    // GET Requests from Api
     fun getFriendRequests(userId: Int){
         viewModelScope.launch {
             val response: Response<List<Friend>> = repository.getFriendRequests(userId)
@@ -63,6 +71,7 @@ class ApiViewModel(application: Application,
         }
     }
 
+    // Send Friend Request: sender is current_user, status = 0 for 'pending' Friend Request
     fun addFriend(sender: Int, receiver:Int, status: Int){
         viewModelScope.launch {
             val response: Response<Friend> = repository.addFriend(sender, receiver, status)
@@ -71,6 +80,7 @@ class ApiViewModel(application: Application,
         }
     }
 
+    // Accept Friend Requests, res = 1 Accept, res = 0 Reject
     fun acceptFriend(id: Int, res: Int) {
         viewModelScope.launch {
             val response: Response<Friend> = repository.acceptFriend(id, res)
@@ -79,6 +89,7 @@ class ApiViewModel(application: Application,
         }
     }
 
+    // GET users that are not friends of current_user
     fun getUserNoFriends(userId: Int){
         viewModelScope.launch {
             val response: Response<List<UserEntity>> = repository.getUserNoFriends(userId)
@@ -88,17 +99,31 @@ class ApiViewModel(application: Application,
             }
         }
     }
+
+    //*****************************************
+    //*************  Lobby Calls  *************
+    //*****************************************
+    // GET InGamePlayers of specific lobby
     fun getPlayersOfLobby(lobbyId: Int){
         viewModelScope.launch {
             val response: Response<List<InGamePlayer>> = repository.getPlayersOfLobby(lobbyId)
-            Log.d("Lobby","Lobby InGame: ${response.body()}")
+            Log.d("Lobby","Lobby InGames: ${response.body()}")
         }
     }
+    // GET Users from Lobby, necessary for usernames of lobby users
+    fun getUsersOfLobby(lobbyId: Int){
+        viewModelScope.launch {
+            val response: Response<List<UserEntity>> = repository.getUsersOfLobby(lobbyId)
+            Log.d("Lobby","Lobby Users: ${response.body()}")
+        }
+    }
+    // POST to create Lobby
     fun createLobby(lobbyObject: AddLobbyObject){
         viewModelScope.launch {
             val response: Response<LobbyEntity> = repository.createLobby(lobbyObject)
         }
     }
+    // GET all lobbies from current_user
     fun getUserLobbies(userId: Int){
         viewModelScope.launch {
             val response: Response<List<Lobby>> = repository.getUserLobbies(userId)

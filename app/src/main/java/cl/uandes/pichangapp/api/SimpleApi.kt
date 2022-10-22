@@ -10,7 +10,9 @@ import retrofit2.http.*
 
 interface SimpleApi {
 
-    //User Calls
+    //*****************************************
+    //*************  Users Calls  *************
+    //*****************************************
     @GET("login")
     suspend fun getLogin(
         @Query("username") user: String,
@@ -26,7 +28,9 @@ interface SimpleApi {
     suspend fun getAllUsers(): Response<List<UserObject>>
 
 
-    //Friends Calls
+    //*****************************************
+    //************  Friends Calls  ************
+    //*****************************************
     // Friends Request received
     @GET("friend_requests/{id}")
     suspend fun getFriendRequests(
@@ -56,18 +60,30 @@ interface SimpleApi {
     suspend fun getUserNoFriends(
         @Path("id") id : Int
     ): Response<List<UserEntity>>
-    
-    //Lobby Calls
+
+
+    //*****************************************
+    //*************  Lobby Calls  *************
+    //*****************************************
+    // Get the IGPs from a Lobby
     @GET("lobbies_igp/{id}")
     suspend fun getPlayersOfLobby(
         @Path("id") id : Int
     ): Response<List<InGamePlayer>>
 
+    // Users per Lobby, necessary to get the username of the members
+    @GET("users_per_lobby/{id}")
+    suspend fun getUsersOfLobby(
+        @Path("id") id: Int
+    ): Response<List<UserEntity>>
+
+    // Create Lobby API call
     @POST("lobbies")
     suspend fun createLobby(
         @Body lobby: AddLobbyObject
     ): Response<LobbyEntity>
 
+    // Get User's Lobbies
     @GET("active_lobbies/{id}")
     suspend fun getUserLobbies(
         @Path("id") id : Int
