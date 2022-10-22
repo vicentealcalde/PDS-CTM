@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp
+/*package cl.uandes.pichangapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -74,4 +74,4 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
         findNavController().navigate(R.id.action_finishedMatchAccessFragment_to_expandMatchResultFragment, bundle)
     }
 
-}
+}*/

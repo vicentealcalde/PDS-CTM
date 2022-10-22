@@ -12,6 +12,7 @@ import cl.uandes.pichangapp.R
 import cl.uandes.pichangapp.allUserMatches
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
+import cl.uandes.pichangapp.models.Lobby
 
 class PartyAdapter (
     private val actionListener: ActionListener
@@ -59,22 +60,4 @@ class PartyAdapter (
     override fun getItemCount(): Int {
         return nofriends.size
     }
-
-
-
-}
-
-
-    private fun matchType(match: Match): String {
-        return match.javaClass.simpleName
-    }
-
-    interface ActionListener {
-        fun goToMatchDetails(match: Match)
-    }
-
-    override fun getItemCount(): Int {
-        return nofriends.size
-    }
-
 }

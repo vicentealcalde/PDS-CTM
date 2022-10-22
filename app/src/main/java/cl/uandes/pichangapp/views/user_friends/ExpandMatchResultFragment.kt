@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp
+/*package cl.uandes.pichangapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -56,4 +56,4 @@ class ExpandMatchResultFragment : Fragment() {
         DescriptionOfMatch?.text = match?.DescriptionOfMatch
 
     }
-}
+}*/

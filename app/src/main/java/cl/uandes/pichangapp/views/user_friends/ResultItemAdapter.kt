@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp
+/*package cl.uandes.pichangapp
 
 import android.view.LayoutInflater
 import android.view.View
@@ -55,3 +55,4 @@ class ResultItemAdapter (
     }
 
 }
+*/

@@ -24,16 +24,12 @@ class OrganizedMatchAccessFragment : Fragment(), OrganizedMatchAdapter.ActionLis
     private val apiViewModel: ApiViewModel by inject()
     private val userViewModel: UserViewModel by inject()
 
-    var MatchDate=""
-    var Hour=""
-    var Place=""
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = OrganizedMatchAccessFragmentBinding.inflate(inflater, container, false)
-        organizedmatchadapter = OrganizedMatchAdapter(this)
+        organizedmatchadapter = OrganizedMatchAdapter(apiViewModel,this)
         val organizedListView = binding.OrganizedtListView
         organizedListView.layoutManager = LinearLayoutManager(context)
         organizedListView.adapter = organizedmatchadapter

@@ -26,7 +26,7 @@ class SearchCreateAccessFragment: Fragment(), OrganizedMatchAdapter.ActionListen
         savedInstanceState: Bundle?
     ): View? {
         _binding = SearchCreateAccessFragmentBinding.inflate(inflater, container, false)
-        searchdmatchadapter = OrganizedMatchAdapter( this)
+        //searchdmatchadapter = OrganizedMatchAdapter( this)
         return binding.root
     }
 
@@ -34,7 +34,7 @@ class SearchCreateAccessFragment: Fragment(), OrganizedMatchAdapter.ActionListen
         super.onViewCreated(view, savedInstanceState)
         val organizedListView = binding.SearchtListView
         organizedListView.layoutManager = LinearLayoutManager(context)
-        organizedListView.adapter = searchdmatchadapter
+        //organizedListView.adapter = searchdmatchadapter
 
         addmatch()
         filter()
