@@ -25,11 +25,9 @@ class MatchAdapter (
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val profileImage = itemView.findViewById<ImageView>(R.id.profile_image)!!
-
         val textView4 = itemView.findViewById<TextView>(R.id.textView4)!!
-
-        val button = itemView.findViewById<View>(R.id.button_send)!!
+        val buttonAccept = itemView.findViewById<View>(R.id.button_accept)!!
+        val buttonReject = itemView.findViewById<View>(R.id.button_reject)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchAdapter.ViewHolder {
@@ -43,15 +41,24 @@ class MatchAdapter (
 
         val friend: FriendEntity = friends[position]
         val textView4 = holder.textView4
-        val button = holder.button
+        val buttonAccept = holder.buttonAccept
+        val buttonReject = holder.buttonReject
         textView4.text = friend.friendId.toString()
 
 
-        button.setOnClickListener {
+        buttonAccept.setOnClickListener {
             val myId: Int? = currentUser?.id?.toInt()
             if (myId != null) {
                 // Status 1 to Accept, 0 to Reject Request
                 friend.friendshipId?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 1) }
+            }
+        }
+
+        buttonReject.setOnClickListener {
+            val myId: Int? = currentUser?.id?.toInt()
+            if (myId != null) {
+                // Status 1 to Accept, 0 to Reject Request
+                friend.friendshipId?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 0) }
             }
         }
     }
