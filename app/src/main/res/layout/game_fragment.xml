@@ -3,107 +3,81 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="10sp"
-    android:layout_marginTop="30sp"
-    android:layout_marginEnd="10sp"
-    android:layout_marginBottom="30sp">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-
-        android:id="@+id/expandaayout"
-        android:layout_width="0dp"
-        android:layout_height="738dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:background="@drawable/round_corner"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/RollButton"
+        android:layout_width="152dp"
+        android:layout_height="67dp"
+        android:layout_alignStart="@+id/powerButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="92dp"
+        android:drawableStart="@drawable/round_corner"
+        android:text="Iniciar Partida"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toEndOf="@+id/powerButton"
+        app:layout_constraintTop_toBottomOf="@+id/resultListView" />
+
+    <Button
+        android:id="@+id/powerButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="92dp"
+        android:drawableStart="@drawable/round_corner"
+        android:text="Agregar amigos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/resultListView" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/resultListView"
+        android:layout_width="206dp"
+        android:layout_height="241dp"
+        android:layout_alignParentBottom="true"
+        android:scrollbars="vertical"
 
-        <Button
-            android:id="@+id/RollButton"
-            android:layout_width="152dp"
-            android:layout_height="67dp"
-            android:layout_alignStart="@+id/powerButton"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="526dp"
-            android:layout_marginEnd="17dp"
-            android:drawableStart="@drawable/round_corner"
-            android:text="Roll" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTotal" />
 
-        <Button
-            android:id="@+id/powerButton"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="-317dp"
-            android:layout_marginEnd="219dp"
-            android:layout_marginBottom="144dp"
-            android:drawableStart="@drawable/round_corner"
-            android:text="Agregar amigos" />
+    <TextView
+        android:id="@+id/textTotal"
+        android:layout_width="70sp"
+        android:layout_height="30sp"
+        android:layout_alignParentEnd="true"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/resultListView"
-            android:layout_width="match_parent"
-            android:layout_height="303dp"
-            android:layout_alignTop="@+id/imageView"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="7dp"
+        android:layout_marginTop="28dp"
+        android:text="JUGAR"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            android:layout_marginEnd="23dp"
-            android:layout_marginBottom="383dp"
-            android:layout_toStartOf="@+id/imageView"
-            android:scrollbars="vertical"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
-        <TextView
-            android:id="@+id/textTotal"
-            android:layout_width="70sp"
-            android:layout_height="30sp"
-            android:layout_alignParentEnd="true"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
-            android:layout_marginStart="-22dp"
-            android:layout_marginEnd="182dp"
-            android:layout_marginBottom="15dp"
-            android:text="JUGAR"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="200sp"
-            android:layout_height="2sp"
-            android:layout_alignStart="@+id/textTotal"
-            android:layout_alignEnd="@+id/textTotal"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="-211dp"
-            android:layout_marginBottom="721dp"
-            android:background="#000000" />
-
-        <View
-            android:layout_width="200sp"
-            android:layout_height="2sp"
-            android:layout_alignStart="@+id/resultListView"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="14dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginBottom="720dp"
-            android:layout_toStartOf="@+id/textTotal"
-            android:background="#000000" />
-
-
-    </RelativeLayout>
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
