@@ -10,4 +10,7 @@ interface InGamePlayerDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addInGamePlayer(player: InGamePlayerEntity)
+
+    @Query("DELETE FROM InGamePlayersTable WHERE id = :playerId")
+    suspend fun deleteInGamePlayer(playerId: Int)
 }

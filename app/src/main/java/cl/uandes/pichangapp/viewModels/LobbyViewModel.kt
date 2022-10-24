@@ -17,6 +17,9 @@ class LobbyViewModel(application: Application, private val repository: LobbyRepo
     fun getUserLobbies(): LiveData<List<LobbyEntity>> {
         return repository.getUserLobbies()
     }
+    fun deleteLobby(lobbyId: Int){
+        return repository.deleteLobby(lobbyId)
+    }
 
     fun deleteAllLobbies(){
         return repository.deleteAllLobbies()

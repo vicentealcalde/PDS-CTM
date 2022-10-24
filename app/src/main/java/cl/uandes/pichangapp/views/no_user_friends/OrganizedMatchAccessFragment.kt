@@ -29,7 +29,7 @@ class OrganizedMatchAccessFragment : Fragment(), OrganizedMatchAdapter.ActionLis
         savedInstanceState: Bundle?
     ): View? {
         _binding = OrganizedMatchAccessFragmentBinding.inflate(inflater, container, false)
-        organizedmatchadapter = OrganizedMatchAdapter(apiViewModel,this)
+        organizedmatchadapter = OrganizedMatchAdapter(userViewModel, apiViewModel,this)
         val organizedListView = binding.OrganizedtListView
         organizedListView.layoutManager = LinearLayoutManager(context)
         organizedListView.adapter = organizedmatchadapter

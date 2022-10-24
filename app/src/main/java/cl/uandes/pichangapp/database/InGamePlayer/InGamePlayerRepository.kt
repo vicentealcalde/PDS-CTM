@@ -11,4 +11,7 @@ class InGamePlayerRepository(private val inGamePlayerDao: InGamePlayerDao) {
     suspend fun addInGamePlayer(inGamePlayer: InGamePlayerEntity){
         return inGamePlayerDao.addInGamePlayer(inGamePlayer)
     }
+    suspend fun deleteInGamePlayer(playerId: Int){
+        return inGamePlayerDao.deleteInGamePlayer(playerId)
+    }
 }

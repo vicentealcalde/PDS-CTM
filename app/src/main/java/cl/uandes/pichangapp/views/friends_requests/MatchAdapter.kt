@@ -13,9 +13,11 @@ import cl.uandes.pichangapp.R
 import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.models.Friend
+import cl.uandes.pichangapp.viewModels.FriendViewModel
 
 class MatchAdapter (
     private val actionListener: ActionListener,
+    private val friendViewModel: FriendViewModel,
     private val apiViewModel: ApiViewModel
 ): RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
     private var friends: List<FriendEntity> = emptyList()
@@ -50,7 +52,9 @@ class MatchAdapter (
             val myId: Int? = currentUser?.id?.toInt()
             if (myId != null) {
                 // Status 1 to Accept, 0 to Reject Request
-                friend.friendshipId?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 1) }
+                friend.friendshipId?.let { it -> apiViewModel.acceptFriend(it.toInt(), 1)
+                }
+                friend.friendId?.let { it1 -> friendViewModel.deleteFriend(it1.toInt()) }
             }
         }
 
@@ -59,6 +63,7 @@ class MatchAdapter (
             if (myId != null) {
                 // Status 1 to Accept, 0 to Reject Request
                 friend.friendshipId?.let { it1 -> apiViewModel.acceptFriend(it1.toInt(), 0) }
+                friend.friendId?.let { it1 -> friendViewModel.deleteFriend(it1.toInt()) }
             }
         }
     }

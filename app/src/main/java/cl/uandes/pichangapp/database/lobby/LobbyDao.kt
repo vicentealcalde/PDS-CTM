@@ -15,5 +15,5 @@ interface LobbyDao {
     fun deleteAllLobbies()
 
     @Query("DELETE FROM LobbyTable WHERE LobbyId = :id")
-    suspend fun deleteLobby(id: Int)
+    fun deleteLobby(id: Int)
 }
