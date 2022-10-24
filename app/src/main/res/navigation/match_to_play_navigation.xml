@@ -43,6 +43,6 @@
          />
     <fragment
         android:id="@+id/expandgameFragment"
-        android:name="cl.uandes.pichangapp.ExpandgameFragment"
+        android:name="cl.uandes.pichangapp.GameFragment"
         android:label="ExpandgameFragment" />
 </navigation>
