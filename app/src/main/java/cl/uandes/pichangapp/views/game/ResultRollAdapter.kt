@@ -45,13 +45,14 @@ class ResultRollAdapter (
     }
 
     override fun onBindViewHolder(holder: ResultRollAdapter.ViewHolder, position: Int) {
-
+        println("hola")
         var dice = holder.dice
         if ( friends[position] == 1 ){
             dice.setImageResource(R.drawable.dice_1)
         }
 
         if ( friends[position] == 2 ){
+
             dice.setImageResource(R.drawable.dice_2)
         }
         if ( friends[position] == 3 ){

@@ -67,7 +67,8 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
         button?.setOnClickListener {
 
             apiViewModel.playTurn(id)
-            findNavController().navigate(R.id.action_gameFragment3_to_resultRoll)
+            println("hola desde afuera")
+            findNavController().navigate(R.id.action_gameFragment3_to_resultRollFragment)
         }
     }
 

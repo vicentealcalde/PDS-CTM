@@ -21,7 +21,7 @@ class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
     private val binding get() = _binding!!
     private lateinit var gameadapter:  ResultRollAdapter
     private val apiViewModel: ApiViewModel by inject()
-    private val ingameplayersviewmodel: InGamePlayersViewModel by inject()
+
 
 
     override fun onCreateView(
@@ -34,13 +34,13 @@ class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
         var lobbyid :Int = 0
         resultLisThisWeek.adapter =gameadapter
-
+        play_roll()
         currentUser!!.id?.let {
             lobbyid = it.toInt()
             apiViewModel.getInGamePlayersFromLobby(it.toInt()) }
 
         // filter()
-
+        println("hola 3")
         apiViewModel.myRoll.observe(viewLifecycleOwner){
             gameadapter.set(it.body()!!)
             gameadapter.notifyDataSetChanged()
@@ -49,6 +49,16 @@ class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
 
 
         return binding.root
+    }
+
+    private fun play_roll() {
+        val button = _binding?.button
+
+        button?.setOnClickListener {
+
+            apiViewModel.playTurn(id)
+            findNavController().navigate(R.id.action_resultRollFragment_to_homeFragment)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
