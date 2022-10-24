@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.views.user_friends/*package cl.uandes.pichangapp
+package cl.uandes.pichangapp.views.user_friends
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,14 +8,17 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.allUserMatches
 import cl.uandes.pichangapp.api.ApiViewModel
+import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.databinding.FinishedMatchAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.viewModels.FriendViewModel
 import org.koin.android.ext.android.inject
 
 class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener {
-    private lateinit var resultItemAdapter: ResultItemAdapter //
+    private lateinit var resultItemAdapter: ResultItemAdapter
     private var _binding: FinishedMatchAccessFragmentBinding? = null
     private val binding get() = _binding!!
     private val friendViewModel: FriendViewModel by inject()
@@ -74,4 +77,4 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
         findNavController().navigate(R.id.action_finishedMatchAccessFragment_to_expandMatchResultFragment, bundle)
     }
 
-}*/
+}

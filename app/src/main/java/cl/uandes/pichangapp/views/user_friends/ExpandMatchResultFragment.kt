@@ -1,11 +1,13 @@
-/*package cl.uandes.pichangapp
+package cl.uandes.pichangapp.views.user_friends
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import cl.uandes.pichangapp.ExpandMatchResultFragmentArgs
 import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.allUserMatches
 import cl.uandes.pichangapp.databinding.ExpandMatchResultFragmentBinding
 import cl.uandes.pichangapp.models.Match
 
@@ -56,4 +58,4 @@ class ExpandMatchResultFragment : Fragment() {
         DescriptionOfMatch?.text = match?.DescriptionOfMatch
 
     }
-}*/
+}

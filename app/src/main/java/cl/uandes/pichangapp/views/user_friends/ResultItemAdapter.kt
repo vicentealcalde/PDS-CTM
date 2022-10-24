@@ -1,4 +1,4 @@
-/*package cl.uandes.pichangapp
+package cl.uandes.pichangapp.views.user_friends
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import cl.uandes.pichangapp.R
 import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.models.Match
 
@@ -55,4 +56,3 @@ class ResultItemAdapter (
     }
 
 }
-*/

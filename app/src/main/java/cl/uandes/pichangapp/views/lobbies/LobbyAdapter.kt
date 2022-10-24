@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
-import cl.uandes.pichangapp.currentUser
+import androidx.navigation.fragment.findNavController
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
-import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Lobby
 
 class LobbyAdapter (
