@@ -12,7 +12,6 @@ import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.currentUser
 
 import cl.uandes.pichangapp.databinding.UserProfileFragmentBinding
-import cl.uandes.pichangapp.teamName
 import cl.uandes.pichangapp.viewModels.UserStatsViewModel
 import org.koin.android.ext.android.inject
 
@@ -43,15 +42,19 @@ class UserProfileFragment: Fragment() {
         setAttributesToItem()
 
         userStatsViewModel.getUserStats().observe(viewLifecycleOwner){
-            textLost?.text = it.losts.toString()
-            textNemesis?.text = it.nemesis.toString()
-            textMostCommon?.text = it.the_most.toString()
-            textDamage?.text = it.damage.toString()
-            textLeastCommon?.text = it.the_least.toString()
-            textRoundOneDice?.text = it.rounds_with_one.toString()
+            if (it != null){
+                if (it.isNotEmpty()) {
+                    val stats = it[0]
+                    Log.d("UserStats","Stats Entity: $stats")
+                    textLost?.text = stats.losts.toString()
+                    textNemesis?.text = stats.nemesis.toString()
+                    textMostCommon?.text = stats.the_most.toString()
+                    textDamage?.text = stats.damage.toString()
+                    textLeastCommon?.text = stats.the_least.toString()
+                    textRoundOneDice?.text = stats.rounds_with_one.toString()
+                }
+            }
         }
-
-
 
         return binding.root
     }

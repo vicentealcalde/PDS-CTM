@@ -5,8 +5,8 @@ import androidx.room.*
 
 @Dao
 interface UserStatsDao {
-    @Query("Select * From UserStatsTable Limit 1")
-    fun getUserStats(): LiveData<UserStatsEntity>
+    @Query("Select * From UserStatsTable")
+    fun getUserStats(): LiveData<List<UserStatsEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addUserStats(stats: UserStatsEntity)

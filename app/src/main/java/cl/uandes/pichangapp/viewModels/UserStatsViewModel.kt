@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class UserStatsViewModel(application: Application, private val repository: UserStatsRepository): AndroidViewModel(application) {
 
-    fun getUserStats(): LiveData<UserStatsEntity> {
+    fun getUserStats(): LiveData<List<UserStatsEntity>> {
         return repository.getUserStats()
     }
 

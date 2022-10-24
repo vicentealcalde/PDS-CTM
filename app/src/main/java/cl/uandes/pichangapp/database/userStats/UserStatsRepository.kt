@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 
 class UserStatsRepository(private val userStatsDao: UserStatsDao) {
 
-    fun getUserStats(): LiveData<UserStatsEntity> {
+    fun getUserStats(): LiveData<List<UserStatsEntity>> {
         return userStatsDao.getUserStats()
     }
 
