@@ -94,4 +94,19 @@ interface SimpleApi {
         @Path("id") id: Int
     ): Response<List<InGamePlayer>>
 
+    @GET("user_igp/{id}")
+    suspend fun getIGPOfUser(
+        @Path("id") id: Int
+    ):Response<List<InGamePlayer>>
+
+    @GET("trow_dices")
+    suspend fun throwDices(
+        @Query("id") id: Int
+    ): Response<List<Int>>
+
+    @POST("turn")
+    suspend fun sendTurn(
+        @Body turn: List<Int>
+    ): Response<String>
+
 }

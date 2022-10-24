@@ -46,4 +46,13 @@ class Repository {
     suspend fun getUserPendingLobbies(userId: Int): Response<List<InGamePlayer>> {
         return RetrofitInstance.api.getUserPendingLobbies(userId)
     }
+    suspend fun getIGPOfUser(userId: Int): Response<List<InGamePlayer>> {
+        return RetrofitInstance.api.getIGPOfUser(userId)
+    }
+    suspend fun throwDices(IGPid: Int): Response<List<Int>> {
+        return RetrofitInstance.api.throwDices(IGPid)
+    }
+    suspend fun sendTurn(turn: List<Int>): Response<String> {
+        return RetrofitInstance.api.sendTurn(turn)
+    }
 }

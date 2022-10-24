@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerEntityMapper
 import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerRepository
 import cl.uandes.pichangapp.database.friend.FriendEntityMapper
@@ -148,6 +149,25 @@ class ApiViewModel(application: Application,
                 lobbyRepository.addLobby(
                     LobbyEntityMapper().mapToCached(InGamePlayerToLobbyEntityMapper().mapFromCached(it))
                 )
+            }
+        }
+    }
+
+    fun playTurn(){
+        viewModelScope.launch {
+            currentUser!!.id?.let {
+                // Get IGP Call
+                val IGPIdResponse: Response<List<InGamePlayer>> = repository.getIGPOfUser(it.toInt())
+                // If the IGP return null for some reason => return (exit)
+                val igpId = IGPIdResponse.body()?.get(0)?.id ?: return@launch
+
+                // Turn Call
+                val turnResponse: Response<List<Int>> = repository.throwDices(igpId)
+                val turn = turnResponse.body() ?: return@launch
+
+                // Send turn to api Call
+                val sendTurnResponse: Response<String> = repository.sendTurn(turn)
+
             }
         }
     }
