@@ -29,11 +29,24 @@ class UserProfileFragment: Fragment() {
     ): View? {
         _binding = UserProfileFragmentBinding.inflate(inflater, container, false)
 
-        currentUser!!.id?.let { apiViewModel.updateUserStats(it.toInt()) }
+        currentUser!!.id?.let {
+            apiViewModel.updateUserStats(it.toInt())
+        }
 
+        val textLost = _binding?.textLost
+        val textNemesis =_binding?.textNemesis
+        val textMostCommon = _binding?.textMostCommon
+        val textDamage = _binding?.textDamage
+        val textLeastCommon = _binding?.textLeastCommon
+        val textRoundOneDice = _binding?.textRoundOne
 
         userStatsViewModel.getUserStats().observe(viewLifecycleOwner){
-
+            textLost?.text = it.losts.toString()
+            textNemesis?.text = it.nemesis.toString()
+            textMostCommon?.text = it.the_most.toString()
+            textDamage?.text = it.damage.toString()
+            textLeastCommon?.text = it.the_least.toString()
+            textRoundOneDice?.text = it.rounds_with_one.toString()
         }
 
         setAttributesToItem()
@@ -61,14 +74,13 @@ class UserProfileFragment: Fragment() {
     }
 
     private fun setAttributesToItem() {
-        val teamImage = _binding?.teamImage
-        val textTeamNameBackground = _binding?.textTeamNameBackground
-        val textTeamMailBackground = _binding?.textTeamMailBackground
+        val textUsername = _binding?.textTeamNameBackground
+        val textGames = _binding?.textGames
 
 
 
-        textTeamNameBackground?.text = currentUser?.username
-        textTeamMailBackground?.text = currentUser?.matches.toString()
+        textUsername?.text = currentUser?.username
+        textGames?.text = currentUser?.matches.toString()
 
 
 

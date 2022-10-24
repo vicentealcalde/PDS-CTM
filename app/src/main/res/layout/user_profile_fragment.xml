@@ -10,76 +10,47 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/LoginFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textGames"
+        app:layout_constraintEnd_toEndOf="@+id/textMostCommon"
+        app:layout_constraintStart_toEndOf="@+id/textMostCommon"
+        app:layout_constraintTop_toBottomOf="@+id/textGames">
 
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/profileTitleGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="360dp"
-            app:layout_constraintGuide_percent="0.2" />
-
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileTitleGuideline">
-
-
-            <TextView
-                android:id="@+id/textTitleProfile"
-                android:layout_width="225sp"
-                android:layout_height="wrap_content"
-                android:layout_margin="2sp"
-                android:fontFamily="sans-serif-black"
-                android:gravity="center_horizontal"
-                android:text="@string/profile"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="120dp"
-                tools:layout_editor_absoluteY="88dp" />
-
-
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/infoGuideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.42" />
-
-
-         <TextView
-            android:id="@+id/textTeamName"
-            android:layout_width="343dp"
-            android:layout_height="49dp"
-            android:layout_margin="15sp"
-            android:layout_marginTop="36dp"
+        <TextView
+            android:id="@+id/textViewNemesis"
+            android:layout_width="123dp"
+            android:layout_height="34dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
+            android:text="Némesis"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewMostCommon"
+            app:layout_constraintEnd_toStartOf="@+id/textNemesis"
+            app:layout_constraintHorizontal_bias="0.449"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textTeamName"
+            android:layout_width="357dp"
+            android:layout_height="49dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
             android:text="@string/nombre_de_ususario"
             android:textColor="@color/black"
             android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/textTeamNameBackground"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.308"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/team_image" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textTeamNameBackground"
-            android:layout_width="354dp"
+            android:layout_width="370dp"
             android:layout_height="52dp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/round_corner"
             android:gravity="start"
             android:paddingHorizontal="15sp"
@@ -87,33 +58,230 @@
             android:text="@null"
             android:textColor="@color/black"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewGames"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.28"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamName" />
+            app:layout_constraintHorizontal_bias="0.609"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textMatches"
-            android:layout_width="343dp"
-            android:layout_height="49dp"
-            android:layout_margin="15sp"
-            android:layout_marginTop="36dp"
+            android:id="@+id/textViewGames"
+            android:layout_width="113dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="282dp"
+            android:layout_marginBottom="406dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="Partidas"
             android:textColor="@color/black"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.308"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textGames"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textTeamMailBackground"
-            android:layout_width="354dp"
-            android:layout_height="52dp"
-            android:layout_margin="10sp"
-            android:layout_marginTop="8dp"
+            android:id="@+id/textViewLost"
+            android:layout_width="116dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="Perdidas"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewNemesis"
+            app:layout_constraintEnd_toStartOf="@+id/textLost"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewGames" />
+
+        <TextView
+            android:id="@+id/textViewMostCommon"
+            android:layout_width="203dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="459dp"
+            android:layout_marginEnd="208dp"
+            android:layout_marginBottom="231dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="Dado mas común"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDamage"
+            android:layout_width="69dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="180dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="Daño"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textDamage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewMostCommon" />
+
+        <TextView
+            android:id="@+id/textDamage"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="232dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/textLeastCommon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMostCommon"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewLeastCommon"
+            android:layout_width="232dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="Dado menos común"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewRoundOne"
+            app:layout_constraintEnd_toStartOf="@+id/textLeastCommon"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDamage" />
+
+        <TextView
+            android:id="@+id/textLeastCommon"
+            android:layout_width="177dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="233dp"
+            android:layout_marginTop="566dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="125dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewRoundOne"
+            android:layout_width="202dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="Rondas salvadas"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/signOutButton"
+            app:layout_constraintEnd_toStartOf="@+id/textRoundOne"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textRoundOne"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="224dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="7dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/signOutButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textLeastCommon"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textGames"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="22dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/textLost"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textLost"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/textNemesis"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textNemesis"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="212dp"
+            android:layout_marginTop="407dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="284dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textMostCommon"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/round_corner"
             android:gravity="start"
             android:paddingHorizontal="15sp"
@@ -122,19 +290,20 @@
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.28"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMatches" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewMostCommon"
+            app:layout_constraintTop_toBottomOf="@+id/textNemesis" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/team_image"
-            android:layout_width="102dp"
-            android:layout_height="136dp"
-            android:src="@drawable/extra_logo_chile"
+            android:layout_width="104dp"
+            android:layout_height="112dp"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/dice_5"
+            app:layout_constraintBottom_toTopOf="@+id/textTeamName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/signOutButton"
@@ -151,15 +320,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamMailBackground"
-            app:layout_constraintVertical_bias="0.692" />
+            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground"
+            app:layout_constraintVertical_bias="0.961" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="20dp" />
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="LoginFragment" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
