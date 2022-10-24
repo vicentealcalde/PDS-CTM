@@ -9,20 +9,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cl.uandes.pichangapp.models.Match
 import androidx.core.os.bundleOf
-import cl.uandes.pichangapp.GameAdapter
-import cl.uandes.pichangapp.R
-import cl.uandes.pichangapp.allUserMatches
+import cl.uandes.pichangapp.*
 import cl.uandes.pichangapp.api.ApiViewModel
-import cl.uandes.pichangapp.currentUser
-import cl.uandes.pichangapp.databinding.GameFragmentBinding
+import cl.uandes.pichangapp.databinding.FragmentResultRollBinding
 import cl.uandes.pichangapp.models.User
 import cl.uandes.pichangapp.viewModels.InGamePlayersViewModel
 import org.koin.android.ext.android.inject
 
-class GameFragment:  Fragment(), GameAdapter.ActionListener {
-    private var _binding: GameFragmentBinding?= null
+class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
+    private var _binding: FragmentResultRollBinding?= null
     private val binding get() = _binding!!
-    private lateinit var gameadapter: GameAdapter
+    private lateinit var gameadapter:  ResultRollAdapter
     private val apiViewModel: ApiViewModel by inject()
     private val ingameplayersviewmodel: InGamePlayersViewModel by inject()
 
@@ -31,9 +28,9 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = GameFragmentBinding.inflate(inflater, container, false)
-        gameadapter = GameAdapter(this, apiViewModel)
-        val resultLisThisWeek= binding.resultListView
+        _binding = FragmentResultRollBinding.inflate(inflater, container, false)
+        gameadapter =  ResultRollAdapter(this, apiViewModel)
+        val resultLisThisWeek= binding.exit
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
         var lobbyid :Int = 0
         resultLisThisWeek.adapter =gameadapter
@@ -41,11 +38,11 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
         currentUser!!.id?.let {
             lobbyid = it.toInt()
             apiViewModel.getInGamePlayersFromLobby(it.toInt()) }
-        play_roll(lobbyid)
+
         // filter()
 
-        ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = lobbyid).observe(viewLifecycleOwner){
-            gameadapter.set(it)
+        apiViewModel.myRoll.observe(viewLifecycleOwner){
+            gameadapter.set(it.body()!!)
             gameadapter.notifyDataSetChanged()
         }
 
@@ -61,15 +58,7 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
 
 
     }
-    private fun play_roll(id: Int) {
-        val button = _binding?.RollButton
 
-        button?.setOnClickListener {
-
-            apiViewModel.playTurn(id)
-            findNavController().navigate(R.id.action_gameFragment3_to_resultRoll)
-        }
-    }
 
     override fun onDestroy() {
         super.onDestroy()

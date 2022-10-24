@@ -64,7 +64,11 @@
     <fragment
         android:id="@+id/gameFragment3"
         android:name="cl.uandes.pichangapp.views.game.GameFragment"
-        android:label="GameFragment" />
+        android:label="GameFragment" >
+        <action
+            android:id="@+id/action_gameFragment3_to_resultRoll"
+            app:destination="@id/resultRoll" />
+    </fragment>
     <fragment
         android:id="@+id/resultRoll"
         android:name="cl.uandes.pichangapp.ResultRoll"
