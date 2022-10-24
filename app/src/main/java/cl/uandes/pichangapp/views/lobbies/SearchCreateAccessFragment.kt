@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cl.uandes.pichangapp.api.ApiViewModel
+import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.databinding.OrganizedMatchAccessFragmentBinding
 import cl.uandes.pichangapp.databinding.SearchCreateAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
@@ -81,9 +82,11 @@ class SearchCreateAccessFragment: Fragment(), LobbyAdapter.ActionListener {
     }
 
 
-    override fun goToMatchDetails(match: Match) {
-        val bundle = bundleOf("matchIndex" to otherPeoplesMatches.indexOf(match))
-        findNavController().navigate(R.id.action_homeFragment_to_expandMatchAddInformationFragment2, bundle)
+    override fun goToGameDetails(match: Int) {
+        val bundle = bundleOf("Id" to match)
+        findNavController().navigate(R.id.action_homeFragment_to_gameFragment , bundle)
+
+
     }
 }
 

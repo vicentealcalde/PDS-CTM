@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp
+package cl.uandes.pichangapp.views.game
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,18 +7,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import cl.uandes.pichangapp.databinding.MatchToPlayAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
 import androidx.core.os.bundleOf
-
-import cl.uandes.pichangapp.MatchAdapter
+import cl.uandes.pichangapp.GameAdapter
+import cl.uandes.pichangapp.R
+import cl.uandes.pichangapp.allUserMatches
 import cl.uandes.pichangapp.api.ApiViewModel
-import cl.uandes.pichangapp.databinding.GameBinding
+import cl.uandes.pichangapp.currentUser
+import cl.uandes.pichangapp.databinding.GameFragmentBinding
 import cl.uandes.pichangapp.viewModels.InGamePlayersViewModel
 import org.koin.android.ext.android.inject
 
-class GameFragment:  Fragment(), GameAdapter.ActionListener{
-    private var _binding: GameBinding?= null
+class GameFragment:  Fragment(), GameAdapter.ActionListener {
+    private var _binding: GameFragmentBinding?= null
     private val binding get() = _binding!!
     private lateinit var gameadapter: GameAdapter
     private val apiViewModel: ApiViewModel by inject()
@@ -29,7 +30,7 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener{
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = GameBinding.inflate(inflater, container, false)
+        _binding = GameFragmentBinding.inflate(inflater, container, false)
         gameadapter = GameAdapter(this, apiViewModel)
         val resultLisThisWeek= binding.resultListView
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
@@ -37,7 +38,7 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener{
         resultLisThisWeek.adapter =gameadapter
         currentUser!!.id?.let { apiViewModel.getFriendRequests(it.toInt()) }
 
-       // filter()
+        // filter()
 
         ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = id).observe(viewLifecycleOwner){
             gameadapter.set(it)
@@ -62,14 +63,14 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener{
         _binding = null
     }
 
-/*
-    private fun filter(){
-        val button = _binding?.FilterInFinishedButton
-        button?.setOnClickListener {
-            findNavController().navigate(R.id.action_matchToPlayAccessFragment_to_filterMenuParticipatingFragment)
+    /*
+        private fun filter(){
+            val button = _binding?.FilterInFinishedButton
+            button?.setOnClickListener {
+                findNavController().navigate(R.id.action_matchToPlayAccessFragment_to_filterMenuParticipatingFragment)
+            }
         }
-    }
-    */
+        */
     override fun goToMatchDetails(match: Match) {
 
         val bundle = bundleOf("matchIndex" to allUserMatches.indexOf(match))

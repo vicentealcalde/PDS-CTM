@@ -51,6 +51,10 @@ class LobbyAdapter (
 
         textView2.text = lobby.LobbyId.toString()
 
+        button.setOnClickListener {
+            actionListener.goToGameDetails(lobby.LobbyId)
+        }
+
     }
 
 
@@ -59,7 +63,7 @@ class LobbyAdapter (
     }
 
     interface ActionListener {
-        fun goToMatchDetails(match: Match)
+        fun goToGameDetails(lobby: Int)
     }
 
     override fun getItemCount(): Int {
