@@ -40,6 +40,8 @@ class UserProfileFragment: Fragment() {
         val textLeastCommon = _binding?.textLeastCommon
         val textRoundOneDice = _binding?.textRoundOne
 
+        setAttributesToItem()
+
         userStatsViewModel.getUserStats().observe(viewLifecycleOwner){
             textLost?.text = it.losts.toString()
             textNemesis?.text = it.nemesis.toString()
@@ -49,7 +51,7 @@ class UserProfileFragment: Fragment() {
             textRoundOneDice?.text = it.rounds_with_one.toString()
         }
 
-        setAttributesToItem()
+
 
         return binding.root
     }
