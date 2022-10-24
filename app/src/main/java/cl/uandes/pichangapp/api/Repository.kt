@@ -31,6 +31,10 @@ class Repository {
     suspend fun addFriend(sender: Int, receiver: Int, status: Int): Response<Friend>{
         return RetrofitInstance.api.addFriend(AddFriendObject(sender, receiver, status))
     }
+
+    suspend fun find_user(lobbyId:Int): Response<String> {
+        return RetrofitInstance.api.find_user(lobbyId)
+    }
     suspend fun acceptFriend(id: Int, res: Int): Response<Friend>{
         return RetrofitInstance.api.acceptFriend(id, res)
     }

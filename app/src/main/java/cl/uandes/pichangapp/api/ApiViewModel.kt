@@ -79,6 +79,17 @@ class ApiViewModel(application: Application,
         }
     }
 
+    fun find_user(userId: Int): String {
+        var user_name1: String = ""
+        viewModelScope.launch {
+            val response: Response<String> = repository.find_user(userId)
+            Log.d("Lobby", "Lobby GET Response: ${response.body()}")
+            user_name1 = response.body().toString()
+
+        }
+        return user_name1
+    }
+
     fun updateUserStats(userId: Int){
         viewModelScope.launch {
             val response: Response<UserStats> = repository.updateUserStats(userId)

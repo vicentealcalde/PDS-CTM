@@ -63,6 +63,11 @@ interface SimpleApi {
         @Query("res") res: Int
     ): Response<Friend>
 
+    @GET("users_username")
+    suspend fun find_user(
+        @Query("id") id : Int
+    ): Response<String>
+
     @GET("search_friends/{id}")
     suspend fun getUserNoFriends(
         @Path("id") id : Int

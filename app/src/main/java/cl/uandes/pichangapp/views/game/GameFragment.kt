@@ -34,13 +34,16 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
         gameadapter = GameAdapter(this, apiViewModel)
         val resultLisThisWeek= binding.resultListView
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
-
+        var lobbyid :Int = 0
         resultLisThisWeek.adapter =gameadapter
-        currentUser!!.id?.let { apiViewModel.getFriendRequests(it.toInt()) }
+
+        currentUser!!.id?.let {
+            lobbyid = it.toInt()
+            apiViewModel.getInGamePlayersFromLobby(it.toInt()) }
 
         // filter()
 
-        ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = id).observe(viewLifecycleOwner){
+        ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = lobbyid).observe(viewLifecycleOwner){
             gameadapter.set(it)
             gameadapter.notifyDataSetChanged()
         }

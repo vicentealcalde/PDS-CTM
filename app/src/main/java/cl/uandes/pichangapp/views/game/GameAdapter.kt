@@ -45,7 +45,8 @@ class GameAdapter (
         val textView1 = holder.textView1
         val textView2 = holder.textView2
 
-       // textView1.text = friend.friendId.toString()
+        textView1.text = friend.user.toString()
+        textView2.text = friend.dices.toString()
 
 
 
