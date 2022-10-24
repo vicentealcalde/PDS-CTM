@@ -43,7 +43,7 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
             apiViewModel.getInGamePlayersFromLobby(it.toInt()) }
         play_roll(lobbyid)
         // filter()
-
+        add()
         ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = lobbyid).observe(viewLifecycleOwner){
             gameadapter.set(it)
             gameadapter.notifyDataSetChanged()
@@ -69,6 +69,15 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
             apiViewModel.playTurn(id)
             println("hola desde afuera")
             findNavController().navigate(R.id.action_gameFragment3_to_resultRollFragment)
+        }
+    }
+    private fun add() {
+        val button = _binding?.powerButton
+
+        button?.setOnClickListener {
+
+
+            findNavController().navigate(R.id.action_gameFragment3_to_addFriendParty)
         }
     }
 

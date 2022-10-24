@@ -52,9 +52,6 @@
         <action
             android:id="@+id/action_createMatchFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
-        <action
-            android:id="@+id/action_createMatchFragment_to_addFriendParty"
-            app:destination="@id/addFriendParty" />
     </fragment>
     <fragment
         android:id="@+id/menuFilterFragment"
@@ -71,6 +68,9 @@
         <action
             android:id="@+id/action_gameFragment3_to_resultRollFragment"
             app:destination="@id/resultRollFragment" />
+        <action
+            android:id="@+id/action_gameFragment3_to_addFriendParty"
+            app:destination="@id/addFriendParty" />
     </fragment>
     <fragment
         android:id="@+id/resultRollFragment"

@@ -62,7 +62,7 @@
             android:layout_marginEnd="219dp"
             android:layout_marginBottom="144dp"
             android:drawableStart="@drawable/round_corner"
-            android:text="Powers" />
+            android:text="Agregar amigo" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/resultListView"
