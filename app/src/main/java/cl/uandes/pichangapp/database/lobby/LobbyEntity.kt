@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class LobbyEntity(
     @PrimaryKey
-    @ColumnInfo(name = "LobbyId") val LobbyId: Int,
+    @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "status") val status: Int,
     @ColumnInfo(name = "rounds") val rounds: Int,
     @ColumnInfo(name = "dices_per_player") val dices_per_player: Int,

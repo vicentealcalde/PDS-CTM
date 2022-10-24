@@ -32,7 +32,7 @@
             app:layout_constraintGuide_percent="0.02" />
 
         <TextView
-            android:id="@+id/textPlayersNumber"
+            android:id="@+id/textDicesNumber"
             android:layout_width="0dp"
             android:layout_height="40sp"
             android:layout_marginStart="24dp"
@@ -40,17 +40,17 @@
             android:layout_marginEnd="20dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="N Jugadores"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintEnd_toStartOf="@+id/editPlayersNumber"
+            app:layout_constraintEnd_toStartOf="@+id/editText1"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <EditText
-            android:id="@+id/editPlayersNumber"
+            android:id="@+id/editText1"
             android:layout_width="104dp"
             android:layout_height="48dp"
             android:layout_marginTop="27dp"
@@ -60,7 +60,6 @@
             android:background="@drawable/round_corner"
             android:ems="10"
             android:hint="@null"
-            android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:paddingHorizontal="12sp"
             android:paddingVertical="18sp"
@@ -70,26 +69,10 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/textTurnLength"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textPlayersNumber"
+            app:layout_constraintStart_toEndOf="@+id/textDicesNumber"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <ImageButton
-            android:id="@+id/button_send"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="89dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="10dp"
-
-            android:layout_marginEnd="8dp"
-
-            android:onClick="sendMessage"
-
-            android:src="@drawable/ic_add"
-            app:layout_constraintBottom_toTopOf="@+id/textPowers"
-            app:layout_constraintEnd_toEndOf="@+id/textPlayersNumber"
-            app:layout_constraintTop_toBottomOf="@+id/editPlayersNumber"
-            app:layout_constraintVertical_bias="0.712" />
 
         <TextView
             android:id="@+id/textPowers"
@@ -99,13 +82,13 @@
             android:layout_marginEnd="131dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="Poderes"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextPowers"
             app:layout_constraintEnd_toEndOf="@+id/editTextPowers"
             app:layout_constraintStart_toStartOf="@+id/textTurnLength"
-            app:layout_constraintTop_toBottomOf="@+id/editPlayersNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
         <EditText
             android:id="@+id/editTextPowers"
@@ -127,7 +110,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editTextTurnLength"
+            app:layout_constraintStart_toStartOf="@+id/editDicesNumber"
             app:layout_constraintTop_toBottomOf="@+id/textPowers"
             tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
 
@@ -139,17 +122,17 @@
             android:layout_marginBottom="11dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="Duracion turno"
+            android:text="Numero dados"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTurnLength"
+            app:layout_constraintBottom_toTopOf="@+id/editDicesNumber"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textDescripcion"
             app:layout_constraintTop_toBottomOf="@+id/editTextPowers" />
 
         <EditText
-            android:id="@+id/editTextTurnLength"
+            android:id="@+id/editDicesNumber"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="26dp"
@@ -158,7 +141,7 @@
             android:background="@drawable/round_corner"
             android:ems="10"
             android:hint="@null"
-            android:inputType="text"
+            android:inputType="number"
             android:minHeight="48dp"
             android:paddingHorizontal="12sp"
             android:paddingVertical="18sp"
@@ -179,14 +162,14 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="@string/descripcion"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/editTextDescripcion"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTurnLength" />
+            app:layout_constraintTop_toBottomOf="@+id/editDicesNumber" />
 
         <EditText
             android:id="@+id/editTextDescripcion"
@@ -206,7 +189,7 @@
             android:paddingVertical="18sp"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/CreateMatchButton"
+            app:layout_constraintBottom_toTopOf="@+id/CreateGameButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -214,7 +197,7 @@
             tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
 
         <Button
-            android:id="@+id/CreateMatchButton"
+            android:id="@+id/CreateGameButton"
             android:layout_width="64dp"
             android:layout_height="0dp"
             android:layout_marginBottom="70dp"

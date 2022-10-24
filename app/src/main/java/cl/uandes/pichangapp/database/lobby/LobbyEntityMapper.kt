@@ -6,7 +6,7 @@ import cl.uandes.pichangapp.models.Lobby
 class LobbyEntityMapper: EntityMapper<LobbyEntity, Lobby> {
     override fun mapFromCached(type: LobbyEntity): Lobby {
         return Lobby(
-            type.LobbyId,
+            type.id,
             type.status,
             type.rounds,
             type.dices_per_player,

@@ -73,7 +73,7 @@ class ApiViewModel(application: Application,
         viewModelScope.launch {
             val id = currentUser!!.id?.toInt()
             val response: Response<InGamePlayer> = repository.createUserIGP(
-                AddIGPObject(id!!, lobby.LobbyId, lobby.dices_per_player, 3))
+                AddIGPObject(id!!, lobby.id, lobby.dices_per_player, 3))
             Log.d("IGP","Create IGP Response: ${response.body()}")
 
         }
@@ -177,7 +177,7 @@ class ApiViewModel(application: Application,
     fun createLobby(lobbyObject: AddLobbyObject){
         viewModelScope.launch {
             val response: Response<LobbyEntity> = repository.createLobby(lobbyObject)
-
+            Log.d("Lobby creation:",response.body().toString())
             // Create IGP Call
             val lobby = response.body()
             if (lobby != null){

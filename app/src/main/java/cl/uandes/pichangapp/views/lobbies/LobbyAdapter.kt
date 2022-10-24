@@ -49,10 +49,10 @@ class LobbyAdapter (
         val textView2 = holder.textView2
         //val profileImage = holder.profileImage
 
-        textView2.text = lobby.LobbyId.toString()
+        textView2.text = lobby.id.toString()
 
         button.setOnClickListener {
-            actionListener.goToGameDetails(lobby.LobbyId)
+            actionListener.goToGameDetails(lobby.id)
         }
 
     }

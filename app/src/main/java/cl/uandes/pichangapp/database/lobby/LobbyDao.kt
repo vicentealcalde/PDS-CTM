@@ -14,6 +14,6 @@ interface LobbyDao {
     @Query("DELETE FROM LobbyTable")
     fun deleteAllLobbies()
 
-    @Query("DELETE FROM LobbyTable WHERE LobbyId = :id")
+    @Query("DELETE FROM LobbyTable WHERE id = :id")
     fun deleteLobby(id: Int)
 }
