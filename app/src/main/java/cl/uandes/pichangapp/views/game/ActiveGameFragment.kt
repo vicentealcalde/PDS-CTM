@@ -54,7 +54,7 @@ class ActiveGameFragment:  Fragment(), GameAdapter.ActionListener {
     private fun play_roll(id: Int) {
         val button = _binding?.RollDicesButton
         button?.setOnClickListener {
-            //apiViewModel.playTurn(id)
+            apiViewModel.playTurn(id)
             findNavController().navigate(R.id.action_activeGameFragment_to_resultRollFragment)
         }
     }

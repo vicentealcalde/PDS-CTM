@@ -211,11 +211,13 @@ class ApiViewModel(application: Application,
     }
 
     fun playTurn(lobbyId: Int){
+        Log.d("PlayTurn","Starting Turn call.")
         viewModelScope.launch {
             currentUser!!.id?.let { it ->
 
                 // Get IGP Call
                 val IGPIdResponse: Response<List<InGamePlayer>> = repository.getIGPOfUser(it.toInt())
+                Log.d("PlayTurn","Response1: ${IGPIdResponse.body()}")
                 // If the IGP return null for some reason => return (exit)
                 var igpId = -1
                 IGPIdResponse.body()?.forEach { player->
@@ -227,6 +229,7 @@ class ApiViewModel(application: Application,
 
                 // Turn Call
                 val turnResponse: Response<List<Int>> = repository.throwDices(igpId)
+                Log.d("PlayTurn","Resonse2: ${turnResponse.body()}")
                 myRoll.value = turnResponse
                 val turn = turnResponse.body() ?: return@launch
 

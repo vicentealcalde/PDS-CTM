@@ -34,7 +34,7 @@ class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
 
         resultLisThisWeek.adapter = gameadapter
-        //play_roll()
+        play_roll()
 
 
         // filter()
@@ -54,7 +54,7 @@ class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
 
         button?.setOnClickListener {
 
-            apiViewModel.playTurn(id)
+            apiViewModel.playTurn(currentLobby!!.id)
             findNavController().navigate(R.id.action_resultRollFragment_to_homeFragment)
         }
     }
