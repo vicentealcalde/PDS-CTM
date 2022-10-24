@@ -70,11 +70,10 @@ class ApiViewModel(application: Application,
         }
     }
 
-    private fun createUserIGP(lobby: LobbyEntity){
+    fun createUserIGP(userId: Int, lobby: LobbyEntity){
         viewModelScope.launch {
-            val id = currentUser!!.id?.toInt()
             val response: Response<InGamePlayer> = repository.createUserIGP(
-                AddIGPObject(id!!, lobby.id, lobby.dices_per_player, 3))
+                AddIGPObject(userId, lobby.id, lobby.dices_per_player, 3))
             Log.d("IGP","Create IGP Response: ${response.body()}")
 
         }
@@ -182,7 +181,7 @@ class ApiViewModel(application: Application,
             // Create IGP Call
             val lobby = response.body()
             if (lobby != null){
-                createUserIGP(lobby)
+                currentUser!!.id?.let { createUserIGP(it.toInt(), lobby) }
             }
         }
     }
