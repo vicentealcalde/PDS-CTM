@@ -20,15 +20,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/dice"
-            android:layout_width="136dp"
-            android:layout_height="123dp"
+            android:layout_width="293dp"
+            android:layout_height="104dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="151dp"
-            android:layout_marginTop="15sp"
-            android:src="@drawable/dice_2" />
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/dice_1" />
 
-
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="108dp"
+            android:layout_height="110dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="7dp"
+            android:layout_toEndOf="@+id/dice"
+            android:text="6"
+            android:textSize="100dp" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

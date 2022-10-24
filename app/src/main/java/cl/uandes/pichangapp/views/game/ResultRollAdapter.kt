@@ -33,7 +33,7 @@ class ResultRollAdapter (
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val dice = itemView.findViewById<ImageView>(R.id.dice)!!
-
+        val number = itemView.findViewById<TextView>(R.id.number)!!
 
     }
 
@@ -47,29 +47,34 @@ class ResultRollAdapter (
     override fun onBindViewHolder(holder: ResultRollAdapter.ViewHolder, position: Int) {
         println("hola")
         var dice = holder.dice
+        var number:TextView = holder.number
+
         if ( friends[position] == 1 ){
             dice.setImageResource(R.drawable.dice_1)
+            number.text = "1"
         }
 
         if ( friends[position] == 2 ){
 
             dice.setImageResource(R.drawable.dice_2)
+            number.text = "2"
         }
         if ( friends[position] == 3 ){
             dice.setImageResource(R.drawable.dice_3)
+            number.text = "3"
 
         }
         if ( friends[position] == 4 ){
             dice.setImageResource(R.drawable.dice_4)
-
+            number.text = "4"
         }
         if ( friends[position] == 5  ){
             dice.setImageResource(R.drawable.dice_5)
-
+            number.text = "5"
         }
         if ( friends[position] == 6  ){
             dice.setImageResource(R.drawable.dice_6)
-
+            number.text = "6"
         }
 
 
