@@ -211,6 +211,7 @@ class ApiViewModel(application: Application,
     }
 
     fun playTurn(lobbyId: Int){
+
         viewModelScope.launch {
             currentUser!!.id?.let { it ->
 

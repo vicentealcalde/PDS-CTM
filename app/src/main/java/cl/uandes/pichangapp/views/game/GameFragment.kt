@@ -15,6 +15,7 @@ import cl.uandes.pichangapp.allUserMatches
 import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.databinding.GameFragmentBinding
+import cl.uandes.pichangapp.models.User
 import cl.uandes.pichangapp.viewModels.InGamePlayersViewModel
 import org.koin.android.ext.android.inject
 
@@ -40,7 +41,7 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
         currentUser!!.id?.let {
             lobbyid = it.toInt()
             apiViewModel.getInGamePlayersFromLobby(it.toInt()) }
-
+        play_roll(lobbyid)
         // filter()
 
         ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = lobbyid).observe(viewLifecycleOwner){
@@ -59,6 +60,14 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
 
 
 
+    }
+    private fun play_roll(id: Int) {
+        val button = _binding?.RollButton
+
+        button?.setOnClickListener {
+
+            apiViewModel.playTurn(id)
+        }
     }
 
     override fun onDestroy() {
