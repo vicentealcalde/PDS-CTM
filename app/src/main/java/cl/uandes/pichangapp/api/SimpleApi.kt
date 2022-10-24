@@ -95,6 +95,13 @@ interface SimpleApi {
         @Body lobby: AddLobbyObject
     ): Response<LobbyEntity>
 
+    // Accept Lobby Invite
+    @POST("response_igps")
+    suspend fun acceptLobby(
+        @Query("id") id: Int,
+        @Query("res") res: Int
+    ): Response<InGamePlayer>
+
     // Get User's Lobbies
     @GET("active_lobbies/{id}")
     suspend fun getUserLobbies(
