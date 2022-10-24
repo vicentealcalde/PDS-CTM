@@ -42,8 +42,8 @@
             android:id="@+id/action_homeFragment_to_menuFilterFragment"
             app:destination="@id/menuFilterFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            android:id="@+id/action_homeFragment_to_gameFragment3"
+            app:destination="@id/gameFragment3" />
     </fragment>
     <fragment
         android:id="@+id/createMatchFragment"
@@ -62,7 +62,7 @@
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/gameFragment"
+        android:id="@+id/gameFragment3"
         android:name="cl.uandes.pichangapp.views.game.GameFragment"
         android:label="GameFragment" />
 </navigation>
