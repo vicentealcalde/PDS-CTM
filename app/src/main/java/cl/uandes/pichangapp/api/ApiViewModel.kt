@@ -245,7 +245,7 @@ class ApiViewModel(application: Application,
         viewModelScope.launch {
             val response: Response<List<InGamePlayer>> = repository.getPlayersOfLobby(lobbyId)
             Log.d("InGamePlayers","${response.body()}")
-
+            inGamePlayerRepository.deleteAllPlayers()
             response.body()?.forEach {
                 inGamePlayerRepository.addInGamePlayer(InGamePlayerEntityMapper().mapFromCached(it))
             }

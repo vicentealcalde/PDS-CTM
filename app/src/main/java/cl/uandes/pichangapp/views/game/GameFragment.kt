@@ -9,11 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cl.uandes.pichangapp.models.Match
 import androidx.core.os.bundleOf
-import cl.uandes.pichangapp.GameAdapter
-import cl.uandes.pichangapp.R
-import cl.uandes.pichangapp.allUserMatches
+import cl.uandes.pichangapp.*
 import cl.uandes.pichangapp.api.ApiViewModel
-import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.databinding.GameFragmentBinding
 import cl.uandes.pichangapp.models.User
 import cl.uandes.pichangapp.viewModels.InGamePlayersViewModel
@@ -35,16 +32,15 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
         gameadapter = GameAdapter(this, apiViewModel)
         val resultLisThisWeek= binding.resultListView
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
-        var lobbyid :Int = 0
         resultLisThisWeek.adapter =gameadapter
 
-        currentUser!!.id?.let {
-            lobbyid = it.toInt()
-            apiViewModel.getInGamePlayersFromLobby(it.toInt()) }
-        play_roll(lobbyid)
+
+        currentLobby?.let { apiViewModel.getInGamePlayersFromLobby(it.id) }
+
+        //play_roll(lobbyid)
         // filter()
         add()
-        ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = lobbyid).observe(viewLifecycleOwner){
+        ingameplayersviewmodel.getInGamePlayersFromLobby(currentLobby!!.id).observe(viewLifecycleOwner){
             gameadapter.set(it)
             gameadapter.notifyDataSetChanged()
         }

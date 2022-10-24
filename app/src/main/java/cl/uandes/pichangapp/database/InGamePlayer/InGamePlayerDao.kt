@@ -13,4 +13,7 @@ interface InGamePlayerDao {
 
     @Query("DELETE FROM InGamePlayersTable WHERE id = :playerId")
     suspend fun deleteInGamePlayer(playerId: Int)
+
+    @Query("Delete from InGamePlayersTable")
+    suspend fun deleteAllPlayers()
 }

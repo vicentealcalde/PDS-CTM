@@ -14,4 +14,7 @@ class InGamePlayerRepository(private val inGamePlayerDao: InGamePlayerDao) {
     suspend fun deleteInGamePlayer(playerId: Int){
         return inGamePlayerDao.deleteInGamePlayer(playerId)
     }
+    suspend fun deleteAllPlayers(){
+        return inGamePlayerDao.deleteAllPlayers()
+    }
 }
