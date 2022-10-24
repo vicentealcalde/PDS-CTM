@@ -6,34 +6,23 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/RollButton"
+        android:id="@+id/RollDicesButton"
         android:layout_width="152dp"
         android:layout_height="67dp"
-        android:layout_alignStart="@+id/powerButton"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="148dp"
         android:drawableStart="@drawable/round_corner"
-        android:text="Iniciar Partida"
+        android:text="Roll"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.569"
-        app:layout_constraintStart_toEndOf="@+id/powerButton"
-        app:layout_constraintTop_toBottomOf="@+id/ResultListView" />
-
-    <Button
-        android:id="@+id/powerButton"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="92dp"
-        android:drawableStart="@drawable/round_corner"
-        android:text="Agregar amigos"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ResultListView" />
+        app:layout_constraintTop_toBottomOf="@+id/ActiveLobbyPlayersListView"
+        app:layout_constraintVertical_bias="0.46" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ResultListView"
+        android:id="@+id/ActiveLobbyPlayersListView"
         android:layout_width="206dp"
         android:layout_height="241dp"
         android:layout_alignParentBottom="true"

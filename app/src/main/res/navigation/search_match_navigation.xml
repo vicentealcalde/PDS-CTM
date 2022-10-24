@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_homeFragment_to_gameFragment3"
             app:destination="@id/gameFragment3" />
+        <action
+            android:id="@+id/action_homeFragment_to_activeGameFragment"
+            app:destination="@id/activeGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/createMatchFragment"
@@ -66,11 +69,11 @@
         android:name="cl.uandes.pichangapp.views.game.GameFragment"
         android:label="GameFragment" >
         <action
-            android:id="@+id/action_gameFragment3_to_resultRollFragment"
-            app:destination="@id/resultRollFragment" />
-        <action
             android:id="@+id/action_gameFragment3_to_addFriendParty"
             app:destination="@id/addFriendParty" />
+        <action
+            android:id="@+id/action_gameFragment3_to_activeGameFragment"
+            app:destination="@id/activeGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultRollFragment"
@@ -84,4 +87,12 @@
         android:id="@+id/addFriendParty"
         android:name="cl.uandes.pichangapp.AddFriendParty"
         android:label="AddFriendParty" />
+    <fragment
+        android:id="@+id/activeGameFragment"
+        android:name="cl.uandes.pichangapp.views.game.ActiveGameFragment"
+        android:label="ActiveGameFragment" >
+        <action
+            android:id="@+id/action_activeGameFragment_to_resultRollFragment"
+            app:destination="@id/resultRollFragment" />
+    </fragment>
 </navigation>

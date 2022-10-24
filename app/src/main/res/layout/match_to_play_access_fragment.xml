@@ -46,7 +46,7 @@
         app:layout_constraintGuide_end="638dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/resultListView"
+        android:id="@+id/ActiveLobbyPlayersListView"
         android:layout_width="match_parent"
         android:layout_marginEnd="10sp"
         android:layout_marginStart="10sp"
