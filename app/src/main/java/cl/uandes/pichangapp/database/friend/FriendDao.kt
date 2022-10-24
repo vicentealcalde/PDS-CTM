@@ -14,7 +14,10 @@ interface FriendDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addFriend(friend: FriendEntity)
 
-    @Query("DELETE FROM FriendsTable")
+    @Query("Delete From FriendsTable")
     fun deleteAllFriends()
+
+    @Query("DELETE FROM FriendsTable Where friendId = :friendId")
+    suspend fun deleteFriend(friendId: Int)
 
 }

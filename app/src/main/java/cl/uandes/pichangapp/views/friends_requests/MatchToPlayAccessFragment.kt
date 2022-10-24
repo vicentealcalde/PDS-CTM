@@ -28,7 +28,7 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
         savedInstanceState: Bundle?
     ): View {
         _binding = MatchToPlayAccessFragmentBinding.inflate(inflater, container, false)
-        matchadapter = MatchAdapter(this, apiViewModel)
+        matchadapter = MatchAdapter(this, friendViewModel, apiViewModel)
         val resultLisThisWeek= binding.resultListView
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
 

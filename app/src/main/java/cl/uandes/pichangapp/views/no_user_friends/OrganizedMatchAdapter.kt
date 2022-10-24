@@ -13,8 +13,10 @@ import cl.uandes.pichangapp.allUserMatches
 import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.database.user.UserEntity
+import cl.uandes.pichangapp.viewModels.UserViewModel
 
 class OrganizedMatchAdapter (
+    private val userViewModel: UserViewModel,
     private val apiViewModel: ApiViewModel,
     private val actionListener: ActionListener
 ): RecyclerView.Adapter<OrganizedMatchAdapter.ViewHolder>() {
@@ -52,7 +54,10 @@ class OrganizedMatchAdapter (
         button.setOnClickListener {
             val myId: Int? = currentUser?.id?.toInt()
             if (myId != null) {
-                nofriend.id?.let { it1 -> apiViewModel.addFriend(myId,it1.toInt(),0) }
+                nofriend.id?.let { it1 ->
+                    apiViewModel.addFriend(myId,it1.toInt(),0)
+                    userViewModel.deleteNoFriend(it1.toInt())
+                }
             }
         }
 

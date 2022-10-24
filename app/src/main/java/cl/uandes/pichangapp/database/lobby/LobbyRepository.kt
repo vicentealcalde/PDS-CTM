@@ -14,7 +14,7 @@ class LobbyRepository(private val lobbyDao: LobbyDao) {
         lobbyDao.addLobby(lobby)
     }
 
-    suspend fun deleteLobby(lobbyId: Int){
+    fun deleteLobby(lobbyId: Int){
         lobbyDao.deleteLobby(lobbyId)
     }
 

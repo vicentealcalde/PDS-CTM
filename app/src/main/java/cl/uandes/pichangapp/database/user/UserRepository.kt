@@ -15,4 +15,8 @@ class UserRepository(private val userDao: UserDao) {
     fun deleteAllNoFriends(){
         userDao.deleteAllNoFriends()
     }
+
+    suspend fun deleteNoFriend(userId: Int){
+        userDao.deleteNoFriend(userId)
+    }
 }

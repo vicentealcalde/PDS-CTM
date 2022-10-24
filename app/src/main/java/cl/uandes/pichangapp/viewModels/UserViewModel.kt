@@ -19,6 +19,12 @@ class UserViewModel(application: Application, private val repository: UserReposi
         repository.deleteAllNoFriends()
     }
 
+    fun deleteNoFriend(userId: Int){
+        viewModelScope.launch {
+            repository.deleteNoFriend(userId)
+        }
+    }
+
     fun addUser(user: UserEntity){
         viewModelScope.launch(Dispatchers.IO) {
             //repository.addUser(user)
