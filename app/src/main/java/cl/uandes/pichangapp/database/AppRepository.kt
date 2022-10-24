@@ -1,5 +1,6 @@
 package cl.uandes.pichangapp.database
 
+import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerDao
 import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.lobby.LobbyDao
 import cl.uandes.pichangapp.database.user.UserDao
@@ -15,5 +16,8 @@ class AppRepository(private val database: AppDatabase) {
     }
     fun getUserDao(): UserDao {
         return database.userDao()
+    }
+    fun getInGamePlayerDao(): InGamePlayerDao {
+        return database.inGamePlayerDao()
     }
 }

@@ -5,20 +5,56 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import cl.uandes.pichangapp.databinding.ExpandgameBinding
-import cl.uandes.pichangapp.models.Lobby
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import cl.uandes.pichangapp.databinding.MatchToPlayAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
+import androidx.core.os.bundleOf
 
-class ExpandgameFragment : Fragment() {
-    private var _binding: ExpandgameBinding?= null
+import cl.uandes.pichangapp.MatchAdapter
+import cl.uandes.pichangapp.api.ApiViewModel
+import cl.uandes.pichangapp.databinding.GameBinding
+import cl.uandes.pichangapp.viewModels.InGamePlayersViewModel
+import org.koin.android.ext.android.inject
+
+class GameFragment:  Fragment(), GameAdapter.ActionListener{
+    private var _binding: GameBinding?= null
     private val binding get() = _binding!!
+    private lateinit var gameadapter: GameAdapter
+    private val apiViewModel: ApiViewModel by inject()
+    private val ingameplayersviewmodel: InGamePlayersViewModel by inject()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        _binding = ExpandgameBinding.inflate(inflater, container, false)
+    ): View {
+        _binding = GameBinding.inflate(inflater, container, false)
+        gameadapter = GameAdapter(this, apiViewModel)
+        val resultLisThisWeek= binding.resultListView
+        resultLisThisWeek.layoutManager = LinearLayoutManager(context)
+
+        resultLisThisWeek.adapter =gameadapter
+        currentUser!!.id?.let { apiViewModel.getFriendRequests(it.toInt()) }
+
+       // filter()
+
+        ingameplayersviewmodel.getInGamePlayersFromLobby(lobbyId = id).observe(viewLifecycleOwner){
+            gameadapter.set(it)
+            gameadapter.notifyDataSetChanged()
+        }
+
+
+
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
+
+
     }
 
     override fun onDestroy() {
@@ -26,32 +62,18 @@ class ExpandgameFragment : Fragment() {
         _binding = null
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
-
-            val matchIndex = ExpandMatchResultFragmentArgs.fromBundle(it).matchIndex
-            println(matchIndex)
-            //setAttributesToItem(allUserMatches[matchIndex])
+/*
+    private fun filter(){
+        val button = _binding?.FilterInFinishedButton
+        button?.setOnClickListener {
+            findNavController().navigate(R.id.action_matchToPlayAccessFragment_to_filterMenuParticipatingFragment)
         }
     }
+    */
+    override fun goToMatchDetails(match: Match) {
 
-    private fun setAttributesToItem(lobby: Lobby) {
-        /*
-        val result = _binding?.resultTextView
+        val bundle = bundleOf("matchIndex" to allUserMatches.indexOf(match))
 
-        val DayOfMatch = _binding?.DayOfMatch
-        val HourOfMatch = _binding?.HourOfMatch
-        val LocationOfMatch = _binding?.LocationOfMatch
-        val DescriptionOfMatch = _binding?.DescriptionOfMatch
-        val ImageTeam1 = _binding?.ImageTeam1
-        val ImageTeam2 = _binding?.ImageTeam2
-
-        result?.text = lobby?.resultTextView
-        DayOfMatch?.text = lobby?.DayOfMatch
-        HourOfMatch?.text = lobby?.HourOfMatch
-        LocationOfMatch?.text = lobby?.LocationOfMatch
-        DescriptionOfMatch?.text = lobby?.DescriptionOfMatch*/
-
+        findNavController().navigate(R.id.action_matchToPlayAccessFragment_to_expandToPlayFragment, bundle)
     }
 }
