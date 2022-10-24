@@ -129,6 +129,7 @@ interface SimpleApi {
 
     @POST("turn")
     suspend fun sendTurn(
+        @Query("id") id: Int,
         @Body turn: List<Int>
     ): Response<String>
 

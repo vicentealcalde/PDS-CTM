@@ -62,8 +62,8 @@ class Repository {
     suspend fun throwDices(IGPid: Int): Response<List<Int>> {
         return RetrofitInstance.api.throwDices(IGPid)
     }
-    suspend fun sendTurn(turn: List<Int>): Response<String> {
-        return RetrofitInstance.api.sendTurn(turn)
+    suspend fun sendTurn(igpId: Int, turn: List<Int>): Response<String> {
+        return RetrofitInstance.api.sendTurn(igpId, turn)
     }
     suspend fun updateUserStats(userId: Int): Response<UserStats> {
         return RetrofitInstance.api.updateUserStats(userId)

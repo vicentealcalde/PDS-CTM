@@ -232,7 +232,7 @@ class ApiViewModel(application: Application,
                 val turn = turnResponse.body() ?: return@launch
 
                 // Send turn to api Call
-                val sendTurnResponse: Response<String> = repository.sendTurn(turn)
+                val sendTurnResponse: Response<String> = repository.sendTurn(igpId, turn)
 
             }
         }
@@ -244,6 +244,7 @@ class ApiViewModel(application: Application,
     fun getInGamePlayersFromLobby(lobbyId: Int){
         viewModelScope.launch {
             val response: Response<List<InGamePlayer>> = repository.getPlayersOfLobby(lobbyId)
+            Log.d("InGamePlayers","${response.body()}")
 
             response.body()?.forEach {
                 inGamePlayerRepository.addInGamePlayer(InGamePlayerEntityMapper().mapFromCached(it))

@@ -6,11 +6,11 @@ import cl.uandes.pichangapp.models.InGamePlayer
 class InGamePlayerEntityMapper: EntityMapper<InGamePlayer, InGamePlayerEntity> {
     override fun mapFromCached(type: InGamePlayer): InGamePlayerEntity {
         return InGamePlayerEntity(
-            type.id,
-            type.user,
-            type.lobby,
-            type.dices,
-            type.status
+            id=type.id,
+            user=type.user,
+            lobby=type.lobby,
+            dices=type.dices,
+            status=type.status
         )
     }
 
