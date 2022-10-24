@@ -122,6 +122,11 @@ interface SimpleApi {
         @Path("id") id: Int
     ):Response<List<InGamePlayer>>
 
+    @POST("start_game")
+    suspend fun startGame(
+        @Query("id") id: Int
+    ): Response<Lobby>
+
     @GET("trow_dices")
     suspend fun throwDices(
         @Query("id") id: Int

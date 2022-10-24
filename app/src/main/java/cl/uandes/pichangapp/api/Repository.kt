@@ -59,6 +59,9 @@ class Repository {
     suspend fun getIGPOfUser(userId: Int): Response<List<InGamePlayer>> {
         return RetrofitInstance.api.getIGPOfUser(userId)
     }
+    suspend fun startGame(lobbyId: Int): Response<Lobby> {
+        return RetrofitInstance.api.startGame(lobbyId)
+    }
     suspend fun throwDices(IGPid: Int): Response<List<Int>> {
         return RetrofitInstance.api.throwDices(IGPid)
     }

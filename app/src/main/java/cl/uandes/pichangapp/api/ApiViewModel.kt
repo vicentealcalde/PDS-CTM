@@ -211,7 +211,6 @@ class ApiViewModel(application: Application,
     }
 
     fun playTurn(lobbyId: Int){
-
         viewModelScope.launch {
             currentUser!!.id?.let { it ->
 
@@ -235,6 +234,11 @@ class ApiViewModel(application: Application,
                 val sendTurnResponse: Response<String> = repository.sendTurn(igpId, turn)
 
             }
+        }
+    }
+    fun startGame(lobbyId: Int){
+        viewModelScope.launch {
+            val response: Response<Lobby> = repository.startGame(lobbyId)
         }
     }
 

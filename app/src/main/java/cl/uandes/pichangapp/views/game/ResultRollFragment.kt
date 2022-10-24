@@ -32,15 +32,13 @@ class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
         gameadapter =  ResultRollAdapter(this, apiViewModel)
         val resultLisThisWeek= binding.exit
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
-        var lobbyid :Int = 0
-        resultLisThisWeek.adapter =gameadapter
-        play_roll()
-        currentUser!!.id?.let {
-            lobbyid = it.toInt()
-            apiViewModel.getInGamePlayersFromLobby(it.toInt()) }
+
+        resultLisThisWeek.adapter = gameadapter
+        //play_roll()
+
 
         // filter()
-        println("hola 3")
+        //println("hola 3")
         apiViewModel.myRoll.observe(viewLifecycleOwner){
             gameadapter.set(it.body()!!)
             gameadapter.notifyDataSetChanged()

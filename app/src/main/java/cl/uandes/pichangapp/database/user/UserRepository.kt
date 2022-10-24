@@ -8,6 +8,10 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.getAllUsers()
     }
 
+    fun getUserName(id:Int): LiveData<String>{
+        return userDao.getUserName(id)
+    }
+
     suspend fun addUser(User: UserEntity){
         userDao.addUser(User)
     }

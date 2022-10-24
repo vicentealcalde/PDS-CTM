@@ -8,6 +8,9 @@ interface UserDao {
     @Query("SELECT * FROM UsersTable")
     fun getAllUsers(): LiveData<List<UserEntity>>
 
+    @Query("SELECT username FROM UsersTable Where id = :userId")
+    fun getUserName(userId: Int): LiveData<String>
+
     @Query("Delete from UsersTable")
     fun deleteAllNoFriends()
 
