@@ -55,7 +55,7 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
     private fun start_game(id: Int) {
         val button = _binding?.RollButton
         button?.setOnClickListener {
-            //apiViewModel.playTurn(id)
+            currentLobby?.let { it1 -> apiViewModel.startGame(it1.id) }
             println("hola desde afuera")
             findNavController().navigate(R.id.action_gameFragment3_to_activeGameFragment)
         }

@@ -85,8 +85,11 @@ class SearchCreateAccessFragment: Fragment(), LobbyAdapter.ActionListener {
     override fun goToGameDetails(match: Int) {
         val bundle = bundleOf("Id" to match)
         findNavController().navigate(R.id.action_homeFragment_to_gameFragment3 , bundle)
+    }
 
-
+    override fun goToStartedMatch(id: Int) {
+        val bundle = bundleOf("Id" to id)
+        findNavController().navigate(R.id.action_homeFragment_to_activeGameFragment , bundle)
     }
 }
 

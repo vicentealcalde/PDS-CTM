@@ -54,7 +54,13 @@ class LobbyAdapter (
 
         button.setOnClickListener {
             currentLobby = lobby
-            actionListener.goToGameDetails(lobby.id)
+            if (currentLobby!!.status == 0){
+                actionListener.goToGameDetails(lobby.id)
+            }
+            if (currentLobby!!.status == 1){
+                actionListener.goToStartedMatch(lobby.id)
+            }
+
         }
 
     }
@@ -66,6 +72,7 @@ class LobbyAdapter (
 
     interface ActionListener {
         fun goToGameDetails(lobby: Int)
+        fun goToStartedMatch(id: Int)
     }
 
     override fun getItemCount(): Int {

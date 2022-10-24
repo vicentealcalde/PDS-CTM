@@ -29,7 +29,7 @@ class MatchToPlayAccessFragment:  Fragment(), MatchAdapter.ActionListener{
     ): View {
         _binding = MatchToPlayAccessFragmentBinding.inflate(inflater, container, false)
         matchadapter = MatchAdapter(this, friendViewModel, apiViewModel)
-        val resultLisThisWeek= binding.resultListView
+        val resultLisThisWeek= binding.ActiveLobbyPlayersListView
         resultLisThisWeek.layoutManager = LinearLayoutManager(context)
 
         resultLisThisWeek.adapter = matchadapter

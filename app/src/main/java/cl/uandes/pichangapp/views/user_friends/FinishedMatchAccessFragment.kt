@@ -33,7 +33,7 @@ class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener 
         _binding = FinishedMatchAccessFragmentBinding.inflate(inflater, container, false)
 
         resultItemAdapter = ResultItemAdapter(this)
-        val resultListView = binding.resultListView
+        val resultListView = binding.ActiveLobbyPlayersListView
         resultListView.layoutManager = LinearLayoutManager(context)
         resultListView.adapter = resultItemAdapter
         filter()
