@@ -37,6 +37,7 @@ class ApiViewModel(application: Application,
                    private val userStatsRepository: UserStatsRepository,
 ) : ViewModel() {
     var myResponse: MutableLiveData<Response<List<UserEntity>>> = MutableLiveData()
+    var myRoll: MutableLiveData<Response<List<Int>>> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
     //*****************************************
@@ -228,6 +229,7 @@ class ApiViewModel(application: Application,
 
                 // Turn Call
                 val turnResponse: Response<List<Int>> = repository.throwDices(igpId)
+                myRoll.value = turnResponse
                 val turn = turnResponse.body() ?: return@launch
 
                 // Send turn to api Call
