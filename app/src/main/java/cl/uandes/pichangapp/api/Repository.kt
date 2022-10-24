@@ -19,7 +19,9 @@ class Repository {
     suspend fun createUserStats(stats: UserStats): Response<UserStats> {
         return RetrofitInstance.api.createUserStats(stats)
     }
-
+    suspend fun createUserIGP(igp: AddIGPObject): Response<InGamePlayer> {
+        return RetrofitInstance.api.createUserIGP(igp)
+    }
     suspend fun getUserFriends(userId: Int): Response<List<UserEntity>>{
         return RetrofitInstance.api.getUserFriends(userId)
     }

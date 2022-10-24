@@ -30,6 +30,10 @@ interface SimpleApi {
         @Body stats: UserStats
     ): Response<UserStats>
 
+    @POST("igps")
+    suspend fun createUserIGP(
+        @Body igp: AddIGPObject
+    ): Response<InGamePlayer>
 
     //*****************************************
     //************  Friends Calls  ************
