@@ -12,6 +12,7 @@ import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
 import androidx.navigation.fragment.findNavController
 import cl.uandes.pichangapp.currentLobby
+import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.models.Lobby
 
@@ -46,6 +47,14 @@ class LobbyAdapter (
         if (lobby.status == -1){
             button.setBackgroundColor(Color.parseColor("#AEAEAE"))
         }
+        if (lobby.status == 2){
+            if (lobby.current_user == currentUser!!.id?.toInt()){
+                button.setBackgroundColor(Color.parseColor("#AEAEAE"))
+            }
+            else{
+                button.setBackgroundColor(Color.parseColor("#0E86D4"))
+            }
+        }
 
         val textView2 = holder.textView2
         //val profileImage = holder.profileImage
@@ -60,6 +69,7 @@ class LobbyAdapter (
             if (currentLobby!!.status == 1){
                 actionListener.goToStartedMatch(lobby.id)
             }
+
 
         }
 
