@@ -31,112 +31,27 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.02" />
 
-        <TextView
-            android:id="@+id/textDicesNumber"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="sans-serif-black"
-            android:gravity="start"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toStartOf="@+id/editText1"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="104dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="42dp"
-            android:layout_marginBottom="137dp"
-            android:autofillHints=""
-            android:background="@drawable/round_corner"
-            android:ems="10"
-            android:hint="@null"
-            android:minHeight="48dp"
-            android:paddingHorizontal="12sp"
-            android:paddingVertical="18sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/black"
-            android:textColorHint="#00695C"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textTurnLength"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textDicesNumber"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-
-        <TextView
-            android:id="@+id/textPowers"
-            android:layout_width="228dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:layout_marginEnd="131dp"
-            android:fontFamily="sans-serif-black"
-            android:gravity="start"
-            android:text=""
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextPowers"
-            app:layout_constraintEnd_toEndOf="@+id/editTextPowers"
-            app:layout_constraintStart_toStartOf="@+id/textTurnLength"
-            app:layout_constraintTop_toBottomOf="@+id/editText1" />
-
-        <EditText
-            android:id="@+id/editTextPowers"
-            android:layout_width="372dp"
-            android:layout_height="57dp"
-            android:layout_marginEnd="23dp"
-            android:layout_marginBottom="426dp"
-            android:autofillHints=""
-            android:background="@drawable/round_corner"
-            android:ems="10"
-            android:hint="@null"
-            android:inputType="text|date"
-            android:minHeight="48dp"
-            android:paddingHorizontal="12sp"
-            android:paddingVertical="18sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/editDicesNumber"
-            app:layout_constraintTop_toBottomOf="@+id/textPowers"
-            tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textTurnLength"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="39dp"
-            android:layout_marginBottom="11dp"
+            android:layout_width="216dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="28dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
-            android:text="Numero dados"
+            android:text="Numero dados:"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/editDicesNumber"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textDescripcion"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPowers" />
+            app:layout_constraintHorizontal_bias="0.148"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editDicesNumber"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="26dp"
-            android:layout_marginBottom="13dp"
+            android:layout_width="324dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="20dp"
             android:autofillHints=""
             android:background="@drawable/round_corner"
             android:ems="10"
@@ -146,60 +61,16 @@
             android:paddingHorizontal="12sp"
             android:paddingVertical="18sp"
             android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textDescripcion"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/editTextDescripcion"
-            app:layout_constraintTop_toBottomOf="@+id/textTurnLength"
-            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/textDescripcion"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="sans-serif-black"
-            android:gravity="start"
-            android:text=""
-            android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextDescripcion"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editDicesNumber" />
-
-        <EditText
-            android:id="@+id/editTextDescripcion"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginEnd="23dp"
-            android:layout_marginBottom="46dp"
-            android:autofillHints=""
-            android:background="@drawable/round_corner"
-            android:ems="10"
-            android:hint="@null"
-            android:inputType="text"
-
-            android:minHeight="48dp"
-            android:paddingHorizontal="12sp"
-            android:paddingVertical="18sp"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/CreateGameButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDescripcion"
+            app:layout_constraintTop_toBottomOf="@+id/textTurnLength"
             tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/CreateGameButton"
-            android:layout_width="64dp"
-            android:layout_height="0dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginBottom="70dp"
             android:background="@drawable/ic_add"
             android:paddingHorizontal="12sp"
@@ -210,7 +81,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDescripcion" />
+            app:layout_constraintTop_toBottomOf="@+id/editDicesNumber"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

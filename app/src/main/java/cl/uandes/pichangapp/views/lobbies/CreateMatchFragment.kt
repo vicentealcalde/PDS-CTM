@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import cl.uandes.pichangapp.api.AddLobbyObject
 import cl.uandes.pichangapp.api.ApiViewModel
 import cl.uandes.pichangapp.databinding.CreateMatchFragmentBinding
+import okhttp3.internal.wait
 import org.koin.android.ext.android.inject
 
 
@@ -30,6 +31,10 @@ class CreateMatchFragment: Fragment() {
         createGameButton?.setOnClickListener {
             val diceNumber = _binding!!.editDicesNumber.text.toString().toInt()
             apiViewModel.createLobby(AddLobbyObject(0, diceNumber, 0, 1))
+            currentUser!!.id?.toInt()?.let { it1 ->
+                apiViewModel.getUserLobbies(it1)
+                apiViewModel.getUserPendingLobbies(it1)
+            }
             findNavController().navigate(R.id.action_createMatchFragment_to_homeFragment)
 
         }
