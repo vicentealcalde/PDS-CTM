@@ -37,7 +37,7 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
 
         currentLobby?.let { apiViewModel.getInGamePlayersFromLobby(it.id) }
 
-        //play_roll(lobbyid)
+        play_roll(currentLobby!!.id)
         // filter()
         add()
         ingameplayersviewmodel.getInGamePlayersFromLobby(currentLobby!!.id).observe(viewLifecycleOwner){
@@ -57,13 +57,12 @@ class GameFragment:  Fragment(), GameAdapter.ActionListener {
 
 
     }
-    private fun play_roll(id: Int) {
+    private fun play_roll(lobbyId: Int) {
         val button = _binding?.RollButton
 
         button?.setOnClickListener {
 
-            apiViewModel.playTurn(id)
-            println("hola desde afuera")
+            apiViewModel.playTurn(lobbyId)
             findNavController().navigate(R.id.action_gameFragment3_to_resultRollFragment)
         }
     }
