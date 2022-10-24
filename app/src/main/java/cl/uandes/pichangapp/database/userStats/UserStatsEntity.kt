@@ -10,7 +10,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class UserStatsEntity (
     @PrimaryKey
-    @ColumnInfo(name="id") val id: Int,
     @ColumnInfo(name="user") val user: Int,
     @ColumnInfo(name="losts") val losts: Int,
     @ColumnInfo(name="nemesis") val nemesis: String,

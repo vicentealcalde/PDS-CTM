@@ -53,6 +53,19 @@ class ApiViewModel(application: Application,
             val response: Response<UserEntity> = repository.registerUser(username, password, 0)
 
             Log.d("Register", "Register response: ${response.body()}")
+            val id = response.body()?.id?.toInt()
+            if (id != null) {
+                createUserStats(id)
+            }
+        }
+    }
+
+    private fun createUserStats(userId: Int){
+        viewModelScope.launch {
+            val response: Response<UserStats> = repository.createUserStats(
+                UserStats(userId!!,0,"",0,0,0,0,0,0,
+                    0,0,0,0))
+            Log.d("UserStats","Create Stats Response: ${response.body()}")
         }
     }
 
@@ -61,7 +74,7 @@ class ApiViewModel(application: Application,
             val response: Response<UserStats> = repository.updateUserStats(userId)
             val stats = response.body()?.let { UserStatsEntityMapper().mapFromCached(it) }
             if (stats != null) {
-                Log.d("Stats","UserStats: $stats")
+                Log.d("UserStats","UserStats: $stats")
                 userStatsRepository.addUserStats(stats)
             }
         }

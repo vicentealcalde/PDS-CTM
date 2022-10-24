@@ -25,8 +25,10 @@ interface SimpleApi {
         @Body user: RegisterUserObject
     ): Response<UserEntity>
 
-    @GET("users")
-    suspend fun getAllUsers(): Response<List<UserObject>>
+    @POST("users_stats")
+    suspend fun createUserStats(
+        @Body stats: UserStats
+    ): Response<UserStats>
 
 
     //*****************************************

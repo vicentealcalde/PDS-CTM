@@ -6,7 +6,6 @@ import cl.uandes.pichangapp.models.UserStats
 class UserStatsEntityMapper: EntityMapper<UserStats, UserStatsEntity> {
     override fun mapFromCached(type: UserStats): UserStatsEntity {
         return UserStatsEntity(
-            type.id,
             type.user,
             type.losts,
             type.nemesis,

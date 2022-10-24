@@ -16,6 +16,9 @@ class Repository {
     suspend fun registerUser(username: String, password:String, games: Int): Response<UserEntity>{
         return RetrofitInstance.api.registerUser(RegisterUserObject(username, password, games))
     }
+    suspend fun createUserStats(stats: UserStats): Response<UserStats> {
+        return RetrofitInstance.api.createUserStats(stats)
+    }
 
     suspend fun getUserFriends(userId: Int): Response<List<UserEntity>>{
         return RetrofitInstance.api.getUserFriends(userId)

@@ -13,7 +13,6 @@ data class UserStats (
     val four: Int,
     val five: Int,
     val six: Int,
-    val rounds_with_one: Int,
-    val id: Int,
+    val rounds_with_one: Int
 
 )
