@@ -21,36 +21,33 @@
             android:id="@+id/textViewNemesis"
             android:layout_width="123dp"
             android:layout_height="34dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="Némesis"
             android:textColor="@color/black"
             android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewMostCommon"
-            app:layout_constraintEnd_toStartOf="@+id/textNemesis"
-            app:layout_constraintHorizontal_bias="0.449"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLost" />
 
         <TextView
             android:id="@+id/textTeamName"
             android:layout_width="357dp"
             android:layout_height="49dp"
-            android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:text="@string/nombre_de_ususario"
             android:textColor="@color/black"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/textTeamNameBackground"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team_image" />
 
         <TextView
             android:id="@+id/textTeamNameBackground"
             android:layout_width="370dp"
             android:layout_height="52dp"
-            android:layout_marginBottom="16dp"
             android:background="@drawable/round_corner"
             android:gravity="start"
             android:paddingHorizontal="15sp"
@@ -58,229 +55,100 @@
             android:text="@null"
             android:textColor="@color/black"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewGames"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.609"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamName" />
 
         <TextView
             android:id="@+id/textViewGames"
             android:layout_width="113dp"
             android:layout_height="43dp"
-            android:layout_marginTop="282dp"
-            android:layout_marginBottom="406dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="Partidas"
             android:textColor="@color/black"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textGames"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground" />
 
         <TextView
             android:id="@+id/textViewLost"
             android:layout_width="116dp"
             android:layout_height="43dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="Perdidas"
             android:textColor="@color/black"
             android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewNemesis"
-            app:layout_constraintEnd_toStartOf="@+id/textLost"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewGames" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewGames"  />
 
         <TextView
             android:id="@+id/textViewMostCommon"
             android:layout_width="203dp"
             android:layout_height="41dp"
-            android:layout_marginTop="459dp"
-            android:layout_marginEnd="208dp"
-            android:layout_marginBottom="231dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="Dado mas común"
             android:textColor="@color/black"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewNemesis" />
 
         <TextView
             android:id="@+id/textViewDamage"
             android:layout_width="69dp"
             android:layout_height="39dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginBottom="180dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="Daño"
             android:textColor="@color/black"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textDamage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewMostCommon" />
 
         <TextView
             android:id="@+id/textDamage"
-            android:layout_width="163dp"
+            android:layout_width="186dp"
             android:layout_height="40dp"
-            android:layout_marginStart="232dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="12dp"
             android:background="@drawable/round_corner"
             android:gravity="start"
             android:paddingHorizontal="15sp"
             android:paddingVertical="10sp"
             android:text="@null"
             android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textLeastCommon"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textMostCommon"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintHorizontal_bias="0.81"
+            app:layout_constraintStart_toEndOf="@+id/textViewDamage"
+            app:layout_constraintTop_toBottomOf="@+id/textMostCommon"  />
 
         <TextView
             android:id="@+id/textViewLeastCommon"
             android:layout_width="232dp"
             android:layout_height="38dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-black"
             android:gravity="start"
             android:text="Dado menos común"
             android:textColor="@color/black"
             android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewRoundOne"
-            app:layout_constraintEnd_toStartOf="@+id/textLeastCommon"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewDamage" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewDamage"  />
 
         <TextView
             android:id="@+id/textLeastCommon"
-            android:layout_width="177dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="233dp"
-            android:layout_marginTop="566dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="125dp"
-            android:background="@drawable/round_corner"
-            android:gravity="start"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
-            android:text="@null"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textViewRoundOne"
-            android:layout_width="202dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-black"
-            android:gravity="start"
-            android:text="Rondas salvadas"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/signOutButton"
-            app:layout_constraintEnd_toStartOf="@+id/textRoundOne"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/textRoundOne"
-            android:layout_width="163dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="224dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="7dp"
-            android:background="@drawable/round_corner"
-            android:gravity="start"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
-            android:text="@null"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/signOutButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textLeastCommon"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textGames"
-            android:layout_width="163dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginBottom="22dp"
-            android:background="@drawable/round_corner"
-            android:gravity="start"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
-            android:text="@null"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textLost"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textLost"
-            android:layout_width="163dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/round_corner"
-            android:gravity="start"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
-            android:text="@null"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/textNemesis"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/textNemesis"
-            android:layout_width="163dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="212dp"
-            android:layout_marginTop="407dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginBottom="284dp"
-            android:background="@drawable/round_corner"
-            android:gravity="start"
-            android:paddingHorizontal="15sp"
-            android:paddingVertical="10sp"
-            android:text="@null"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textMostCommon"
-            android:layout_width="163dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="13dp"
+            android:layout_width="154dp"
+            android:layout_height="42dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/round_corner"
             android:gravity="start"
@@ -288,9 +156,108 @@
             android:paddingVertical="10sp"
             android:text="@null"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewLeastCommon"
+            app:layout_constraintTop_toBottomOf="@+id/textDamage" />
+
+        <TextView
+            android:id="@+id/textViewRoundOne"
+            android:layout_width="202dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="start"
+            android:text="Rondas salvadas"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLeastCommon" />
+
+        <TextView
+            android:id="@+id/textRoundOne"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toEndOf="@+id/textViewRoundOne"
+            app:layout_constraintTop_toBottomOf="@+id/textLeastCommon" />
+
+        <TextView
+            android:id="@+id/textGames"
+            android:layout_width="194dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.578"
+            app:layout_constraintStart_toEndOf="@+id/textViewGames"
+            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground"  />
+
+        <TextView
+            android:id="@+id/textLost"
+            android:layout_width="194dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.557"
+            app:layout_constraintStart_toEndOf="@+id/textViewLost"
+            app:layout_constraintTop_toBottomOf="@+id/textGames"/>
+
+        <TextView
+            android:id="@+id/textNemesis"
+            android:layout_width="195dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toEndOf="@+id/textViewNemesis"
+            app:layout_constraintTop_toBottomOf="@+id/textLost" />
+
+        <TextView
+            android:id="@+id/textMostCommon"
+            android:layout_width="179dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/round_corner"
+            android:gravity="start"
+            android:paddingHorizontal="15sp"
+            android:paddingVertical="10sp"
+            android:text="@null"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.066"
             app:layout_constraintStart_toEndOf="@+id/textViewMostCommon"
             app:layout_constraintTop_toBottomOf="@+id/textNemesis" />
 
@@ -298,10 +265,10 @@
             android:id="@+id/team_image"
             android:layout_width="104dp"
             android:layout_height="112dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/dice_5"
-            app:layout_constraintBottom_toTopOf="@+id/textTeamName"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -318,10 +285,8 @@
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTeamNameBackground"
-            app:layout_constraintVertical_bias="0.961" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewRoundOne"  />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier3"
@@ -329,6 +294,40 @@
             android:layout_height="wrap_content"
             app:barrierDirection="top"
             app:constraint_referenced_ids="LoginFragment" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
