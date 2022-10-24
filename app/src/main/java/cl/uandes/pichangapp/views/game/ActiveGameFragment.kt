@@ -1,5 +1,6 @@
 package cl.uandes.pichangapp.views.game
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +38,10 @@ class ActiveGameFragment:  Fragment(), GameAdapter.ActionListener {
         currentLobby?.let { apiViewModel.getInGamePlayersFromLobby(it.id) }
         if (currentUser?.id?.toInt() == currentLobby?.current_user) {
             currentLobby?.let { play_roll(it.id) }
+        }
+        else {
+            val button = _binding?.RollDicesButton
+            button?.setBackgroundColor(Color.parseColor("#DC143C"))
         }
 
         ingameplayersviewmodel.getInGamePlayersFromLobby(currentLobby!!.id)
