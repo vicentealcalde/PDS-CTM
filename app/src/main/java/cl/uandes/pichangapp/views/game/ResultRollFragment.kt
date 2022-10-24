@@ -54,7 +54,6 @@ class ResultRollFragment:  Fragment(), ResultRollAdapter.ActionListener {
 
         button?.setOnClickListener {
 
-            apiViewModel.playTurn(currentLobby!!.id)
             findNavController().navigate(R.id.action_resultRollFragment_to_homeFragment)
         }
     }
