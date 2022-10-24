@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.views.user_friends
+package cl.uandes.pichangapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,6 +15,7 @@ import cl.uandes.pichangapp.currentUser
 import cl.uandes.pichangapp.databinding.FinishedMatchAccessFragmentBinding
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.viewModels.FriendViewModel
+import cl.uandes.pichangapp.views.user_friends.ResultItemAdapter
 import org.koin.android.ext.android.inject
 
 class FinishedMatchAccessFragment: Fragment(), ResultItemAdapter.ActionListener {

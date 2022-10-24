@@ -1,4 +1,4 @@
-package cl.uandes.pichangapp.views.user_friends
+package cl.uandes.pichangapp
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
