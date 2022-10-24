@@ -4,8 +4,6 @@ import androidx.lifecycle.LiveData
 
 class LobbyRepository(private val lobbyDao: LobbyDao) {
 
-
-
     fun getUserLobbies(): LiveData<List<LobbyEntity>>{
         return lobbyDao.getUserLobbies()
     }

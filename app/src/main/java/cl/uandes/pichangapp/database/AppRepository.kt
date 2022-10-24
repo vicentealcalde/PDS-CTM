@@ -4,6 +4,7 @@ import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerDao
 import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.lobby.LobbyDao
 import cl.uandes.pichangapp.database.user.UserDao
+import cl.uandes.pichangapp.database.userStats.UserStatsDao
 
 
 class AppRepository(private val database: AppDatabase) {
@@ -19,5 +20,8 @@ class AppRepository(private val database: AppDatabase) {
     }
     fun getInGamePlayerDao(): InGamePlayerDao {
         return database.inGamePlayerDao()
+    }
+    fun getUserStatsDao(): UserStatsDao {
+        return database.userStatsDao()
     }
 }

@@ -5,6 +5,7 @@ import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
 import cl.uandes.pichangapp.models.Lobby
+import cl.uandes.pichangapp.models.UserStats
 import retrofit2.Response
 
 class Repository {
@@ -54,5 +55,8 @@ class Repository {
     }
     suspend fun sendTurn(turn: List<Int>): Response<String> {
         return RetrofitInstance.api.sendTurn(turn)
+    }
+    suspend fun updateUserStats(userId: Int): Response<UserStats> {
+        return RetrofitInstance.api.updateUserStats(userId)
     }
 }

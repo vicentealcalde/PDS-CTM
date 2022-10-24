@@ -13,12 +13,14 @@ import cl.uandes.pichangapp.currentUser
 
 import cl.uandes.pichangapp.databinding.UserProfileFragmentBinding
 import cl.uandes.pichangapp.teamName
+import cl.uandes.pichangapp.viewModels.UserStatsViewModel
 import org.koin.android.ext.android.inject
 
 class UserProfileFragment: Fragment() {
     private var _binding:UserProfileFragmentBinding? = null
     private val binding get() = _binding!!
     private val apiViewModel: ApiViewModel by inject()
+    private val userStatsViewModel: UserStatsViewModel by inject()
 
 
     override fun onCreateView(
@@ -26,6 +28,13 @@ class UserProfileFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = UserProfileFragmentBinding.inflate(inflater, container, false)
+
+        currentUser!!.id?.let { apiViewModel.updateUserStats(it.toInt()) }
+
+
+        userStatsViewModel.getUserStats().observe(viewLifecycleOwner){
+
+        }
 
         setAttributesToItem()
 

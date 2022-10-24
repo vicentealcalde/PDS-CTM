@@ -12,18 +12,22 @@ import cl.uandes.pichangapp.database.friend.FriendDao
 import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.database.user.UserDao
 import cl.uandes.pichangapp.database.user.UserEntity
+import cl.uandes.pichangapp.database.userStats.UserStatsDao
+import cl.uandes.pichangapp.database.userStats.UserStatsEntity
 
 @Database(entities=[
     FriendEntity::class,
     UserEntity::class,
     LobbyEntity::class,
-    InGamePlayerEntity::class],
+    InGamePlayerEntity::class,
+    UserStatsEntity::class],
     version=1, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun friendDao(): FriendDao
     abstract fun userDao(): UserDao
     abstract fun lobbyDao(): LobbyDao
     abstract fun inGamePlayerDao(): InGamePlayerDao
+    abstract fun userStatsDao(): UserStatsDao
 
     /*
     companion object{

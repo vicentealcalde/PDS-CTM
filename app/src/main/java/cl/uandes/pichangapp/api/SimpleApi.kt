@@ -5,6 +5,7 @@ import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
 import cl.uandes.pichangapp.models.Lobby
+import cl.uandes.pichangapp.models.UserStats
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -94,6 +95,10 @@ interface SimpleApi {
         @Path("id") id: Int
     ): Response<List<InGamePlayer>>
 
+
+    //*****************************************
+    //*************  Game  Calls  *************
+    //*****************************************
     @GET("user_igp/{id}")
     suspend fun getIGPOfUser(
         @Path("id") id: Int
@@ -108,5 +113,10 @@ interface SimpleApi {
     suspend fun sendTurn(
         @Body turn: List<Int>
     ): Response<String>
+
+    @POST("user_stats_params")
+    suspend fun updateUserStats(
+        @Query("id") id: Int
+    ): Response<UserStats>
 
 }

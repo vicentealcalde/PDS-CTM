@@ -17,9 +17,12 @@ import cl.uandes.pichangapp.database.lobby.LobbyEntityMapper
 import cl.uandes.pichangapp.database.lobby.LobbyRepository
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.database.user.UserRepository
+import cl.uandes.pichangapp.database.userStats.UserStatsEntityMapper
+import cl.uandes.pichangapp.database.userStats.UserStatsRepository
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
 import cl.uandes.pichangapp.models.Lobby
+import cl.uandes.pichangapp.models.UserStats
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.util.concurrent.ExecutorService
@@ -30,7 +33,9 @@ class ApiViewModel(application: Application,
                    private val friendRepository: FriendRepository,
                    private val userRepository: UserRepository,
                    private val lobbyRepository: LobbyRepository,
-                   private val inGamePlayerRepository: InGamePlayerRepository) : ViewModel() {
+                   private val inGamePlayerRepository: InGamePlayerRepository,
+                   private val userStatsRepository: UserStatsRepository,
+) : ViewModel() {
     var myResponse: MutableLiveData<Response<List<UserEntity>>> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -50,6 +55,18 @@ class ApiViewModel(application: Application,
             Log.d("Register", "Register response: ${response.body()}")
         }
     }
+
+    fun updateUserStats(userId: Int){
+        viewModelScope.launch {
+            val response: Response<UserStats> = repository.updateUserStats(userId)
+            val stats = response.body()?.let { UserStatsEntityMapper().mapFromCached(it) }
+            if (stats != null) {
+                Log.d("Stats","UserStats: $stats")
+                userStatsRepository.addUserStats(stats)
+            }
+        }
+    }
+
 
     //*****************************************
     //************  Friends Calls  ************
@@ -156,7 +173,7 @@ class ApiViewModel(application: Application,
     fun playTurn(lobbyId: Int){
         viewModelScope.launch {
             currentUser!!.id?.let { it ->
-                
+
                 // Get IGP Call
                 val IGPIdResponse: Response<List<InGamePlayer>> = repository.getIGPOfUser(it.toInt())
                 // If the IGP return null for some reason => return (exit)
