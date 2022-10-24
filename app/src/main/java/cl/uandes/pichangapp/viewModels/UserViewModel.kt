@@ -15,6 +15,10 @@ class UserViewModel(application: Application, private val repository: UserReposi
         return repository.getNoFriends()
     }
 
+    fun getUserName(id: Int): LiveData<String> {
+        return repository.getUserName(id)
+    }
+
     fun deleteAllNoFriends(){
         repository.deleteAllNoFriends()
     }

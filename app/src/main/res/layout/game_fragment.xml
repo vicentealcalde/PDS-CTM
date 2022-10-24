@@ -34,8 +34,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/resultListView"
-        android:layout_width="206dp"
-        android:layout_height="241dp"
+        android:layout_width="408dp"
+        android:layout_height="334dp"
         android:layout_alignParentBottom="true"
         android:scrollbars="vertical"
 

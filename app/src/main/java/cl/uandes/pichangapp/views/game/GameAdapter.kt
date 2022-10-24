@@ -15,6 +15,7 @@ import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerEntity
 import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.models.Friend
 import cl.uandes.pichangapp.models.InGamePlayer
+import cl.uandes.pichangapp.viewModels.UserViewModel
 
 class GameAdapter (
     private val actionListener: ActionListener,
@@ -45,8 +46,8 @@ class GameAdapter (
         val textView1 = holder.textView1
         val textView2 = holder.textView2
 
-        textView1.text = friend.user.toString()
-        textView2.text = friend.dices.toString()
+        textView1.text = "User ID: "+friend.user.toString()
+        textView2.text = "Cantidad de dados: "+friend.dices.toString()
 
 
 

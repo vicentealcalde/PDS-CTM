@@ -2,18 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="200sp"
-    android:layout_height="60sp">
+    android:layout_width="410sp"
+    android:layout_height="70sp">
 
     <RelativeLayout
         android:id="@+id/linearLayoutPi"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/round_corner"
-        android:orientation="vertical"
+        android:layout_width="399dp"
+        android:layout_height="69dp"
         android:layout_marginStart="20sp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20sp"
+        android:background="@drawable/round_corner"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
