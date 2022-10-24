@@ -5,6 +5,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerEntityMapper
+import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerRepository
 import cl.uandes.pichangapp.database.friend.FriendEntityMapper
 import cl.uandes.pichangapp.database.friend.FriendRepository
 import cl.uandes.pichangapp.database.friend.UserToFriendEntityMapper
@@ -26,7 +28,8 @@ class ApiViewModel(application: Application,
                    private val repository: Repository,
                    private val friendRepository: FriendRepository,
                    private val userRepository: UserRepository,
-                   private val lobbyRepository: LobbyRepository) : ViewModel() {
+                   private val lobbyRepository: LobbyRepository,
+                   private val inGamePlayerRepository: InGamePlayerRepository) : ViewModel() {
     var myResponse: MutableLiveData<Response<List<UserEntity>>> = MutableLiveData()
     private val executor: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -145,6 +148,19 @@ class ApiViewModel(application: Application,
                 lobbyRepository.addLobby(
                     LobbyEntityMapper().mapToCached(InGamePlayerToLobbyEntityMapper().mapFromCached(it))
                 )
+            }
+        }
+    }
+
+    //************************************************
+    //*************  InGamePlayer Calls  *************
+    //************************************************
+    fun getInGamePlayersFromLobby(lobbyId: Int){
+        viewModelScope.launch {
+            val response: Response<List<InGamePlayer>> = repository.getPlayersOfLobby(lobbyId)
+
+            response.body()?.forEach {
+                inGamePlayerRepository.addInGamePlayer(InGamePlayerEntityMapper().mapFromCached(it))
             }
         }
     }

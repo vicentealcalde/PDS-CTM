@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerDao
+import cl.uandes.pichangapp.database.InGamePlayer.InGamePlayerEntity
 import cl.uandes.pichangapp.database.lobby.LobbyDao
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.friend.FriendDao
@@ -11,11 +13,17 @@ import cl.uandes.pichangapp.database.friend.FriendEntity
 import cl.uandes.pichangapp.database.user.UserDao
 import cl.uandes.pichangapp.database.user.UserEntity
 
-@Database(entities=[FriendEntity::class, UserEntity::class, LobbyEntity::class], version=1, exportSchema = false)
+@Database(entities=[
+    FriendEntity::class,
+    UserEntity::class,
+    LobbyEntity::class,
+    InGamePlayerEntity::class],
+    version=1, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun friendDao(): FriendDao
     abstract fun userDao(): UserDao
     abstract fun lobbyDao(): LobbyDao
+    abstract fun inGamePlayerDao(): InGamePlayerDao
 
     /*
     companion object{
