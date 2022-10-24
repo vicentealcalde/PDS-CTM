@@ -10,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.database.user.UserEntity
 import cl.uandes.pichangapp.databinding.ActivityMainBinding
 import cl.uandes.pichangapp.models.Friend
@@ -22,6 +23,7 @@ var allUserMatches: List<Match> = emptyList()
 var otherPeoplesMatches: List<Match> = emptyList()
 var allUserOrganizedMatches: List<Match> = emptyList()
 var currentUser: UserEntity? = null
+var currentLobby: LobbyEntity? = null
 var teamName: String? = null
 var category: String? = null
 

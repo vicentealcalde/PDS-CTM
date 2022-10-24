@@ -19,34 +19,20 @@
         android:background="@drawable/round_corner"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="225dp"
-            android:layout_height="272dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="421dp"
-            tools:srcCompat="@drawable/dice_dimen_3" />
-
-
         <Button
             android:id="@+id/RollButton"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_width="152dp"
+            android:layout_height="67dp"
             android:layout_alignStart="@+id/powerButton"
-            android:layout_alignTop="@+id/imageView"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="186dp"
-            android:layout_marginTop="498dp"
-            android:layout_marginEnd="33dp"
-            android:layout_marginBottom="147dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="526dp"
+            android:layout_marginEnd="17dp"
             android:drawableStart="@drawable/round_corner"
             android:text="Roll" />
 
@@ -54,11 +40,11 @@
             android:id="@+id/powerButton"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/imageView"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="546dp"
+            android:layout_marginTop="-317dp"
             android:layout_marginEnd="219dp"
             android:layout_marginBottom="144dp"
             android:drawableStart="@drawable/round_corner"
@@ -66,14 +52,14 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/resultListView"
-            android:layout_width="192dp"
-            android:layout_height="325dp"
+            android:layout_width="match_parent"
+            android:layout_height="303dp"
             android:layout_alignTop="@+id/imageView"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="7dp"
 
             android:layout_marginEnd="23dp"
-            android:layout_marginBottom="361dp"
+            android:layout_marginBottom="383dp"
             android:layout_toStartOf="@+id/imageView"
             android:scrollbars="vertical"
             app:layout_constraintRight_toRightOf="parent"
@@ -83,8 +69,6 @@
             android:id="@+id/textTotal"
             android:layout_width="70sp"
             android:layout_height="30sp"
-            android:layout_above="@+id/imageView"
-            android:layout_alignStart="@+id/imageView"
             android:layout_alignParentEnd="true"
 
             android:layout_marginStart="-22dp"

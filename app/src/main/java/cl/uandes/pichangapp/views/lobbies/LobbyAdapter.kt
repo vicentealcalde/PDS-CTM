@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cl.uandes.pichangapp.models.Match
 import cl.uandes.pichangapp.R
 import androidx.navigation.fragment.findNavController
+import cl.uandes.pichangapp.currentLobby
 import cl.uandes.pichangapp.database.lobby.LobbyEntity
 import cl.uandes.pichangapp.models.Lobby
 
@@ -52,6 +53,7 @@ class LobbyAdapter (
         textView2.text = lobby.id.toString()
 
         button.setOnClickListener {
+            currentLobby = lobby
             actionListener.goToGameDetails(lobby.id)
         }
 

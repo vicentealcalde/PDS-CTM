@@ -19,7 +19,7 @@ import cl.uandes.pichangapp.views.lobbies.FriendAdapter
 import org.koin.android.ext.android.inject
 
 class AddFriendParty: Fragment(), FriendAdapter.ActionListener {
-    private lateinit var resultItemAdapter:FriendAdapter
+    private lateinit var friendAdapter: FriendAdapter
     private var _binding: FragmentAddFriendPartyBinding? = null
     private val binding get() = _binding!!
     private val friendViewModel: FriendViewModel by inject()
@@ -32,40 +32,30 @@ class AddFriendParty: Fragment(), FriendAdapter.ActionListener {
     ): View {
         _binding = FragmentAddFriendPartyBinding.inflate(inflater, container, false)
 
-        resultItemAdapter = FriendAdapter(this)
+        friendAdapter = FriendAdapter(this, apiViewModel)
         val resultListView = binding.OrganizedtListView
         resultListView.layoutManager = LinearLayoutManager(context)
-        resultListView.adapter = resultItemAdapter
+        resultListView.adapter = friendAdapter
 
 
         currentUser!!.id?.toInt()?.let { apiViewModel.getUserFriends(it) }
 
         friendViewModel.getAcceptedFriends().observe(viewLifecycleOwner){
-            resultItemAdapter.set(it)
-            resultItemAdapter.notifyDataSetChanged()
+            friendAdapter.set(it)
+            friendAdapter.notifyDataSetChanged()
         }
-
-
-
-
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-
-
-
 
     override fun goToMatchDetails(match: Match) {
         val bundle = bundleOf("matchIndex" to allUserMatches.indexOf(match))
